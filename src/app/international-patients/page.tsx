@@ -21,7 +21,7 @@ export default function HomePage() {
         <SpecialtiesSection />
         <TreatmentsSection />
         <MedicalExpertsSection />
-        {/* <MedicalJourneySection /> */}
+        <MedicalJourneySection />
         <TechnologiesSection />
         <TestimonialSection />
       </div>
