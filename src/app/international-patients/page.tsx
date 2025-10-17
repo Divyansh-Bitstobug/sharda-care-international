@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <>
       <HomeHeader />
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center pt-16">
         <HeroSection />
         <div className="md:block hidden">
           <RequestCallBackFormFixed />

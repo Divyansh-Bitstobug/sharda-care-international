@@ -37,7 +37,7 @@ const RequestCallBackFormFixed: React.FC = () => {
     }
   } else {
     styleObj.position = 'fixed';
-    styleObj.top = 110;
+    styleObj.top = 95;
   }
 
   return (

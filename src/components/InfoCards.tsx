@@ -20,7 +20,7 @@ export default function InfoCard({
   descColor = "text-blue-400",
 }: InfoCardProps) {
   return (
-    <div className="relative rounded-xl border border-gray-200 bg-white w-full md:w-[270px] p-6 overflow-hidden shadow-sm">
+    <div className="relative rounded-xl border border-gray-200 bg-white w-full md:w-[270px] p-6 overflow-hidden">
       <div className={`absolute top-[-32px] left-[-32px] w-[78px] h-[67px] md:w-[116px] md:h-[87px] rounded-full scale-x-[1.5] ${bgEllipseColor} z-0`} />
       <div className={`absolute top-0 left-0 w-[61px] h-[103px] md:w-[106px] md:h-[180px]`} >
         <Image 

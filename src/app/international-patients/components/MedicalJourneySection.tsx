@@ -80,61 +80,94 @@ const steps = [
 const MedicalJourneySection: React.FC = () => {
   return (
     <section className="flex flex-row w-full px-0 md:px-8 py-12 max-w-[320px] md:max-w-[1300px] mx-auto relative min-h-screen overflow-hidden">
-      <div className="hidden flex-col w-full md:flex">
-        <Image
-          src="/assets/home/road.svg"
-          alt="icon"
-          width={40}
-          height={1000}
-          className="absolute left-[36%] -translate-x-1/2"
-        />
-        {steps.map((step, idx) =>
-          step.align === "left" ? (
-            <div
-              key={step.number}
-              className="flex h-fit items-center z-10 w-full pl-3"
-            >
-              <InfoCard
-                icon={step.icon}
-                heading={step.title}
-                description={step.subtitle}
-                bgEllipseColor={step.bgColor}
-                headingColor="text-black"
-                descColor={step.textColor}
-              />
+      <div className="flex-1 flex flex-col">
+        <div className="flex items-center w-full my-6 pr-0 md:pr-8">
+          {" "}
+          {/* add pr to leave space for form */}
+          <div
+            className="flex-1"
+            style={{
+              borderTop: "2px dashed transparent",
+              borderImage:
+                "repeating-linear-gradient(to right, #D1D5DB 0 12px, transparent 12px 32px)",
+              borderImageSlice: 1,
+            }}
+          />
+          <h2 className="mx-4 text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#E3376D] to-[#ED814A] bg-clip-text text-transparent inline-block">
+            Your Medical Journey
+          </h2>
+          <div
+            className="flex-1"
+            style={{
+              borderTop: "2px dashed transparent",
+              borderImage:
+                "repeating-linear-gradient(to right, #D1D5DB 0 12px, transparent 12px 32px)",
+              borderImageSlice: 1,
+            }}
+          />
+        </div>
+        <p className="text-xs md:text-sm text-gray-600 max-w-xl mx-auto text-center mb-20">
+          ShardaCare understands the challenges of seeking treatment abroad. Our
+          tailored services ensure a seamless experience for international
+          patients.
+        </p>
 
-              <DotTrail
-                direction="right"
-                trailColor={step.trailColor}
-                width={100}
-                circleColor={step.bgColor}
-              />
-              <StepCircle number={step.number} />
-            </div>
-          ) : (
-            <div
-              key={step.number}
-              className="flex flex-row-reverse h-fit items-center z-10 w-full"
-            >
-              <InfoCard
-                icon={step.icon}
-                heading={step.title}
-                description={step.subtitle}
-                bgEllipseColor={step.bgColor}
-                headingColor="text-black"
-                descColor={step.textColor}
-              />
+        <div className="hidden flex-col w-full md:flex">
+          <Image
+            src="/assets/home/road.svg"
+            alt="icon"
+            width={40}
+            height={1000}
+            className="absolute left-[36%] -translate-x-1/2"
+          />
+          {steps.map((step, idx) =>
+            step.align === "left" ? (
+              <div
+                key={step.number}
+                className="flex h-fit items-center z-10 w-full pl-3"
+              >
+                <InfoCard
+                  icon={step.icon}
+                  heading={step.title}
+                  description={step.subtitle}
+                  bgEllipseColor={step.bgColor}
+                  headingColor="text-black"
+                  descColor={step.textColor}
+                />
 
-              <DotTrail
-                direction="left"
-                trailColor={step.trailColor}
-                width={100}
-                circleColor={step.bgColor}
-              />
-              <StepCircle number={step.number} />
-            </div>
-          )
-        )}
+                <DotTrail
+                  direction="right"
+                  trailColor={step.trailColor}
+                  width={100}
+                  circleColor={step.bgColor}
+                />
+                <StepCircle number={step.number} />
+              </div>
+            ) : (
+              <div
+                key={step.number}
+                className="flex flex-row-reverse h-fit items-center z-10 w-full"
+              >
+                <InfoCard
+                  icon={step.icon}
+                  heading={step.title}
+                  description={step.subtitle}
+                  bgEllipseColor={step.bgColor}
+                  headingColor="text-black"
+                  descColor={step.textColor}
+                />
+
+                <DotTrail
+                  direction="left"
+                  trailColor={step.trailColor}
+                  width={100}
+                  circleColor={step.bgColor}
+                />
+                <StepCircle number={step.number} />
+              </div>
+            )
+          )}
+        </div>
       </div>
       <div className="md:hidden block">
         <Image

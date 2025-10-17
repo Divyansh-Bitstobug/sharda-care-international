@@ -25,7 +25,7 @@ const HomeHeader: React.FC = () => {
   }, [langOpen]);
 
   return (
-    <header className="w-full bg-white border-b border-gray-100">
+    <header className="fixed z-50 w-full bg-white border-b border-gray-100">
       <div className="max-w-[1300px] mx-auto flex items-center justify-between px-4 py-2 h-16">
         {/* Logo */}
         <div className="flex items-center">
@@ -39,7 +39,7 @@ const HomeHeader: React.FC = () => {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-3">
-          <nav className="hidden md:flex items-center gap-6 flex-1 justify-center">
+          <nav className="hidden md:flex items-center gap-6 flex-1 justify-center mr-4">
             <div className="flex items-center gap-2 cursor-pointer">
               <span className="text-sm font-medium text-gray-700">
                 Procedures
@@ -76,26 +76,54 @@ const HomeHeader: React.FC = () => {
                 />
               </svg>
             </div>
-            <span className="text-sm font-medium text-gray-700 cursor-pointer">
-              Get Second Opinion
-            </span>
-          </nav>
-          {/* Emergency Contact */}
-          <button className="hidden md:flex items-center px-4 py-1 rounded-full bg-gradient-to-r from-[#E3376D] to-[#ED814A] text-white font-bold gap-2 shadow min-w-[185px] h-[40px]">
-            <span className="rounded-full bg-white/30 w-7 h-7 flex items-center justify-center">
+            <div className="flex items-center gap-2 cursor-pointer">
+              <span className="text-sm font-medium text-gray-700 cursor-pointer">
+                Get Second Opinion
+              </span>
               <svg
-                width={16}
-                height={16}
+                className="w-3 h-3"
                 fill="none"
-                stroke="white"
-                strokeWidth={2}
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path d="M22 16.92V19a2 2 0 01-2.18 2A19.86 19.86 0 013 5.18 2 2 0 015 3h2.09a2 2 0 012 1.72c.13 1.19.3 2.36.56 3.52A2 2 0 019.64 10l-2.2 2.18a16 16 0 007.07 7.07l2.18-2.2a2 2 0 012.6-.44c1.16.26 2.33.43 3.52.56A2 2 0 0121 18.09z" />
+                <path
+                  d="M6 9l6 6 6-6"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
+            </div>
+          </nav>
+          {/* Emergency Contact */}
+          <button className="group flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-[#E3376D] to-[#ED814A] text-white min-w-[205px] transition-all">
+            {/* Phone icon */}
+            <span className="rounded-full w-7 h-7 flex items-center justify-center mr-2">
+              <Image 
+                src="/assets/phone.svg"
+                alt="icon"
+                width={18}
+                height={18}
+              />
             </span>
-            <span className="text-xs font-bold">Emergency Contact</span>
-            <span className="font-bold ml-2 text-xs">+91 9922 9922 22</span>
+            {/* Text block */}
+            <span className="flex flex-col items-start flex-grow ml-1">
+              <span className="text-xs font-normal opacity-80 leading-tight ">
+                Emergency Contact
+              </span>
+              <span className="text-base font-medium mt-[-2px]">
+                +91 9922 9922 22
+              </span>
+            </span>
+            {/* Arrow icon */}
+            <span className="rounded-full w-7 h-7 flex items-center justify-center ml-2">
+             <Image 
+              src="/assets/right-icon-white.svg"
+              alt="icon"
+              width={18}
+              height={18}
+             />
+            </span>
           </button>
 
           {/* Visit India Site */}
