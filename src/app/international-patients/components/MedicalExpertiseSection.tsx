@@ -99,89 +99,91 @@ const MedicalExpertsSection: React.FC = () => {
             </p>
           </div>
           {/* Doctors Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl">
-            {doctors.map((d) => (
-              <div
-                key={d.name}
-                className="bg-white hover:bg-gradient-to-r from-[#E3376D] to-[#ED814A] p-[1px] rounded-xl md:flex items-center justify-center hidden"
-              >
+          <div className="flex w-full items-center justify-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl">
+              {doctors.map((d) => (
                 <div
                   key={d.name}
-                  className="flex flex-col border border-gray-200 rounded-xl shadow-sm bg-white overflow-hidden transition hover:border-pink-400 hover:shadow-lg w-full group"
+                  className="bg-white hover:bg-gradient-to-r from-[#E3376D] to-[#ED814A] p-[1px] rounded-xl md:flex items-center justify-center hidden"
                 >
-                  {/* Image section with hover overlay */}
-                  <div className="relative w-full h-[250px] bg-white flex items-center justify-center p-3 rounded-xl overflow-hidden">
-                    <Image
-                      src={d.img}
-                      alt={d.name}
-                      width={1000}
-                      height={1000}
-                      className="w-full h-full object-cover rounded-xl object-top"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />
-                    {/* Overlay actions - show only on hover */}
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      {/* Download Button */}
-                      <button className="flex items-center justify-between gap-2 px-3 py-2 bg-white rounded-lg shadow font-semibold text-black text-sm border border-gray-200 w-[180px]">
-                        Download
-                        <Image
-                          src="/assets/download.svg"
-                          alt="download"
-                          width={20}
-                          height={20}
-                          className="w-5 h-5"
-                        />
-                      </button>
-                      {/* Share Button */}
-                      <button className="flex items-center px-3 py-2 bg-white rounded-lg border border-gray-200 shadow text-black">
-                        <svg
-                          width="22"
-                          height="22"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="black"
-                          strokeWidth={2}
-                        >
-                          <circle cx="18" cy="5" r="3" />
-                          <circle cx="6" cy="12" r="3" />
-                          <circle cx="18" cy="19" r="3" />
-                          <path d="M8.59 13.51l6.83 3.98M8.59 10.49l6.83-3.98" />
-                        </svg>
-                      </button>
+                  <div
+                    key={d.name}
+                    className="flex flex-col border border-gray-200 rounded-xl shadow-sm bg-white overflow-hidden transition hover:border-pink-400 hover:shadow-lg w-full group"
+                  >
+                    {/* Image section with hover overlay */}
+                    <div className="relative w-full h-[250px] bg-white flex items-center justify-center p-3 rounded-xl overflow-hidden">
+                      <Image
+                        src={d.img}
+                        alt={d.name}
+                        width={1000}
+                        height={1000}
+                        className="w-full h-full object-cover rounded-xl object-top"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />
+                      {/* Overlay actions - show only on hover */}
+                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        {/* Download Button */}
+                        <button className="flex items-center justify-between gap-2 px-3 py-2 bg-white rounded-lg shadow font-semibold text-black text-sm border border-gray-200 w-[140px]">
+                          Download
+                          <Image
+                            src="/assets/download.svg"
+                            alt="download"
+                            width={20}
+                            height={20}
+                            className="w-5 h-5"
+                          />
+                        </button>
+                        {/* Share Button */}
+                        <button className="flex items-center px-3 py-2 bg-white rounded-lg border border-gray-200 shadow text-black">
+                          <svg
+                            width="22"
+                            height="22"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="black"
+                            strokeWidth={2}
+                          >
+                            <circle cx="18" cy="5" r="3" />
+                            <circle cx="6" cy="12" r="3" />
+                            <circle cx="18" cy="19" r="3" />
+                            <path d="M8.59 13.51l6.83 3.98M8.59 10.49l6.83-3.98" />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Name and Specialty */}
-                  <div className="px-3 pt-3 pb-2 text-center">
-                    <div className="font-bold text-base text-black">
-                      {d.name}
+                    {/* Name and Specialty */}
+                    <div className="px-3 pt-3 pb-2 text-left">
+                      <div className="font-medium text-base text-black">
+                        {d.name}
+                      </div>
+                      <div className="text-sm text-blue-500 mt-0.5">
+                        {d.specialty}
+                      </div>
                     </div>
-                    <div className="text-sm text-blue-500 mt-0.5">
-                      {d.specialty}
-                    </div>
-                  </div>
-                  {/* Experience row */}
-                  <div className="flex items-center justify-center border-t border-gray-100 px-3 py-2 bg-white text-xs gap-2">
-                    <div className="flex bg-[#F7F7F7] w-full h-full items-center justify-between p-2 rounded-lg">
-                      <div className="flex gap-3">
-                        <Image
-                          src="/assets/home/cap.svg"
-                          alt="icon"
-                          height={20}
-                          width={20}
-                        />
-                        <span className="font-semibold text-sm text-gray-700">
-                          {d.experience.replace(/ Years of Experience$/, "")}
+                    {/* Experience row */}
+                    <div className="flex items-center justify-center border-t border-gray-100 px-3 py-2 bg-white text-xs gap-2">
+                      <div className="flex bg-[#F7F7F7] w-full h-full items-center justify-between p-2 rounded-lg">
+                        <div className="flex gap-1">
+                          <Image
+                            src="/assets/home/cap.svg"
+                            alt="icon"
+                            height={20}
+                            width={20}
+                          />
+                          <span className="font-semibold text-sm text-gray-700">
+                            {d.experience.replace(/ Years of Experience$/, "")}
+                          </span>
+                        </div>
+                        <span className="ml-1 text-gray-500 text-xs">
+                          Years of Experience
                         </span>
                       </div>
-                      <span className="ml-1 text-gray-500">
-                        Years of Experience
-                      </span>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           <div className="md:hidden block">
             <DoctorsSwiperGrid />

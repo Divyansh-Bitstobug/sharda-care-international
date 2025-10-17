@@ -25,7 +25,7 @@ const HomeHeader: React.FC = () => {
   }, [langOpen]);
 
   return (
-    <header className="fixed z-50 w-full bg-white border-b border-gray-100">
+    <header className="fixed z-[100] w-full bg-white border-b border-gray-100">
       <div className="max-w-[1300px] mx-auto flex items-center justify-between px-4 py-2 h-16">
         {/* Logo */}
         <div className="flex items-center">
