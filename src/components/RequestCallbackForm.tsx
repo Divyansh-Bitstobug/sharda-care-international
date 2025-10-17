@@ -19,7 +19,7 @@ const RequestCallBackForm: React.FC = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className=" border border-blue-100 p-0 rounded-[24px] shadow-lg max-w-[410px] w-full"
+        className=" border border-blue-100 p-0 rounded-[24px] max-w-[410px] w-full"
         style={{
           overflow: "hidden",
           minWidth: 340,

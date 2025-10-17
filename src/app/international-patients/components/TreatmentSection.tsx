@@ -109,8 +109,8 @@ const TreatmentsSection: React.FC = () => {
                   <span className="flex items-center justify-center w-10 h-10 rounded-lg border border-gray-200 bg-white">
                     <Image src={item.icon} alt="icon" height={20} width={20} />
                   </span>
-                  <span className="text-xs sm:text-lg font-semibold text-black ml-2 text-right">
-                    {item.price}<br /><span className="font-normal">Onwards</span>
+                  <span className="text-xs sm:text-lg font-semibold text-black ml-2 text-right leading-[14px]">
+                    {item.price}<br /><span className="font-normal text-sm">Onwards</span>
                   </span>
                 </div>
                 <div className="text-[10px] sm:text-sm font-normal text-black mb-2 leading-snug">

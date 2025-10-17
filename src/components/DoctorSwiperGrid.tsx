@@ -85,7 +85,7 @@ export default function DoctorsSwiperGrid() {
                       alt={d.name}
                       width={300}
                       height={160}
-                      className="w-full h-full object-cover rounded-xl"
+                      className="w-full h-full object-cover rounded-xl object-[10px]"
                     />
                     <div className={`absolute inset-0 bg-gradient-to-t from-black/20 to-transparent 
                       transition-opacity rounded-xl pointer-events-none 
