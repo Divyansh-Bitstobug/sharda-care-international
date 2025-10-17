@@ -144,6 +144,13 @@ const MedicalJourneySection: React.FC = () => {
           height={1000}
           className="absolute left-0 md:hidden block -z-10"
         />
+        <Image
+          src="/assets/home/road.svg"
+          alt="icon"
+          width={30}
+          height={1000}
+          className="absolute left-0 md:hidden block -z-10"
+        />
         {steps.map((step, idx) => (
           <div
             key={step.number}

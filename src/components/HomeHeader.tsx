@@ -11,7 +11,7 @@ const LANGUAGES = [
 const HomeHeader: React.FC = () => {
   const [langOpen, setLangOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState(LANGUAGES[0]);
-  const langRef = useRef<HTMLButtonElement>(null);
+  const langRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown on outside click
   React.useEffect(() => {
