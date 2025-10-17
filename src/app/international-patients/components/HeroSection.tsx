@@ -115,8 +115,8 @@ const HeroSection: React.FC = () => (
       <Image
         src="/assets/doctor.png"
         alt="Doctor"
-        width={240}
-        height={320}
+        width={2400}
+        height={3200}
         className="object-cover rounded-xl h-[600px] w-auto scale-150 -z-10  mt-10"
       />
     </div>
