@@ -140,7 +140,7 @@ const RequestCallBackForm: React.FC = () => {
         </div>
       </form>
       {/* Contact options */}
-      <div className="flex gap-4 p-3 bg-white/40 mt-2 rounded-[30px] backdrop-blur-[20px]">
+      <div className="flex gap-4 p-3 bg-white/40 mt-2 rounded-[30px] backdrop-blur-[20px] max-w-[410px]">
         {/* WhatsApp button */}
         <a
           href="https://wa.me/919522992222"

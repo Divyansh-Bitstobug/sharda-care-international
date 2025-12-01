@@ -96,7 +96,7 @@ const HomeHeader: React.FC = () => {
             </div>
           </nav>
           {/* Emergency Contact */}
-          <button className="group flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-[#E3376D] to-[#ED814A] text-white min-w-[205px] transition-all">
+          <button className="group items-center px-3 py-1 rounded-full bg-gradient-to-r from-[#E3376D] to-[#ED814A] text-white min-w-[205px] transition-all md:flex hidden">
             {/* Phone icon */}
             <span className="rounded-full w-7 h-7 flex items-center justify-center mr-2">
               <Image 
@@ -142,8 +142,8 @@ const HomeHeader: React.FC = () => {
           </button>
           {/* Mobile Visit Site button */}
           <button className="flex md:hidden items-center gap-2 px-4 py-1 rounded-full bg-gradient-to-r from-[#E3376D] to-[#ED814A] font-bold min-h-[40px]">
-            <span className="text-sm font-semibold text-white">
-              Visit India Site
+            <span className="text-[10px] font-semibold text-white">
+              Visit India<br /> Website
             </span>
           </button>
 
