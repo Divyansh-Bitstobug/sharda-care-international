@@ -1,3 +1,4 @@
+import MobileBottomNav from "@/components/MobileBottomNav";
 import AwardsSection from "./components/Awards";
 import ExperiencedTeamSection from "./components/Experience";
 import ShardaGroupsSection from "./components/Groups";
@@ -24,6 +25,7 @@ export default function HomePage() {
       <AwardsSection />
       <PatientStoriesSection />
       <ShardaGroupsSection />
+      <MobileBottomNav />
     </div>
   );
 }

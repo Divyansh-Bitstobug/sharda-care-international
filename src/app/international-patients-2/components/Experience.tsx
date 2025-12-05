@@ -42,7 +42,7 @@ const LOOP_SLIDES: Slide[] = [...TEAM_SLIDES, ...TEAM_SLIDES];
 
 const ExperiencedTeamSection: React.FC = () => {
   return (
-    <section className="w-full bg-white py-16 pb-24 overflow-hidden">
+    <section className="w-full bg-white py-8 md:py-16 pb-24 overflow-hidden">
       <div className="mx-auto max-w-6xl px-4">
         <div className="text-center">
           <h2 className="text-4xl font-medium text-gray-900">
@@ -63,13 +63,20 @@ const ExperiencedTeamSection: React.FC = () => {
               disableOnInteraction: false,
               pauseOnMouseEnter: false,
             }}
-            pagination={{ clickable: true }}
+            pagination={{
+              el: ".experienced-team-pagination",
+              clickable: true,
+            }}
             loop
             centeredSlides
             slidesPerView={1.2}
             spaceBetween={24}
             breakpoints={{
-              0: { slidesPerView: 1.05, spaceBetween: 16, centeredSlides: true },
+              0: {
+                slidesPerView: 1.05,
+                spaceBetween: 16,
+                centeredSlides: true,
+              },
               768: {
                 slidesPerView: 1.15,
                 spaceBetween: 24,
@@ -81,7 +88,7 @@ const ExperiencedTeamSection: React.FC = () => {
                 centeredSlides: true,
               },
             }}
-            className="experienced-team-swiper pb-10"
+            className="experienced-team-swiper"
           >
             {LOOP_SLIDES.map((slide, idx) => (
               <SwiperSlide
@@ -103,6 +110,11 @@ const ExperiencedTeamSection: React.FC = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+
+          {/* dots outside cards */}
+          <div className="mt-6 flex justify-center">
+            <div className="experienced-team-pagination flex items-center justify-center gap-4" />
+          </div>
         </div>
       </div>
 
@@ -123,6 +135,15 @@ const ExperiencedTeamSection: React.FC = () => {
         .experienced-team-swiper .swiper-slide-prev .swiper-slide-content,
         .experienced-team-swiper .swiper-slide-next .swiper-slide-content {
           transform: scale(0.96);
+        }
+
+        /* pagination bullets */
+        .experienced-team-pagination .swiper-pagination-bullet {
+          background: #d1d5db;
+          opacity: 1;
+        }
+        .experienced-team-pagination .swiper-pagination-bullet-active {
+          background: #34ace1;
         }
       `}</style>
     </section>

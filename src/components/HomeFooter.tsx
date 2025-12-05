@@ -112,11 +112,11 @@ const HomeFooter: React.FC = () => (
           className="mb-6"
         />
         <div>
-          <div className="font-bold mb-6 text-xs text-[#232323]">Address</div>
+          <div className="font-semibold mb-6 text-lg text-[#232323] uppercase tracking-widest">Address</div>
           <div className="text-xs text-[#232323] font-light">
             Building 10A, Plot No 32–34,
             <br />
-            Knowledge Park III, Greater Noida, Uttar Pradesh 201310
+            Knowledge Park III, Greater<br /> Noida, Uttar Pradesh 201310
             <br />
             Helpline - 73000 40000
           </div>

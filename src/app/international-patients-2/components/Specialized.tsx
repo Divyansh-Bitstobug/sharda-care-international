@@ -36,7 +36,7 @@ const SpecializedTransplantPrograms: React.FC = () => {
   const renderCard = (program: Program) => (
     <div
       className={`
-        flex h-full flex-col justify-between rounded-2xl border bg-white px-8 py-8 text-center
+        flex h-full flex-col justify-between rounded-2xl border bg-white p-8 text-center
         transition-all border-[#eaedf4] hover:border-[#ff7268] hover:shadow-[0_0_0_1px_rgba(255,114,104,0.25)]
       `}
     >
@@ -52,14 +52,14 @@ const SpecializedTransplantPrograms: React.FC = () => {
           </span>
         </div>
 
-        <h3 className="text-sm md:text-lg font-semibold text-gray-900 max-w-[120px] text-left">{program.title}</h3>
+        <h3 className="text-base md:text-lg font-semibold text-gray-900 max-w-[120px] text-left">{program.title}</h3>
       </div>
-      <p className="mt-3 text-[10px] md:text-sm text-gray-500 text-left">{program.description}</p>
+      <p className="mt-3 text-xs md:text-sm text-gray-500 text-left">{program.description}</p>
     </div>
   );
 
   return (
-    <section className="w-full py-16">
+    <section className="w-full py-8 md:py-16">
       <div className="mx-auto max-w-5xl px-4">
         <div className="text-center">
           <h2 className="text-2xl md:text-4xl font-medium text-gray-900">

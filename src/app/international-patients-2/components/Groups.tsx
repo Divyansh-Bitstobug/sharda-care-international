@@ -18,28 +18,28 @@ type GroupCard = {
 const SHARDA_GROUPS: GroupCard[] = [
   {
     id: 1,
-    image: "/groups/sharda-corporation.png",
+    image: "/home/group1.png",
     badgeLabel: "Corporate Division",
     name: "Sharda Corporation",
     ctaLabel: "Discover",
   },
   {
     id: 2,
-    image: "/groups/sharda-hospital.png",
+    image: "/home/group2.png",
     badgeLabel: "World-class Healthcare Institution",
     name: "Sharda Hospital",
     ctaLabel: "Discover",
   },
   {
     id: 3,
-    image: "/groups/sharda-uzbekistan.png",
+    image: "/home/group3.png",
     badgeLabel: "International Campus (Uzbekistan)",
     name: "Sharda University – Uzbekistan",
     ctaLabel: "Discover",
   },
   {
     id: 4,
-    image: "/groups/sharda-university.png",
+    image: "/home/group4.png",
     badgeLabel: "Global Education Institution",
     name: "Sharda University",
     ctaLabel: "Discover",
@@ -48,33 +48,35 @@ const SHARDA_GROUPS: GroupCard[] = [
 
 const ShardaGroupsSection: React.FC = () => {
   const renderCard = (item: GroupCard) => (
-    <div className="flex h-full flex-col rounded-3xl bg-white shadow-sm ring-1 ring-[#e7ecf3]">
-      {/* Image area */}
-      <div className="relative h-56 w-full overflow-hidden rounded-t-3xl bg-[#f5f7fb]">
-        <Image
-          src={item.image}
-          alt={item.name}
-          fill
-          className="object-cover"
-        />
-      </div>
-
-      {/* Bottom content */}
-      <div className="flex flex-1 flex-col justify-between rounded-b-3xl px-4 pb-4 pt-3">
-        <div className="mb-3">
-          <p className="text-[10px] font-medium uppercase tracking-wide text-[#7b8594]">
-            {item.badgeLabel}
-          </p>
-          <p className="mt-1 text-xs font-semibold text-[#222222]">
-            {item.name}
-          </p>
+    <div className="flex h-full flex-col rounded-3xl bg-white border border-black/10">
+      <div className="p-4 h-full">
+        {/* Image area */}
+        <div className="relative h-56 w-full overflow-hidden rounded-t-3xl bg-[#f5f7fb]">
+          <Image
+            src={item.image}
+            alt={item.name}
+            fill
+            className="object-cover"
+          />
         </div>
-        <button className="inline-flex items-center justify-between rounded-full border border-[#dde2ec] px-3 py-1 text-[10px] font-medium text-[#444]">
-          <span>{item.ctaLabel}</span>
-          <span className="ml-2 inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#f4f6fb] text-[10px]">
-            ↗
-          </span>
-        </button>
+
+        {/* Bottom content */}
+        <div className="flex justify-between place-items-end rounded-b-3xl pt-3 bg-[#FAFAFA] p-2 relative">
+          <div className="h-fit flex flex-col">
+            <p className="text-[8px] font-medium uppercase tracking-wide text-[#34ACE1]">
+              {item.badgeLabel}
+            </p>
+            <p className="text-xs font-semibold text-[#222222]">
+              {item.name}
+            </p>
+          </div>
+          <button className="inline-flex items-center justify-between rounded-full border border-black/10 px-3 py-1 text-[10px] font-medium text-[#444] h-fit">
+            <span>{item.ctaLabel}</span>
+            <span className="ml-2 inline-flex h-4 w-4 items-center justify-center rounded-full text-[10px]">
+              ↗
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -84,7 +86,9 @@ const ShardaGroupsSection: React.FC = () => {
       <div className="mx-auto max-w-6xl px-4">
         {/* Heading */}
         <div className="text-center">
-          <h2 className="text-3xl font-semibold text-gray-900">Sharda Groups</h2>
+          <h2 className="text-3xl font-semibold text-gray-900">
+            Sharda Groups
+          </h2>
           <p className="mt-2 text-xs text-gray-500">
             A Global Presence in Education, Healthcare & Innovation
           </p>

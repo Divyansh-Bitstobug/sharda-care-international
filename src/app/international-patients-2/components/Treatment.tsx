@@ -18,7 +18,7 @@ type Step = {
 const STEPS: Step[] = [
   {
     id: 1,
-    title: "Case",
+    title: "Case Assessment ",
     subtitle: "Assessment",
     description:
       "Our clinical team thoroughly analyses your medical history based on the case summaries provided by you before your arrival.",
@@ -26,7 +26,7 @@ const STEPS: Step[] = [
   },
   {
     id: 2,
-    title: "Teleconsultation",
+    title: "Teleconsultation (if required)",
     subtitle: "(if required)",
     description:
       "A teleconsultation between you and our clinician is conducted to discuss your case and address initial concerns before your physical visit.",
@@ -34,7 +34,7 @@ const STEPS: Step[] = [
   },
   {
     id: 3,
-    title: "Appointment",
+    title: "Appointment Assistance",
     subtitle: "Assistance",
     description:
       "Our team assists you with scheduling appointments with relevant specialists, ensuring a streamlined and efficient experience.",
@@ -116,20 +116,20 @@ const STEPS: Step[] = [
 
 const TreatmentJourney: React.FC = () => {
   const renderCard = (step: Step, index: number) => (
-    <div className="flex h-full flex-col rounded-3xl border border-[#eceff4] bg-[#FCFDFD] overflow-hidden min-h-[150px]">
-      <div className="flex">
+    <div className="flex h-full flex-col rounded-3xl border border-[#eceff4] bg-[#FCFDFD] overflow-hidden min-h-[170px]">
+      <div className="flex w-full h-full">
         {/* Left gradient number strip */}
-        <div className="flex w-20 min-h-[150px] md:min-h-full  flex-col items-center justify-center rounded-l-3xl bg-gradient-to-b from-[#E33C6A] to-[#ED7E4B] text-white">
+        <div className="flex w-20 min-h-[170px] md:min-h-full  flex-col items-center justify-center rounded-l-3xl bg-gradient-to-b from-[#E33C6A] to-[#ED7E4B] text-white">
           <span className="text-2xl font-semibold leading-none">
             {index + 1 < 10 ? `0${index + 1}` : index + 1}
           </span>
         </div>
 
         {/* Content */}
-        <div className="flex flex-1 flex-col justify-between rounded-r-3xl px-4 py-3 md:px-6 md:py-5">
+        <div className="flex flex-1 flex-col justify-between rounded-r-3xl px-4 py-3 md:px-6 md:py-5 min-h-[170px]">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <div className="text-sm font-semibold text-gray-900">
+              <div className="text-base md:text-lg font-semibold text-gray-900">
                 {step.title}
               </div>
               {/* {step.subtitle && (
@@ -140,15 +140,10 @@ const TreatmentJourney: React.FC = () => {
             </div>
             {/* Icon placeholder – replace with real icon */}
             <div className="flex items-center justify-center">
-              <Image 
-                src={step.icon}
-                alt={step.title}
-                width={32}
-                height={32}
-              />
+              <Image src={step.icon} alt={step.title} width={32} height={32} />
             </div>
           </div>
-          <p className="mt-3 text-[8px] md:text-xs text-gray-500 leading-relaxed">
+          <p className="mt-3 text-xs text-gray-500 leading-relaxed">
             {step.description}
           </p>
         </div>
@@ -179,11 +174,12 @@ const TreatmentJourney: React.FC = () => {
               prevEl: ".journey-prev",
               nextEl: ".journey-next",
             }}
+            loop={true} // <-- enable loop
             spaceBetween={24}
             breakpoints={{
               0: { slidesPerView: 1.1, centeredSlides: true },
               768: { slidesPerView: 2.3, centeredSlides: false },
-              1024: { slidesPerView: 2.6, centeredSlides: false },
+              1024: { slidesPerView: 2.8, centeredSlides: false },
             }}
             className="journey-swiper"
           >

@@ -32,8 +32,8 @@ const HomeHeader: React.FC = () => {
           <Image
             src="/assets/logo.png"
             alt="ShardaCare"
-            width={120}
-            height={40}
+            width={150}
+            height={50}
           />
         </div>
 

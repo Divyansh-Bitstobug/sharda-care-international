@@ -16,27 +16,27 @@ type Story = {
 const PATIENT_STORIES: Story[] = [
   {
     id: 1,
-    thumbnail: "/stories/story1.png",
+    thumbnail: "/home/story1.png",
     title: "Surgery for Ewing sarcoma in humans",
   },
   {
     id: 2,
-    thumbnail: "/stories/story2.png",
+    thumbnail: "/home/story2.png",
     title: "Surgery for rare bone tumors",
   },
   {
     id: 3,
-    thumbnail: "/stories/story3.png",
+    thumbnail: "/home/story3.png",
     title: "Surgery for pediatric oncology cases",
   },
   {
     id: 4,
-    thumbnail: "/stories/story4.png",
+    thumbnail: "/home/story3.png",
     title: "Surgery for pediatric oncology cases",
   },
   {
     id: 5,
-    thumbnail: "/stories/story4.png",
+    thumbnail: "/home/story3.png",
     title: "Surgery for pediatric oncology cases",
   },
 ];
@@ -44,20 +44,26 @@ const PATIENT_STORIES: Story[] = [
 const PatientStoriesSection: React.FC = () => {
   const renderCard = (story: Story) => (
     <div className="flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-sm">
-      <div className="relative h-48 w-full overflow-hidden">
-        <Image
-          src={story.thumbnail}
-          alt={story.title}
-          fill
-          className="object-cover"
-        />
+      <div className="relative h-52 w-full overflow-hidden p-4">
+        <div className="relative w-full h-full">
+          <Image
+            src={story.thumbnail}
+            alt={story.title}
+            className="object-cover rounded-3xl"
+            width={3000}
+            height={3000}
+          />
+
+          <div className="absolute inset-0 bg-black/40 rounded-3xl" />
+        </div>
+
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/80 shadow-md">
-            <div className="ml-0.5 h-0 w-0 border-y-[8px] border-l-[12px] border-y-transparent border-l-[#21a9ff]" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FEFEFE]/30 border-[#FEFEFE] border shadow-md">
+            <div className="ml-0.5 h-0 w-0 border-y-[8px] border-l-[12px] border-y-transparent border-l-white" />
           </div>
         </div>
       </div>
-      {/* remove overflow on this container */}
+
       <div className="px-4 pb-4 pt-3">
         <p className="text-xs font-medium text-gray-800">{story.title}</p>
       </div>

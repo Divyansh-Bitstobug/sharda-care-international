@@ -72,7 +72,7 @@ const StatCard: React.FC<{ item: StatItem; showRightBorder?: boolean }> = ({
 
 export const StatsStrip: React.FC = () => {
   return (
-    <section className="w-full bg-white py-12">
+    <section className="w-full bg-white py-5 md:py-12">
       {/* Desktop / Tablet: original grid */}
       <div className="mx-auto hidden max-w-[1200px] grid-cols-1 border border-[#EFEFEF] bg-white shadow-sm sm:grid sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((item, index) => (
@@ -110,7 +110,7 @@ export const StatsStrip: React.FC = () => {
           >
             {stats.map((item) => (
               <SwiperSlide key={item.label}>
-                <div className="border border-[#EFEFEF] bg-white shadow-sm">
+                <div className="border border-[#EFEFEF] bg-white shadow-sm mt-10">
                   <StatCard item={item} showRightBorder={false} />
                 </div>
               </SwiperSlide>
