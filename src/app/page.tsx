@@ -7,10 +7,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace("/international-patients");
+    router.replace("/international-patients-2");
   }, [router]);
-
-  // You can return null or a loading spinner if you want,
-  // as this component only exists briefly before redirect.
   return null;
 }

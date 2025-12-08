@@ -18,7 +18,7 @@ type Step = {
 const STEPS: Step[] = [
   {
     id: 1,
-    title: "Case Assessment ",
+    title: "Case ",
     subtitle: "Assessment",
     description:
       "Our clinical team thoroughly analyses your medical history based on the case summaries provided by you before your arrival.",
@@ -26,7 +26,7 @@ const STEPS: Step[] = [
   },
   {
     id: 2,
-    title: "Teleconsultation (if required)",
+    title: "Teleconsultation",
     subtitle: "(if required)",
     description:
       "A teleconsultation between you and our clinician is conducted to discuss your case and address initial concerns before your physical visit.",
@@ -34,7 +34,7 @@ const STEPS: Step[] = [
   },
   {
     id: 3,
-    title: "Appointment Assistance",
+    title: "Appointment",
     subtitle: "Assistance",
     description:
       "Our team assists you with scheduling appointments with relevant specialists, ensuring a streamlined and efficient experience.",
@@ -42,8 +42,8 @@ const STEPS: Step[] = [
   },
   {
     id: 4,
-    title: "Visa Assistance",
-    subtitle: "Coordination",
+    title: "Visa",
+    subtitle: "Assistance",
     description:
       "For international patients, we provide comprehensive visa assistance to facilitate a hassle-free entry into the country for your medical treatment.",
     icon: "/home/visa.svg",
@@ -51,7 +51,7 @@ const STEPS: Step[] = [
   {
     id: 5,
     title: "Complementary Pick-up and Drop",
-    subtitle: "Registration",
+    subtitle: "",
     description:
       "Enjoy the convenience of complimentary pick-up and drop services to and from the airport, ensuring a comfortable start and end to your journey.",
     icon: "/home/complement.svg",
@@ -59,7 +59,7 @@ const STEPS: Step[] = [
   {
     id: 6,
     title: "Foreign Language Interpreter Service",
-    subtitle: "Workup",
+    subtitle: "",
     description:
       "We offer full-time foreign-language interpreter services in languages such as Russian, Arabic, Bengali, Burmese, and Persian to enhance communication and understanding during your stay.",
     icon: "/home/foreign.svg",
@@ -67,7 +67,7 @@ const STEPS: Step[] = [
   {
     id: 7,
     title: "Express Check-In at International Patient's Lounge",
-    subtitle: "Planning",
+    subtitle: "",
     description:
       "Experience a swift and hassle-free check-in process through our dedicated International Patient’s Lounge, ensuring a comfortable and efficient arrival.",
     icon: "/home/express.svg",
@@ -75,15 +75,15 @@ const STEPS: Step[] = [
   {
     id: 8,
     title: "Dedicated Buddy/Staff Allocation",
-    subtitle: "Procedure",
+    subtitle: "",
     description:
       "Throughout your stay, a dedicated buddy or staff member is assigned to you to provide personalised assistance and ensure smooth coordination during your entire treatment journey.",
     icon: "/home/dedicated.svg",
   },
   {
     id: 9,
-    title: "Food Arrangements",
-    subtitle: "Care",
+    title: "Food",
+    subtitle: "Arrangements",
     description:
       "Upon admission, we provide international patients and their attendants with a choice of vegetarian and non-vegetarian cuisine. Our goal is to ensure your nutritional needs are met during your stay.",
     icon: "/home/food.svg",
@@ -91,7 +91,7 @@ const STEPS: Step[] = [
   {
     id: 10,
     title: "Affordable and Comfortable Guest House Arrangement ",
-    subtitle: "& Therapy",
+    subtitle: "",
     description:
       "We can assist in arranging affordable and comfortable guest house accommodations to ensure a pleasant and convenient stay for you and your accompanying members.",
     icon: "/home/affordable.svg",
@@ -99,15 +99,15 @@ const STEPS: Step[] = [
   {
     id: 11,
     title: "Ambulance Pick-Up (if required)",
-    subtitle: "Planning",
+    subtitle: "",
     description:
       "In case of emergency or specific medical needs, we offer ambulance pick-up services to transport you safely to the hospital.",
     icon: "/home/ambulance.svg",
   },
   {
     id: 12,
-    title: "Post Treatment Support",
-    subtitle: "Support",
+    title: "Post",
+    subtitle: "Treatment Support",
     description:
       "We support you after the procedure with dedicated follow-ups, ongoing guidance, and continuous monitoring to help you recover comfortably and safely.",
     icon: "/home/ambulance.svg",
@@ -116,34 +116,36 @@ const STEPS: Step[] = [
 
 const TreatmentJourney: React.FC = () => {
   const renderCard = (step: Step, index: number) => (
-    <div className="flex h-full flex-col rounded-3xl border border-[#eceff4] bg-[#FCFDFD] overflow-hidden min-h-[170px]">
+    <div className="flex h-full flex-col rounded-3xl border border-[#eceff4] bg-[#FCFDFD] overflow-hidden min-h-[220px]">
       <div className="flex w-full h-full">
         {/* Left gradient number strip */}
-        <div className="flex w-20 min-h-[170px] md:min-h-full  flex-col items-center justify-center rounded-l-3xl bg-gradient-to-b from-[#E33C6A] to-[#ED7E4B] text-white">
+        <div className="flex w-20 min-h-[220px] md:min-h-full  flex-col items-center justify-center rounded-l-3xl bg-gradient-to-b from-[#E33C6A] to-[#ED7E4B] text-white">
           <span className="text-2xl font-semibold leading-none">
             {index + 1 < 10 ? `0${index + 1}` : index + 1}
           </span>
         </div>
 
         {/* Content */}
-        <div className="flex flex-1 flex-col justify-between rounded-r-3xl px-4 py-3 md:px-6 md:py-5 min-h-[170px]">
-          <div className="flex items-start justify-between gap-4">
+        <div className="flex flex-1 flex-col justify-between rounded-r-3xl py-3  md:py-5 min-h-[220px]">
+          <div className="flex items-start justify-between gap-4 px-4 md:px-6 min-h-[70px]">
             <div>
               <div className="text-base md:text-lg font-semibold text-gray-900">
                 {step.title}
               </div>
-              {/* {step.subtitle && (
-                <div className="text-sm font-semibold text-gray-900">
+              {step.subtitle && (
+                <div className="text-base md:text-lg font-semibold text-gray-900">
                   {step.subtitle}
                 </div>
-              )} */}
+              )}
             </div>
+
             {/* Icon placeholder – replace with real icon */}
             <div className="flex items-center justify-center">
               <Image src={step.icon} alt={step.title} width={32} height={32} />
             </div>
           </div>
-          <p className="mt-3 text-xs text-gray-500 leading-relaxed">
+          <div className=" h-px w-full border-t border-dashed border-[#D9D9D9] my-2" />
+          <p className="mt-3 text-xs text-gray-500 leading-relaxed px-4 md:px-6 max-h-[78px] md:max-h-full overflow-hidden ">
             {step.description}
           </p>
         </div>
@@ -152,7 +154,10 @@ const TreatmentJourney: React.FC = () => {
   );
 
   return (
-    <section className="w-full bg-white py-16">
+    <section className="w-full bg-white py-16 relative">
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 mt-[42px] md:mt-[45px] 2xl:mt-[54px]">
+        <div className="h-px w-full border-t border-dashed border-[#E33C6A]" />
+      </div>
       <div className="mx-4 md:mx-auto ml-0 md:ml-32">
         {/* Heading */}
         <div className="text-center">
