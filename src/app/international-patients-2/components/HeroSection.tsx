@@ -1,12 +1,13 @@
 import RequestCallBackForm from "@/components/RequestCallbackForm";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaChevronRight } from "react-icons/fa";
 
 const FORM_WIDTH = 370;
 
 const HeroSection: React.FC = () => (
-  <section className="flex flex-col md:flex-row items-center justify-center w-full rounded-lg p-4 md:p-8 gap-6 relative bg-white overflow-hidden min-h-screen">
+  <section className="flex flex-col md:flex-row items-center justify-center w-full rounded-lg p-4 md:p-8 md:pt-0 gap-6 relative bg-white overflow-hidden min-h-screen">
     <div className="flex flex-col md:flex-row h-full w-full max-w-[1200px]">
       <Image
         src="/home/hero.png"
@@ -38,7 +39,7 @@ const HeroSection: React.FC = () => (
               ShardaCare understands the challenges of seeking treatment abroad.
             </p>
             <div className="flex sm:flex-row gap-2 sm:gap-4 mb-2 sm:mb-4 w-full mx-auto md:mx-0">
-              <button className=" px-2 md:px-5 md:py-2 py-1 rounded-3xl bg-black text-[10px] md:text-base text-white font-semibold w-fit flex items-center justify-center gap-[4px] md:gap-2">
+              <Link href={"/under-construction"} className=" px-2 md:px-5 md:py-2 py-1 rounded-3xl bg-black text-[10px] md:text-base text-white font-semibold w-fit flex items-center justify-center gap-[4px] md:gap-2">
                 <Image
                   src="/assets/doctor-btn.svg"
                   alt="icon"
@@ -47,13 +48,13 @@ const HeroSection: React.FC = () => (
                   className="md:w-6 md:h-6 w-3 h-3"
                 ></Image>
                 Find A Doctor
-              </button>
-              <button className="px-2 py-1 md:px-5 md:py-2 rounded-3xl border text-[10px] md:text-base border-black font-semibold w-fit flex items-center justify-center gap-2">
+              </Link>
+              <Link href={"/under-construction"}className="px-2 py-1 md:px-5 md:py-2 rounded-3xl border text-[10px] md:text-base border-black font-semibold w-fit flex items-center justify-center gap-2">
                 Book Appointment
                 <span className="bg-black px-1 py-1 rounded-full">
                   <FaChevronRight color="white" size={10} />
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

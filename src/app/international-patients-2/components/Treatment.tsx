@@ -21,7 +21,7 @@ const STEPS: Step[] = [
     title: "Case ",
     subtitle: "Assessment",
     description:
-      "Our clinical team thoroughly analyses your medical history based on the case summaries provided by you before your arrival.",
+      "Our clinical team thoroughly reviews your medical history and case summaries prior to your arrival for effective preparation.",
     icon: "/home/case.svg",
   },
   {
@@ -29,7 +29,7 @@ const STEPS: Step[] = [
     title: "Teleconsultation",
     subtitle: "(if required)",
     description:
-      "A teleconsultation between you and our clinician is conducted to discuss your case and address initial concerns before your physical visit.",
+      "We conduct a teleconsultation to discuss your case and address any initial concerns before your physical visit.",
     icon: "/home/teleconsultation.svg",
   },
   {
@@ -37,7 +37,7 @@ const STEPS: Step[] = [
     title: "Appointment",
     subtitle: "Assistance",
     description:
-      "Our team assists you with scheduling appointments with relevant specialists, ensuring a streamlined and efficient experience.",
+      "Our dedicated team assists in scheduling appointments with relevant specialists, ensuring a streamlined and efficient process.",
     icon: "/home/appointment.svg",
   },
   {
@@ -45,7 +45,7 @@ const STEPS: Step[] = [
     title: "Visa",
     subtitle: "Assistance",
     description:
-      "For international patients, we provide comprehensive visa assistance to facilitate a hassle-free entry into the country for your medical treatment.",
+      "We provide comprehensive visa assistance for international patients to facilitate hassle-free entry into the country for treatment.",
     icon: "/home/visa.svg",
   },
   {
@@ -53,7 +53,7 @@ const STEPS: Step[] = [
     title: "Complementary Pick-up and Drop",
     subtitle: "",
     description:
-      "Enjoy the convenience of complimentary pick-up and drop services to and from the airport, ensuring a comfortable start and end to your journey.",
+      "Enjoy complimentary airport pick-up and drop-off services to ensure a comfortable start and end to your journey.",
     icon: "/home/complement.svg",
   },
   {
@@ -61,7 +61,7 @@ const STEPS: Step[] = [
     title: "Foreign Language Interpreter Service",
     subtitle: "",
     description:
-      "We offer full-time foreign-language interpreter services in languages such as Russian, Arabic, Bengali, Burmese, and Persian to enhance communication and understanding during your stay.",
+      "Our full-time interpreter services in multiple languages ensure communication and understanding throughout your medical stay.",
     icon: "/home/foreign.svg",
   },
   {
@@ -69,7 +69,7 @@ const STEPS: Step[] = [
     title: "Express Check-In at International Patient's Lounge",
     subtitle: "",
     description:
-      "Experience a swift and hassle-free check-in process through our dedicated International Patient’s Lounge, ensuring a comfortable and efficient arrival.",
+      "Experience a swift check-in process through our dedicated International Patient’s Lounge, ensuring a comfortable and efficient arrival.",
     icon: "/home/express.svg",
   },
   {
@@ -77,7 +77,7 @@ const STEPS: Step[] = [
     title: "Dedicated Buddy/Staff Allocation",
     subtitle: "",
     description:
-      "Throughout your stay, a dedicated buddy or staff member is assigned to you to provide personalised assistance and ensure smooth coordination during your entire treatment journey.",
+      "A dedicated staff buddy offers personalized support and seamless coordination throughout your treatment journey.",
     icon: "/home/dedicated.svg",
   },
   {
@@ -85,7 +85,7 @@ const STEPS: Step[] = [
     title: "Food",
     subtitle: "Arrangements",
     description:
-      "Upon admission, we provide international patients and their attendants with a choice of vegetarian and non-vegetarian cuisine. Our goal is to ensure your nutritional needs are met during your stay.",
+      "We provide patients and attendants with diverse vegetarian and non-vegetarian cuisine choices to meet nutritional needs.",
     icon: "/home/food.svg",
   },
   {
@@ -93,7 +93,7 @@ const STEPS: Step[] = [
     title: "Affordable and Comfortable Guest House Arrangement ",
     subtitle: "",
     description:
-      "We can assist in arranging affordable and comfortable guest house accommodations to ensure a pleasant and convenient stay for you and your accompanying members.",
+      "We assist in arranging affordable, comfortable guest house accommodations for a pleasant stay for you and your family.",
     icon: "/home/affordable.svg",
   },
   {
@@ -101,7 +101,7 @@ const STEPS: Step[] = [
     title: "Ambulance Pick-Up (if required)",
     subtitle: "",
     description:
-      "In case of emergency or specific medical needs, we offer ambulance pick-up services to transport you safely to the hospital.",
+      "For emergencies or specific medical needs, we offer ambulance services to transport you safely to the hospital.",
     icon: "/home/ambulance.svg",
   },
   {
@@ -109,24 +109,24 @@ const STEPS: Step[] = [
     title: "Post",
     subtitle: "Treatment Support",
     description:
-      "We support you after the procedure with dedicated follow-ups, ongoing guidance, and continuous monitoring to help you recover comfortably and safely.",
+      "We support your recovery with dedicated follow-ups, ongoing guidance, and continuous safety monitoring.",
     icon: "/home/ambulance.svg",
   },
 ];
 
 const TreatmentJourney: React.FC = () => {
   const renderCard = (step: Step, index: number) => (
-    <div className="flex h-full flex-col rounded-3xl border border-[#eceff4] bg-[#FCFDFD] overflow-hidden min-h-[220px]">
+    <div className="flex h-full flex-col rounded-3xl border border-[#eceff4] bg-[#FCFDFD] overflow-hidden min-h-[190px]">
       <div className="flex w-full h-full">
         {/* Left gradient number strip */}
-        <div className="flex w-20 min-h-[220px] md:min-h-full  flex-col items-center justify-center rounded-l-3xl bg-gradient-to-b from-[#E33C6A] to-[#ED7E4B] text-white">
+        <div className="flex w-20 min-h-[190px] md:min-h-full  flex-col items-center justify-center rounded-l-3xl bg-gradient-to-b from-[#E33C6A] to-[#ED7E4B] text-white">
           <span className="text-2xl font-semibold leading-none">
             {index + 1 < 10 ? `0${index + 1}` : index + 1}
           </span>
         </div>
 
         {/* Content */}
-        <div className="flex flex-1 flex-col justify-between rounded-r-3xl py-3  md:py-5 min-h-[220px]">
+        <div className="flex flex-1 flex-col rounded-r-3xl py-3  md:py-5 min-h-[190px]">
           <div className="flex items-start justify-between gap-4 px-4 md:px-6 min-h-[70px]">
             <div>
               <div className="text-base md:text-lg font-semibold text-gray-900">
@@ -144,8 +144,8 @@ const TreatmentJourney: React.FC = () => {
               <Image src={step.icon} alt={step.title} width={32} height={32} />
             </div>
           </div>
-          <div className=" h-px w-full border-t border-dashed border-[#D9D9D9] my-2" />
-          <p className="mt-3 text-xs text-gray-500 leading-relaxed px-4 md:px-6 max-h-[78px] md:max-h-full overflow-hidden ">
+          <div className=" h-px w-full border-t border-dashed border-[#D9D9D9]" />
+          <p className="mt-3 text-xs md:text-[14px] text-gray-500 leading-relaxed px-4 md:px-6 max-h-[78px] md:max-h-full overflow-hidden ">
             {step.description}
           </p>
         </div>
@@ -154,19 +154,19 @@ const TreatmentJourney: React.FC = () => {
   );
 
   return (
-    <section className="w-full bg-white py-16 relative">
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 mt-[42px] md:mt-[45px] 2xl:mt-[54px]">
+    <section id="journey" className="w-full bg-white py-16 relative">
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 mt-[40px] md:mt-[43px] 2xl:mt-[43px]">
         <div className="h-px w-full border-t border-dashed border-[#E33C6A]" />
       </div>
       <div className="mx-4 md:mx-auto ml-0 md:ml-32">
         {/* Heading */}
-        <div className="text-center">
+        <div className="text-center max-w-6xl">
           <h2 className="text-2xl md:text-4xl font-medium text-gray-900">
             Your Treatment Journey At
             <br />
             ShardaCare Hospitals
           </h2>
-          <p className="mt-2  md:text-xs text-gray-500">
+          <p className="mt-2  md:text-base text-gray-500">
             Here&apos;s what your treatment journey will look like at ShardaCare
           </p>
         </div>

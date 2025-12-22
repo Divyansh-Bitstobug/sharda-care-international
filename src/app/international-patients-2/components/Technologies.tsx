@@ -61,7 +61,7 @@ const AdvancedMedicalTechnologies: React.FC = () => {
           <h2 className="text-4xl font-medium text-gray-900">
             Advanced Medical Technologies
           </h2>
-          <p className="mt-2 text-xs text-gray-500">
+          <p className="mt-2 text-xs md:text-base text-gray-500">
             Advanced, next‑generation medical equipment that supports accurate
             diagnosis, precise treatment, and improved results across all
             specialties.

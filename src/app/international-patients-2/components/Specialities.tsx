@@ -29,6 +29,13 @@ const ALL_ITEMS: Item[] = [
     icon: "/home/critical.svg",
   },
   { id: 8, name: "GI Surgeries", type: "speciality", icon: "/home/gi.svg" },
+  {
+    id: 9,
+    name: "Critical Care",
+    type: "speciality",
+    icon: "/home/critical.svg",
+  },
+  { id: 10, name: "GI Surgeries", type: "speciality", icon: "/home/gi.svg" },
 
   // Treatments (sample)
   { id: 101, name: "Angioplasty", type: "treatment", icon: "/home/gi.svg" },
@@ -83,145 +90,148 @@ export const MedicalSpecialitiesSection: React.FC = () => {
     filteredItems.find((i) => i.id === selectedItemId) ?? null;
 
   return (
-    <section className="w-full bg-[#F3FBFF] py-16">
-      <div className="mx-auto max-w-[1200px]">
-        {/* Heading */}
-        <div className="text-center">
-          <h2 className="text-2xl md:text-4xl font-medium text-gray-900">
-            Medical Specialties
-          </h2>
-          <p className="mt-2 text-sm text-gray-500">
-            Expert treatment across diverse medical fields, enabling better
-            outcomes through advanced technologies and personalized treatment
-            plans.
-          </p>
-        </div>
-
-        {/* Content */}
-        <div className="mt-10 grid gap-6 lg:grid-cols-[1.6fr_minmax(0,1fr)]">
-          {/* LEFT: list + detail (stack on mobile) */}
-          <div className="space-y-4">
-            {/* List */}
-            <div className="grid gap-3 sm:grid-cols-2 mx-4">
-              {filteredItems.map((item) => {
-                const isActive = item.id === selectedItemId;
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => setSelectedItemId(item.id)}
-                    className={`flex items-center justify-between rounded-lg border px-4 py-3 text-left transition-all ${
-                      isActive
-                        ? "border-[#ff7268] bg-white shadow-sm"
-                        : "border-transparent bg-white/70 hover:bg-white"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      {/* Icon placeholder */}
-                      <div className="flex p-2 items-center justify-center rounded-full bg-[#F3FBFF]">
-                        <Image
-                          src={item.icon}
-                          alt={item.name}
-                          width={24}
-                          height={24}
-                        />
-                      </div>
-                      <span className="text-sm font-medium text-gray-800">
-                        {item.name}
-                      </span>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Mobile detail card */}
-            {selectedItem && (
-              <div className="rounded-xl bg-white p-4 shadow-sm lg:hidden mx-4">
-                <h3 className="text-base font-semibold text-gray-900">
-                  {selectedItem.name}
-                </h3>
-                <p className="mt-2 text-sm text-gray-500">
-                  Short description about {selectedItem.name} and key services
-                  offered under this {activeTab}.
-                </p>
-              </div>
-            )}
-
-            <button className="block w-full text-center text-xs font-semibold tracking-wide text-[#ff7268] lg:hidden">
-              VIEW ALL SPECIALITIES
-            </button>
+    <>
+    <div id="specialities" />
+      <section className="w-full bg-[#F3FBFF] py-16">
+        <div className="mx-auto max-w-[1200px]">
+          {/* Heading */}
+          <div className="text-center">
+            <h2 className="text-2xl md:text-4xl font-medium text-gray-900">
+              Medical Specialties
+            </h2>
+            <p className="mt-2 text-sm md:text-base text-gray-500">
+              Expert treatment across diverse medical fields, enabling better
+              outcomes through advanced technologies and personalized treatment
+              plans.
+            </p>
           </div>
 
-          {/* RIGHT: search panel */}
-          <div className="rounded-2xl bg-white p-4 shadow-sm mx-4">
-            <div className="flex items-center justify-between gap-4">
-              <p className="text-sm font-semibold text-gray-900">Search By</p>
+          {/* Content */}
+          <div className="mt-10 grid gap-6 lg:grid-cols-[1.6fr_minmax(0,1fr)]">
+            {/* LEFT: list + detail (stack on mobile) */}
+            <div className=" h-full">
+              {/* List */}
+              <div className="grid gap-y-8 gap-x-6 sm:grid-cols-2">
+                {filteredItems.map((item) => {
+                  const isActive = item.id === selectedItemId;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => setSelectedItemId(item.id)}
+                      className={`flex items-center justify-between rounded-lg border px-4 py-3 text-left transition-all text-[17px] ${
+                        isActive
+                          ? "border-[#ff7268] bg-white shadow-sm"
+                          : "border-transparent bg-white/70 hover:bg-white"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        {/* Icon placeholder */}
+                        <div className="flex p-2 items-center justify-center rounded-full bg-[#F3FBFF]">
+                          <Image
+                            src={item.icon}
+                            alt={item.name}
+                            width={24}
+                            height={24}
+                          />
+                        </div>
+                        <span className="text-sm font-medium text-gray-800">
+                          {item.name}
+                        </span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Mobile detail card */}
+              {/* {selectedItem && (
+                <div className="rounded-xl bg-white p-4 shadow-sm lg:hidden mx-4">
+                  <h3 className="text-base font-semibold text-gray-900">
+                    {selectedItem.name}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-500">
+                    Short description about {selectedItem.name} and key services
+                    offered under this {activeTab}.
+                  </p>
+                </div>
+              )} */}
+
+              <button className="block w-full text-center text-xs font-semibold tracking-wide text-[#ff7268] lg:hidden">
+                VIEW ALL SPECIALITIES
+              </button>
             </div>
 
-            {/* Tabs */}
-            <div className="mt-3 inline-flex gap-2 text-xs">
-              {tabConfig.map((tab) => {
-                const isActive = tab.key === activeTab;
-                return (
-                  <button
-                    key={tab.key}
-                    onClick={() => {
-                      setActiveTab(tab.key);
-                      setActiveLetter(null);
-                    }}
-                    className={`relative rounded-[999px] border px-4 py-2 text-[10px] md:text-sm font-medium transition
+            {/* RIGHT: search panel */}
+            <div className="rounded-2xl bg-white p-4 shadow-sm mx-4">
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-sm font-semibold text-gray-900">Search By</p>
+              </div>
+
+              {/* Tabs */}
+              <div className="mt-3 inline-flex gap-2 text-xs">
+                {tabConfig.map((tab) => {
+                  const isActive = tab.key === activeTab;
+                  return (
+                    <button
+                      key={tab.key}
+                      onClick={() => {
+                        setActiveTab(tab.key);
+                        setActiveLetter(null);
+                      }}
+                      className={`relative rounded-[999px] border px-4 py-2 text-[10px] md:text-sm font-medium transition
           ${
             isActive
               ? "border-transparent bg-gradient-to-r from-[#E33C6A] to-[#EC7D4B] text-white shadow-md"
               : "border-[#eceff5] bg-white text-gray-800 hover:border-[#ff6a6a33]"
           }`}
-                  >
-                    {tab.label}
-                  </button>
-                );
-              })}
+                    >
+                      {tab.label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Alphabet grid */}
+              <div className="mt-6 grid grid-cols-5 gap-4 text-sm sm:grid-cols-6">
+                {ALPHABETS.map((letter) => {
+                  const isActive = letter === activeLetter;
+                  const hasItems = ALL_ITEMS.some(
+                    (i) =>
+                      i.type === activeTab &&
+                      i.name.toUpperCase().startsWith(letter)
+                  );
+                  const disabled = !hasItems;
+
+                  return (
+                    <button
+                      key={letter}
+                      disabled={disabled}
+                      onClick={() =>
+                        setActiveLetter((prev) =>
+                          prev === letter ? null : letter
+                        )
+                      }
+                      className={`flex h-13 md:h-12 items-center justify-center rounded-full border text-base font-medium transition ${
+                        disabled
+                          ? "cursor-not-allowed border-gray-200 text-gray-300"
+                          : isActive
+                          ? "border-[#ff7268] bg-[#fff3f2] text-[#ff7268]"
+                          : "border-gray-200 bg-[#f6f8fc] text-gray-600 hover:border-[#ff7268]/60 hover:text-[#ff7268]"
+                      }`}
+                    >
+                      {letter}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <button className="mt-6 text-xs font-semibold tracking-wide text-[#EA6D53]">
+                VIEW ALL SPECIALITY
+              </button>
             </div>
-
-            {/* Alphabet grid */}
-            <div className="mt-6 grid grid-cols-5 gap-3 text-sm sm:grid-cols-7">
-              {ALPHABETS.map((letter) => {
-                const isActive = letter === activeLetter;
-                const hasItems = ALL_ITEMS.some(
-                  (i) =>
-                    i.type === activeTab &&
-                    i.name.toUpperCase().startsWith(letter)
-                );
-                const disabled = !hasItems;
-
-                return (
-                  <button
-                    key={letter}
-                    disabled={disabled}
-                    onClick={() =>
-                      setActiveLetter((prev) =>
-                        prev === letter ? null : letter
-                      )
-                    }
-                    className={`flex h-12 items-center justify-center rounded-full border text-[10px] md:text-xs transition ${
-                      disabled
-                        ? "cursor-not-allowed border-gray-200 text-gray-300"
-                        : isActive
-                        ? "border-[#ff7268] bg-[#fff3f2] text-[#ff7268]"
-                        : "border-gray-200 bg-[#f6f8fc] text-gray-600 hover:border-[#ff7268]/60 hover:text-[#ff7268]"
-                    }`}
-                  >
-                    {letter}
-                  </button>
-                );
-              })}
-            </div>
-
-            <button className="mt-6 text-xs font-semibold tracking-wide text-[#ff7268]">
-              VIEW ALL SPECIALITY
-            </button>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };

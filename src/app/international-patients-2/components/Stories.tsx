@@ -44,7 +44,7 @@ const PATIENT_STORIES: Story[] = [
 const PatientStoriesSection: React.FC = () => {
   const renderCard = (story: Story) => (
     <div className="flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-sm">
-      <div className="relative h-52 w-full overflow-hidden p-4">
+      <div className="relative md:h-52 w-full overflow-hidden p-4">
         <div className="relative w-full h-full">
           <Image
             src={story.thumbnail}
@@ -71,14 +71,14 @@ const PatientStoriesSection: React.FC = () => {
   );
 
   return (
-    <section className="w-full bg-white py-16">
+    <section id="patient-stories" className="w-full bg-white py-16">
       <div className="mx-auto max-w-6xl px-4">
         {/* Heading */}
         <div className="text-center">
           <h2 className="text-4xl font-medium text-gray-900">
             Patient Stories
           </h2>
-          <p className="mt-2 text-xs text-gray-500">
+          <p className="mt-2 text-xs md:text-base text-gray-500">
             Hear how patients from around the world transformed their lives with
             our care.
           </p>

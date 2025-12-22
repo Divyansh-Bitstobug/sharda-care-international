@@ -2,6 +2,7 @@
 import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { FaChevronDown } from "react-icons/fa";
+import Link from "next/link";
 
 const LANGUAGES = [
   { label: "English", value: "en", icon: "/assets/india.png" },
@@ -96,7 +97,7 @@ const HomeHeader: React.FC = () => {
             </div>
           </nav>
           {/* Emergency Contact */}
-          <button className="group items-center px-3 py-1 rounded-full bg-gradient-to-r from-[#E3376D] to-[#ED814A] text-white min-w-[205px] transition-all md:flex hidden">
+          <Link href="tel:+91 73000 40000" className="group items-center px-3 py-1 rounded-full bg-gradient-to-r from-[#E3376D] to-[#ED814A] text-white min-w-[205px] transition-all md:flex hidden">
             {/* Phone icon */}
             <span className="rounded-full w-7 h-7 flex items-center justify-center mr-2">
               <Image 
@@ -112,7 +113,7 @@ const HomeHeader: React.FC = () => {
                 Emergency Contact
               </span>
               <span className="text-base font-medium mt-[-2px]">
-                +91 9922 9922 22
+                +91 73000 40000
               </span>
             </span>
             {/* Arrow icon */}
@@ -124,10 +125,10 @@ const HomeHeader: React.FC = () => {
               height={18}
              />
             </span>
-          </button>
+          </Link>
 
           {/* Visit India Site */}
-          <button className="hidden md:flex items-center gap-2 px-4 py-1 rounded-full border border-gray-200 bg-white font-bold shadow min-h-[40px]">
+          <Link href={"https://www.shardacare.com/"} className="hidden md:flex items-center gap-2 px-4 py-1 rounded-full border border-gray-200 bg-white font-bold shadow min-h-[40px]">
             <span className="rounded-full w-7 h-7 flex items-center justify-center">
               <Image
                 src="/assets/india.png"
@@ -139,7 +140,7 @@ const HomeHeader: React.FC = () => {
             <span className="text-sm font-semibold text-gray-700">
               Visit India Site
             </span>
-          </button>
+          </Link>
           {/* Mobile Visit Site button */}
           <button className="flex md:hidden items-center gap-2 px-4 py-1 rounded-full bg-gradient-to-r from-[#E3376D] to-[#ED814A] font-bold min-h-[40px]">
             <span className="text-[10px] font-semibold text-white">
@@ -164,11 +165,11 @@ const HomeHeader: React.FC = () => {
                 height={24}
                 className="w-6 h-6"
               />
-              <FaChevronDown />
+              <span className="hidden md:block text-xs font-medium">Translate</span> <FaChevronDown />
             </button>
             {/* Dropdown */}
             {langOpen && (
-              <div className="absolute top-9 right-0 md:-right-24 mt-2 w-40 bg-white rounded-lg shadow-lg py-1 z-60">
+              <div className="absolute top-9 right-0 md:-right-10 mt-2 w-40 bg-white rounded-lg shadow-lg py-1 z-60">
                 {LANGUAGES.map((lang) => (
                   <button
                     key={lang.value}

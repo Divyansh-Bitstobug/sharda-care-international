@@ -65,7 +65,7 @@ const SpecializedTransplantPrograms: React.FC = () => {
           <h2 className="text-2xl md:text-4xl font-medium text-gray-900">
             Specialized Transplant Programs
           </h2>
-          <p className="mt-2 text-[10px] md:text-sm text-gray-500">
+          <p className="mt-2 text-[10px] md:text-base text-gray-500">
             Comprehensive surgical solutions and post‑operative care for a wide
             range of complex transplant procedures.
           </p>

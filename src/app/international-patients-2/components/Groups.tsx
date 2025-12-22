@@ -6,6 +6,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 type GroupCard = {
   id: number;
@@ -13,6 +14,7 @@ type GroupCard = {
   badgeLabel: string;
   name: string;
   ctaLabel: string;
+  href:string;
 };
 
 const SHARDA_GROUPS: GroupCard[] = [
@@ -22,6 +24,7 @@ const SHARDA_GROUPS: GroupCard[] = [
     badgeLabel: "Corporate Division",
     name: "Sharda Corporation",
     ctaLabel: "Discover",
+    href:"https://www.shardacorporation.net/"
   },
   {
     id: 2,
@@ -29,13 +32,15 @@ const SHARDA_GROUPS: GroupCard[] = [
     badgeLabel: "World-class Healthcare Institution",
     name: "Sharda Hospital",
     ctaLabel: "Discover",
+    href:"https://www.shardahospital.org/",
   },
   {
     id: 3,
     image: "/home/group3.png",
     badgeLabel: "International Campus (Uzbekistan)",
-    name: "Sharda University – Uzbekistan",
+    name: "Sharda University",
     ctaLabel: "Discover",
+    href:"https://www.shardauniversity.uz/",
   },
   {
     id: 4,
@@ -43,13 +48,14 @@ const SHARDA_GROUPS: GroupCard[] = [
     badgeLabel: "Global Education Institution",
     name: "Sharda University",
     ctaLabel: "Discover",
+    href:"https://www.sharda.ac.in/",
   },
 ];
 
 const ShardaGroupsSection: React.FC = () => {
   const renderCard = (item: GroupCard) => (
     <div className="flex h-full flex-col rounded-3xl bg-white border border-black/10">
-      <div className="p-4 h-full">
+      <div className="p-2 h-full">
         {/* Image area */}
         <div className="relative h-56 w-full overflow-hidden rounded-t-3xl bg-[#f5f7fb]">
           <Image
@@ -61,35 +67,35 @@ const ShardaGroupsSection: React.FC = () => {
         </div>
 
         {/* Bottom content */}
-        <div className="flex justify-between place-items-end rounded-b-3xl pt-3 bg-[#FAFAFA] p-2 relative">
+        <div className="flex justify-between place-items-end rounded-b-3xl pt-3 bg-[#FAFAFA] p-3 relative min-h-[72px]">
           <div className="h-fit flex flex-col">
             <p className="text-[8px] font-medium uppercase tracking-wide text-[#34ACE1]">
               {item.badgeLabel}
             </p>
-            <p className="text-xs font-semibold text-[#222222]">
+            <p className="text-xs font-semibold text-[#222222] mt-2">
               {item.name}
             </p>
           </div>
-          <button className="inline-flex items-center justify-between rounded-full border border-black/10 px-3 py-1 text-[10px] font-medium text-[#444] h-fit">
+          <Link href={item.href} className="inline-flex items-center justify-between rounded-full border border-black/10 px-3 py-1 text-[10px] font-medium text-[#444] h-fit">
             <span>{item.ctaLabel}</span>
             <span className="ml-2 inline-flex h-4 w-4 items-center justify-center rounded-full text-[10px]">
               ↗
             </span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>
   );
 
   return (
-    <section className="w-full bg-white py-16">
+    <section id="sharda-group" className="w-full bg-white py-16">
       <div className="mx-auto max-w-6xl px-4">
         {/* Heading */}
         <div className="text-center">
           <h2 className="text-3xl font-semibold text-gray-900">
             Sharda Groups
           </h2>
-          <p className="mt-2 text-xs text-gray-500">
+          <p className="mt-2 text-xs md:text-base text-gray-500">
             A Global Presence in Education, Healthcare & Innovation
           </p>
         </div>

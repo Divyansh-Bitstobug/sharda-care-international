@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -9,7 +9,6 @@ import Image from "next/image";
 
 type AwardSlide = {
   id: number;
-  year: string;
   badgeImage: string;
   badgeAlt: string;
   title: string;
@@ -22,48 +21,55 @@ type AwardSlide = {
 const AWARDS: AwardSlide[] = [
   {
     id: 1,
-    year: "2022",
-    badgeImage: "/home/2022.png",
+    badgeImage: "/home/one.jpg",
     badgeAlt: "32 Best Hospital 2022",
-    title: "Internationally recognized for our commitment to excellence, safety, and quality in healthcare delivery.",
+    title: "Times Business Leader Awards 2025",
     description:
-      "Internationally recognized for our commitment to excellence, safety, and quality in healthcare delivery.",
+      "Received at The Times Business Leader Awards 2025 by Mr. Rishabh Gupta, Managing Director ShardaCare-Healthcity.",
     bottomIcon: "/home/nabh.png",
     bottomLabel: "NABH Certified",
     bottomText: "National Accreditation Board for Healthcare Excellence",
   },
   {
     id: 2,
-    year: "2023",
-    badgeImage: "/home/2023.png",
+    badgeImage: "/home/two.jpg",
     badgeAlt: "32 Best Hospital 2023",
-    title: "",
+    title: "Excellence in Healthcare Access & Affordability Award 2023",
     description:
-      "Internationally recognized for our commitment to excellence, safety, and quality in healthcare delivery.",
+      "Received at the “Innovation Summit Awards 2023,” held in New Delhi.",
     bottomIcon: "/home/quality.png",
     bottomLabel: "Quality Certified",
     bottomText: "Accredited for Global Healthcare & Patient Safety Standards",
   },
   {
     id: 3,
-    year: "2024",
-    badgeImage: "/home/2024.png",
+    badgeImage: "/home/three.jpg",
     badgeAlt: "32 Best Hospital 2024",
-    title: "",
+    title: "Best Integrated Smart Emergency Services Award 2025",
     description:
-      "Internationally recognized for our commitment to excellence, safety, and quality in healthcare delivery.",
+      "Received at the Best Integrated Smart Emergency Services Award at the Smart Hospitals & Diagnostics Summit & Awards 2025.",
     bottomIcon: "/home/govt.png",
     bottomLabel: "Govt. Healthcare Certified",
     bottomText: "Approved by National Health & Medical Authority",
   },
   {
     id: 4,
-    year: "2025",
-    badgeImage: "/home/2025.png",
+    badgeImage: "/home/four.jpg",
     badgeAlt: "32 Best Hospital 2025",
-    title: "",
+    title: "Times Network Young Visionary in Healthcare Award 2025",
     description:
-      "Internationally recognized for our commitment to excellence, safety, and quality in healthcare delivery.",
+      "Received at the “Times Network Leadership Conclave 2025” in New Delhi.",
+    bottomIcon: "/awards/global.png",
+    bottomLabel: "Global Excellence Certified",
+    bottomText: "Recognized for world‑class clinical outcomes and patient care",
+  },
+  {
+    id: 5,
+    badgeImage: "/home/five.jpg",
+    badgeAlt: "32 Best Hospital 2025",
+    title: "Rising Star in Healthcare Award 2025",
+    description:
+      "Received at the Asian Brand & Leadership Conclave 2025, held in Bangkok.",
     bottomIcon: "/awards/global.png",
     bottomLabel: "Global Excellence Certified",
     bottomText: "Recognized for world‑class clinical outcomes and patient care",
@@ -71,59 +77,117 @@ const AWARDS: AwardSlide[] = [
 ];
 
 const AwardsSection: React.FC = () => {
-  return (
-    <section className="w-full bg-white py-16 relative overflow-hidden">
-        <Image 
-            src="/home/r.png"
-            alt="bg"
-            width={500}
-            height={600}
-            className="absolute -right-20 -bottom-6 md:block hidden"
-        />
-        <Image 
-            src="/home/l.png"
-            alt="bg"
-            width={500}
-            height={600}
-            className="absolute -left-20 -bottom-6 md:block hidden"
-        />
-      <div className="mx-auto max-w-6xl px-4">
-        {/* Heading */}
-        <div className="text-center">
-          <h2 className="text-4xl font-medium text-gray-900">
-            Awards & Certifications
-          </h2>
-          <p className="mt-2 text-xs text-gray-500">
-            Internationally recognized for our commitment to excellence, safety,
-            and quality in healthcare delivery.
-          </p>
-        </div>
+  const swiperRef = useRef<any>(null);
 
-        {/* Desktop layout */}
-        <div className="mt-10 hidden md:block">
-          <div className="grid grid-cols-2 gap-x-4 gap-y-4 max-w-6xl">
-            {AWARDS.map((award) => (
-              <div key={award.id} className="flex items-start gap-4">
-                <Image
-                  src={award.badgeImage}
-                  alt={award.badgeAlt}
-                  width={120}
-                  height={120}
-                  className="h-[180px] w-auto object-cover object-top"
-                />
-                <div className="space-y-1 pt-6">
-                  <p className="text-2xl font-oswald">
-                    {award.year}
-                  </p>
-                  <p className="text-[#4B4B4B] max-w-xs">
-                    {award.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+  return (
+    <section
+      id="awards"
+      className="w-full bg-white py-16 relative overflow-hidden"
+    >
+      {/* BG dots */}
+      <Image
+        src="/home/r.png"
+        alt="bg"
+        width={500}
+        height={600}
+        className="absolute -right-20 -bottom-6 md:block hidden"
+      />
+      <Image
+        src="/home/l.png"
+        alt="bg"
+        width={500}
+        height={600}
+        className="absolute -left-20 -bottom-6 md:block hidden"
+      />
+
+      <div className="mx-auto max-w-6xl px-4">
+        {/* Heading + arrows */}
+        <div className="flex items-center justify-between">
+          <div className="text-left">
+            <h2 className="text-2xl md:text-3xl font-medium text-gray-900">
+              Awards & Certifications
+            </h2>
+            <p className="mt-1 text-xs md:text-sm text-gray-500">
+              Internationally recognized for our commitment to excellence,
+              safety, and quality in healthcare delivery.
+            </p>
           </div>
 
-          {/* Bottom certifications row */}
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => swiperRef.current?.slidePrev()}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-600 shadow-sm hover:bg-gray-50"
+              aria-label="Previous award"
+            >
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M15 6l-6 6 6 6" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              onClick={() => swiperRef.current?.slideNext()}
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[#21a9ff] text-white shadow-sm hover:bg-[#0f94ea]"
+              aria-label="Next award"
+            >
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Desktop Swiper (cards) */}
+        <div className="mt-8 hidden md:block">
+          <Swiper
+            modules={[Navigation]}
+            onBeforeInit={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            slidesPerView={2}
+            spaceBetween={24}
+            loop={true}
+            autoplay
+          >
+            {AWARDS.map((award) => (
+              <SwiperSlide key={award.id}>
+                <div className="flex items-stretch rounded-2xl border border-[#B3B3B3] bg-white px-6 py-5 justify-between">
+                  {/* Left text */}
+                  <div className="flex-1 flex flex-col justify-center pr-4">
+                    <h3 className="text-xl font-medium text-[#163F34] mb-1">
+                      {award.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed mt-2">
+                      {award.description}
+                    </p>
+                  </div>
+
+                  {/* Right image */}
+                  <div className="flex items-center justify-center">
+                    <Image
+                      src={award.badgeImage}
+                      alt={award.badgeAlt}
+                      width={140}
+                      height={180}
+                      className="h-[160px] w-auto object-contain"
+                    />
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Bottom certifications row (unchanged) */}
           <div className="mt-12 flex flex-wrap items-start justify-center gap-16">
             {AWARDS.slice(0, 3).map((award) => (
               <div
@@ -133,14 +197,14 @@ const AwardsSection: React.FC = () => {
                 <Image
                   src={award.bottomIcon}
                   alt={award.bottomLabel}
-                  width={70}
-                  height={70}
+                  width={126}
+                  height={126}
                   className="h-[126px] w-[126px] object-contain"
                 />
-                <p className="mt-3 text-xl font-medium text-[#333333]">
+                <p className="mt-3 text-base font-semibold text-[#333333]">
                   {award.bottomLabel}
                 </p>
-                <p className="mt-1 text-[15px] leading-snug text-[#4B4B4B]">
+                <p className="mt-1 text-[13px] leading-snug text-[#4B4B4B]">
                   {award.bottomText}
                 </p>
               </div>
@@ -183,7 +247,7 @@ const AwardsSection: React.FC = () => {
                       className="h-24 w-auto object-contain"
                     />
                     <p className="mt-4 text-sm font-semibold text-gray-900">
-                      {award.year}
+                      {award.title}
                     </p>
                     <p className="mt-2 text-xs leading-relaxed text-gray-600">
                       {award.description}

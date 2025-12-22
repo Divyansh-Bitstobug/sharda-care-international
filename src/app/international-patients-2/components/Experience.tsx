@@ -48,7 +48,7 @@ const ExperiencedTeamSection: React.FC = () => {
           <h2 className="text-4xl font-medium text-gray-900">
             Experienced Team From Medicevo
           </h2>
-          <p className="mt-2 text-xs text-gray-500">
+          <p className="mt-2 text-xs md:text-base text-gray-500">
             A trusted team of specialist doctors is available 24/7 to guide you,
             answer your concerns, and deliver world‑class medical support
             whenever required.
