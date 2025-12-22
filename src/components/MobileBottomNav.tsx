@@ -22,7 +22,7 @@ const MobileBottomNav: React.FC = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g clip-path="url(#clip0_8982_13194)">
+            <g clipPath="url(#clip0_8982_13194)">
               <path
                 d="M-0.105469 1.80859H24.1014M-0.105469 7.86031H24.1014M-0.105469 13.912H24.1014"
                 stroke="#555555"
