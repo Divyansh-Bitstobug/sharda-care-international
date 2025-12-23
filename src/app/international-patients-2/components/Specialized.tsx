@@ -3,12 +3,14 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Image from "next/image";
+import Link from "next/link";
 
 type Program = {
   id: number;
   title: string;
   description: string;
   icon: string;
+  href: string;
 };
 
 const PROGRAMS: Program[] = [
@@ -17,24 +19,27 @@ const PROGRAMS: Program[] = [
     title: "Bone Marrow Transplant",
     description: "Advanced stem cell therapy for complex blood disorders.",
     icon: "/home/bone.svg",
+    href: "/bone-marrow"
   },
   {
     id: 2,
     title: "Kidney Transplant",
     description: "Minimally invasive surgery ensuring faster patient recovery.",
     icon: "/home/kidney.svg",
+    href: "/bone-marrow"
   },
   {
     id: 3,
     title: "Liver Transplant",
     description: "Expert care including living donor and cadaveric options.",
     icon: "/home/liver.svg",
+    href: "/bone-marrow"
   },
 ];
 
 const SpecializedTransplantPrograms: React.FC = () => {
   const renderCard = (program: Program) => (
-    <div
+    <Link href={program.href}
       className={`
         flex h-full flex-col justify-between rounded-2xl border bg-white p-8 text-center
         transition-all border-[#eaedf4] hover:border-[#ff7268] hover:shadow-[0_0_0_1px_rgba(255,114,104,0.25)]
@@ -55,11 +60,11 @@ const SpecializedTransplantPrograms: React.FC = () => {
         <h3 className="text-base md:text-lg font-semibold text-gray-900 max-w-[120px] text-left">{program.title}</h3>
       </div>
       <p className="mt-3 text-xs md:text-sm text-gray-500 text-left">{program.description}</p>
-    </div>
+    </Link>
   );
 
   return (
-    <section className="w-full py-8 md:py-16">
+    <section className="w-full md:py-16">
       <div className="mx-auto max-w-5xl px-4">
         <div className="text-center">
           <h2 className="text-2xl md:text-4xl font-medium text-gray-900">
@@ -82,7 +87,7 @@ const SpecializedTransplantPrograms: React.FC = () => {
         <div className="mt-8 md:hidden">
           <div className="relative rounded-2xl bg-white py-6">
             <button
-              className="absolute left-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md"
+              className="absolute left-0 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md"
               onClick={() => {
                 const swiperEl = document.querySelector(
                   ".transplant-swiper"

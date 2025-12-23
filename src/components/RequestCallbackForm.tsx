@@ -214,11 +214,12 @@ const RequestCallBackForm: React.FC = () => {
       >
         {/* WhatsApp button */}
         <Link
-          href="https://api.whatsapp.com/send/?phone=918698968698&text=Hi&type=phone_number&app_absent=0"
+          href="https://api.whatsapp.com/send/?phone=918800998987&text=Hi&type=phone_number&app_absent=0"
           className="bg-[#35b64a] flex-1 flex items-center px-2 py-2 gap-2  rounded-2xl  relative overflow-hidden"
           style={{
             boxShadow: "0 4px 32px 0 rgba(52, 172, 225, 0.10)",
           }}
+          
         >
           <Image
             src="/assets/background-blur.svg"
@@ -241,13 +242,13 @@ const RequestCallBackForm: React.FC = () => {
               WhatsApp Us
             </span>
             <span className="text-white font-bold text-xs leading-tight">
-              ShardaCare
+              @ShardaCare
             </span>
           </div>
         </Link>
         {/* Call button */}
         <Link
-          href="tel:+91 73000 40000"
+          href="https://t.me/shardacare"
           className="bg-[#47b2ec] flex-1 flex items-center px-2 py-2 gap-2  rounded-2xl  relative overflow-hidden"
           style={{
             boxShadow: "0 4px 32px 0 rgba(52, 172, 225, 0.10)",
@@ -262,16 +263,16 @@ const RequestCallBackForm: React.FC = () => {
           />
           <div className="ml-3 relative">
             <Image
-              src="/assets/phone.png"
+              src="/telegram-white.svg"
               alt="wahstapp"
               width={20}
               height={20}
             />
           </div>
           <div className="flex flex-col justify-center z-10">
-            <span className="text-white/80 font-semibold text-xs">Call Us</span>
+            <span className="text-white/80 font-semibold text-xs">Telegram Us</span>
             <span className="text-white font-bold text-xs leading-tight">
-              +91 73000 40000
+              @ShardaCare
             </span>
           </div>
         </Link>

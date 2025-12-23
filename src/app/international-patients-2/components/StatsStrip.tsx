@@ -89,7 +89,7 @@ export const StatsStrip: React.FC = () => {
         <div className="relative">
           {/* Arrows over card like screenshot */}
           <button
-            className="stats-prev absolute left-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-700 shadow-md"
+            className="stats-prev absolute -left-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-700 shadow-md"
             aria-label="Previous stat"
           >
             ←
@@ -106,6 +106,7 @@ export const StatsStrip: React.FC = () => {
             navigation={{ prevEl: ".stats-prev", nextEl: ".stats-next" }}
             slidesPerView={1}
             spaceBetween={16}
+            loop ={true}
             className="stats-swiper"
           >
             {stats.map((item) => (

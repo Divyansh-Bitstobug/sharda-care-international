@@ -29,14 +29,14 @@ const HomeHeader: React.FC = () => {
     <header className="fixed z-[100] w-full bg-white border-b border-gray-100">
       <div className="max-w-[1300px] mx-auto flex items-center justify-between px-4 py-2 h-16">
         {/* Logo */}
-        <div className="flex items-center">
+        <Link href={"/"} className="flex items-center">
           <Image
             src="/assets/logo.png"
             alt="ShardaCare"
             width={150}
             height={50}
           />
-        </div>
+        </Link>
 
         {/* Action Buttons */}
         <div className="flex items-center gap-3">
@@ -97,7 +97,7 @@ const HomeHeader: React.FC = () => {
             </div>
           </nav>
           {/* Emergency Contact */}
-          <Link href="tel:+91 73000 40000" className="group items-center px-3 py-1 rounded-full bg-gradient-to-r from-[#E3376D] to-[#ED814A] text-white min-w-[205px] transition-all md:flex hidden">
+          <Link href="tel:+91 88009 98987" className="group items-center px-3 py-1 rounded-full bg-gradient-to-r from-[#E3376D] to-[#ED814A] text-white min-w-[205px] transition-all md:flex hidden">
             {/* Phone icon */}
             <span className="rounded-full w-7 h-7 flex items-center justify-center mr-2">
               <Image 
@@ -113,7 +113,7 @@ const HomeHeader: React.FC = () => {
                 Emergency Contact
               </span>
               <span className="text-base font-medium mt-[-2px]">
-                +91 73000 40000
+                +91 88009 98987
               </span>
             </span>
             {/* Arrow icon */}
@@ -142,11 +142,11 @@ const HomeHeader: React.FC = () => {
             </span>
           </Link>
           {/* Mobile Visit Site button */}
-          <button className="flex md:hidden items-center gap-2 px-4 py-1 rounded-full bg-gradient-to-r from-[#E3376D] to-[#ED814A] font-bold min-h-[40px]">
+          <Link href={"https://www.shardacare.com/"} className="flex md:hidden items-center gap-2 px-4 py-1 rounded-full bg-gradient-to-r from-[#E3376D] to-[#ED814A] font-bold min-h-[40px]">
             <span className="text-[10px] font-semibold text-white">
               Visit India<br /> Website
             </span>
-          </button>
+          </Link>
 
           {/* Language Button & Dropdown */}
           <div

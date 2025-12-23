@@ -27,7 +27,6 @@ export default function HomePage() {
       <AwardsSection />
       <PatientStoriesSection />
       <ShardaGroupsSection />
-      <MobileBottomNav />
     </div>
   );
 }

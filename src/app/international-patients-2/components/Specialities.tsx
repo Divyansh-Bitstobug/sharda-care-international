@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useMemo, useState } from "react";
 
 type Item = {
@@ -7,6 +8,7 @@ type Item = {
   name: string;
   icon: string;
   type: "speciality" | "treatment" | "technology";
+  href: string;
 };
 
 const ALL_ITEMS: Item[] = [
@@ -16,31 +18,94 @@ const ALL_ITEMS: Item[] = [
     name: "Cardiac Sciences",
     type: "speciality",
     icon: "/home/cardiac.svg",
+    href: "/cardiac",
   },
-  { id: 2, name: "Oncology", type: "speciality", icon: "/home/oncology.svg" },
-  { id: 3, name: "Orthopedic", type: "speciality", icon: "/home/ortho.svg" },
-  { id: 4, name: "Neurosciences", type: "speciality", icon: "/home/neuro.svg" },
-  { id: 5, name: "ENT", type: "speciality", icon: "/home/ent.svg" },
-  { id: 6, name: "Urology", type: "speciality", icon: "/home/urology.svg" },
+  {
+    id: 2,
+    name: "Oncology",
+    type: "speciality",
+    icon: "/home/oncology.svg",
+    href: "/cardiac",
+  },
+  {
+    id: 3,
+    name: "Orthopedic",
+    type: "speciality",
+    icon: "/home/ortho.svg",
+    href: "/cardiac",
+  },
+  {
+    id: 4,
+    name: "Neurosciences",
+    type: "speciality",
+    icon: "/home/neuro.svg",
+    href: "/cardiac",
+  },
+  {
+    id: 5,
+    name: "ENT",
+    type: "speciality",
+    icon: "/home/ent.svg",
+    href: "/cardiac",
+  },
+  {
+    id: 6,
+    name: "Urology",
+    type: "speciality",
+    icon: "/home/urology.svg",
+    href: "/cardiac",
+  },
   {
     id: 7,
     name: "Critical Care",
     type: "speciality",
     icon: "/home/critical.svg",
+    href: "/cardiac",
   },
-  { id: 8, name: "GI Surgeries", type: "speciality", icon: "/home/gi.svg" },
+  {
+    id: 8,
+    name: "GI Surgeries",
+    type: "speciality",
+    icon: "/home/gi.svg",
+    href: "/cardiac",
+  },
   {
     id: 9,
     name: "Critical Care",
     type: "speciality",
     icon: "/home/critical.svg",
+    href: "/cardiac",
   },
-  { id: 10, name: "GI Surgeries", type: "speciality", icon: "/home/gi.svg" },
+  {
+    id: 10,
+    name: "GI Surgeries",
+    type: "speciality",
+    icon: "/home/gi.svg",
+    href: "/cardiac",
+  },
 
   // Treatments (sample)
-  { id: 101, name: "Angioplasty", type: "treatment", icon: "/home/gi.svg" },
-  { id: 102, name: "Bypass Surgery", type: "treatment", icon: "/home/gi.svg" },
-  { id: 103, name: "Chemotherapy", type: "treatment", icon: "/home/gi.svg" },
+  {
+    id: 101,
+    name: "Angioplasty",
+    type: "treatment",
+    icon: "/home/gi.svg",
+    href: "/cardiac",
+  },
+  {
+    id: 102,
+    name: "Bypass Surgery",
+    type: "treatment",
+    icon: "/home/gi.svg",
+    href: "/cardiac",
+  },
+  {
+    id: 103,
+    name: "Chemotherapy",
+    type: "treatment",
+    icon: "/home/gi.svg",
+    href: "/cardiac",
+  },
 
   // Technologies (sample)
   {
@@ -48,9 +113,22 @@ const ALL_ITEMS: Item[] = [
     name: "Robotic Surgery",
     type: "technology",
     icon: "/home/gi.svg",
+    href: "/cardiac",
   },
-  { id: 202, name: "3D Imaging", type: "technology", icon: "/home/gi.svg" },
-  { id: 203, name: "Gamma Knife", type: "technology", icon: "/home/gi.svg" },
+  {
+    id: 202,
+    name: "3D Imaging",
+    type: "technology",
+    icon: "/home/gi.svg",
+    href: "/cardiac",
+  },
+  {
+    id: 203,
+    name: "Gamma Knife",
+    type: "technology",
+    icon: "/home/gi.svg",
+    href: "/cardiac",
+  },
 ];
 
 const ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -67,6 +145,7 @@ export const MedicalSpecialitiesSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabKey>("speciality");
   const [activeLetter, setActiveLetter] = useState<string | null>(null);
   const [selectedItemId, setSelectedItemId] = useState<number | null>(2); // default Oncology
+  const router = useRouter();
 
   const filteredItems = useMemo(() => {
     return ALL_ITEMS.filter((item) => {
@@ -91,7 +170,7 @@ export const MedicalSpecialitiesSection: React.FC = () => {
 
   return (
     <>
-    <div id="specialities" />
+      <div id="specialities" />
       <section className="w-full bg-[#F3FBFF] py-16">
         <div className="mx-auto max-w-[1200px]">
           {/* Heading */}
@@ -117,7 +196,10 @@ export const MedicalSpecialitiesSection: React.FC = () => {
                   return (
                     <button
                       key={item.id}
-                      onClick={() => setSelectedItemId(item.id)}
+                      onClick={() => {
+                        setSelectedItemId(item.id);
+                        router.push(item.href)
+                      }}
                       className={`flex items-center justify-between rounded-lg border px-4 py-3 text-left transition-all text-[17px] ${
                         isActive
                           ? "border-[#ff7268] bg-white shadow-sm"
@@ -156,7 +238,7 @@ export const MedicalSpecialitiesSection: React.FC = () => {
                 </div>
               )} */}
 
-              <button className="block w-full text-center text-xs font-semibold tracking-wide text-[#ff7268] lg:hidden">
+              <button className="block w-full text-center text-xs font-semibold tracking-wide text-[#ff7268] lg:hidden mt-4">
                 VIEW ALL SPECIALITIES
               </button>
             </div>

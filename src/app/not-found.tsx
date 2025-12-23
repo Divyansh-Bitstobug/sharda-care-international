@@ -10,7 +10,7 @@ function UnderConstruction() {
       {/* Illustration placeholder */}
       <div className="mb-8 flex justify-center">
         {/* Replace with your SVG / image */}
-        <div className="w-[520px] h-full rounded-2xl flex items-center justify-center">
+        <div className="w-full md:w-[520px] h-full rounded-2xl flex items-center justify-center">
           <Image 
             src={"/illustration.jpg"}
             alt="illustration"

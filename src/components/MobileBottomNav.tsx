@@ -85,7 +85,7 @@ const MobileBottomNav: React.FC = () => {
 
         {/* WhatsApp */}
         <Link
-          href="https://wa.me/0000000000"
+          href="https://api.whatsapp.com/send/?phone=918800998987&text=Hi&type=phone_number&app_absent=0"
           className="flex flex-col items-center gap-1"
         >
           <Image
@@ -100,7 +100,7 @@ const MobileBottomNav: React.FC = () => {
 
         {/* Call Us */}
         <a
-          href="tel:+910000000000"
+          href="tel:+918800998987"
           className="flex flex-col items-center gap-1"
         >
           <Image
