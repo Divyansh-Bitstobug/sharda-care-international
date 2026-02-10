@@ -3,7 +3,6 @@ import MobileBottomNav from "@/components/MobileBottomNav";
 import { ClinicalTopStrip } from "./international-patients-2/components/TopStrip";
 import { StatsStrip } from "./international-patients-2/components/StatsStrip";
 import { InternationalPatientServices } from "./international-patients-2/components/Services";
-import { MedicalSpecialitiesSection } from "./international-patients-2/components/Specialities";
 import SpecializedTransplantPrograms from "./international-patients-2/components/Specialized";
 import TreatmentJourney from "./international-patients-2/components/Treatment";
 import ExperiencedTeamSection from "./international-patients-2/components/Experience";
@@ -14,6 +13,9 @@ import ShardaGroupsSection from "./international-patients-2/components/Groups";
 import HomeHeader from "@/components/HomeHeader";
 import HomeFooter from "@/components/HomeFooter";
 import HeroSection from "./international-patients-2/components/HeroSection";
+import MedicalSpecialtiesSection from "./international-patients-2/components/Specialities";
+import MedicalExpertsSection from "./international-patients-2/components/Experts";
+import InfrastructureSection from "./international-patients-2/components/Infrastructure";
 
 export default function Home() {
   return (
@@ -23,11 +25,12 @@ export default function Home() {
         <ClinicalTopStrip />
         <HeroSection />
         <StatsStrip />
-        <InternationalPatientServices />
-        <MedicalSpecialitiesSection />
+        {/* <InternationalPatientServices /> */}
+        <MedicalSpecialtiesSection />
         <SpecializedTransplantPrograms />
         <TreatmentJourney />
-        <ExperiencedTeamSection />
+        <MedicalExpertsSection />
+        <InfrastructureSection />
         <AdvancedMedicalTechnologies />
         <AwardsSection />
         <PatientStoriesSection />

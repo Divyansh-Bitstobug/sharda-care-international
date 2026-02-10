@@ -33,13 +33,13 @@ const HeroSection: React.FC = () => (
               </span>{" "}
               for <br className="hidden md:block" />
               International Healthcare
-              <br /> Services
+              <br /> Needs
             </h2>
             <p className="text-[#4B4B4B] mb-5 text-left text-sm md:text-lg max-w-[260px] md:max-w-lg">
               ShardaCare understands the challenges of seeking treatment abroad.
             </p>
             <div className="flex sm:flex-row gap-2 sm:gap-4 mb-2 sm:mb-4 w-full mx-auto md:mx-0">
-              <Link href={"/under-construction"} className=" px-2 md:px-5 md:py-2 py-1 rounded-3xl bg-black text-[10px] md:text-base text-white font-semibold w-fit flex items-center justify-center gap-[4px] md:gap-2">
+              <Link href={"/under-construction"} className=" px-2 md:px-5 md:py-2 py-1 rounded-3xl bg-black text-[10px] md:text-base text-white font-medium w-fit flex items-center justify-center gap-[4px] md:gap-2">
                 <Image
                   src="/assets/doctor-btn.svg"
                   alt="icon"
@@ -49,8 +49,8 @@ const HeroSection: React.FC = () => (
                 ></Image>
                 Find A Doctor
               </Link>
-              <Link href={"/under-construction"}className="px-2 py-1 md:px-5 md:py-2 rounded-3xl border text-[10px] md:text-base border-black font-semibold w-fit flex items-center justify-center gap-2">
-                Book Appointment
+              <Link href={"/under-construction"}className="px-2 py-1 md:px-5 md:py-2 rounded-3xl border text-[10px] md:text-base border-black font-medium w-fit flex items-center justify-center gap-2">
+               Get Expert Opinion
                 <span className="bg-black px-1 py-1 rounded-full">
                   <FaChevronRight color="white" size={10} />
                 </span>

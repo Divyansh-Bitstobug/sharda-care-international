@@ -1,319 +1,264 @@
 "use client";
+
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import {
+  HeartPulse,
+  Ribbon,
+  Brain,
+  Bone,
+  Ear,
+  Activity,
+  Syringe,
+  Scissors,
+  Siren,
+  ArrowUpRight,
+} from "lucide-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import React, { useMemo, useState } from "react";
 
-type Item = {
+// --- Data ---
+
+interface Specialty {
   id: number;
-  name: string;
-  icon: string;
-  type: "speciality" | "treatment" | "technology";
-  href: string;
-};
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  link: string;
+}
 
-const ALL_ITEMS: Item[] = [
-  // Specialities
+const specialtiesData: Specialty[] = [
   {
     id: 1,
-    name: "Cardiac Sciences",
-    type: "speciality",
-    icon: "/home/cardiac.svg",
-    href: "/cardiac",
+    title: "Cardiac Sciences",
+    description:
+      "Advanced heart care featuring 24/7 emergency response and non-invasive diagnostics.",
+    icon: (
+      <Image
+        src={"/specialities/cardiac.svg"}
+        alt="icon"
+        width={62}
+        height={62}
+      />
+    ),
+    link: "#",
   },
   {
     id: 2,
-    name: "Oncology",
-    type: "speciality",
-    icon: "/home/oncology.svg",
-    href: "/cardiac",
+    title: "Oncology",
+    description:
+      "Advanced cancer care featuring precision diagnostics and specialized surgical expertise.",
+    icon: (
+      <Image
+        src={"/specialities/oncology.svg"}
+        alt="icon"
+        width={62}
+        height={62}
+      />
+    ),
+    link: "#",
   },
   {
     id: 3,
-    name: "Orthopedic",
-    type: "speciality",
-    icon: "/home/ortho.svg",
-    href: "/cardiac",
+    title: "Neurosciences (Brain & Spine Surgery)",
+    description:
+      "Comprehensive treatment for complex neurological disorders and minimally invasive spine surgeries.",
+    icon: (
+      <Image
+        src={"/specialities/neuro.svg"}
+        alt="icon"
+        width={62}
+        height={62}
+      />
+    ),
+    link: "#",
   },
   {
     id: 4,
-    name: "Neurosciences",
-    type: "speciality",
-    icon: "/home/neuro.svg",
-    href: "/cardiac",
+    title: "Orthopaedics & Joint Replacement",
+    description:
+      "Specialized care for bone health, sports injuries, and robotic-assisted joint replacement surgeries.",
+    icon: (
+      <Image
+        src={"/specialities/ortho.svg"}
+        alt="icon"
+        width={62}
+        height={62}
+      />
+    ),
+    link: "#",
   },
   {
     id: 5,
-    name: "ENT",
-    type: "speciality",
-    icon: "/home/ent.svg",
-    href: "/cardiac",
+    title: "ENT & Cochlear Implant",
+    description:
+      "Expert solutions for hearing loss, sinus issues, and advanced cochlear implant procedures.",
+    icon: (
+      <Image src={"/specialities/ent.svg"} alt="icon" width={62} height={62} />
+    ),
+    link: "#",
   },
   {
     id: 6,
-    name: "Urology",
-    type: "speciality",
-    icon: "/home/urology.svg",
-    href: "/cardiac",
+    title: "Urology",
+    description:
+      "Precision treatment for kidney health, urinary disorders, and advanced laser-assisted procedures.",
+    icon: (
+      <Image
+        src={"/specialities/urology.svg"}
+        alt="icon"
+        width={62}
+        height={62}
+      />
+    ),
+    link: "#",
   },
   {
     id: 7,
-    name: "Critical Care",
-    type: "speciality",
-    icon: "/home/critical.svg",
-    href: "/cardiac",
+    title: "Bone Marrow Transplantation (BMT)",
+    description:
+      "High-precision bone marrow transplants and specialized care for complex blood-related disorders.",
+    icon: (
+      <Image src={"/specialities/bone.svg"} alt="icon" width={62} height={62} />
+    ),
+    link: "#",
   },
   {
     id: 8,
-    name: "GI Surgeries",
-    type: "speciality",
-    icon: "/home/gi.svg",
-    href: "/cardiac",
+    title: "Plastic & Reconstructive Surgery",
+    description:
+      "Specialized reconstructive procedures and aesthetic surgeries led by board-certified experts.",
+    icon: (
+      <Image
+        src={"/specialities/plastic.svg"}
+        alt="icon"
+        width={62}
+        height={62}
+      />
+    ),
+    link: "#",
   },
   {
     id: 9,
-    name: "Critical Care",
-    type: "speciality",
-    icon: "/home/critical.svg",
-    href: "/cardiac",
+    title: "Critical Care Medicine",
+    description:
+      "Round-the-clock intensive care with advanced life support systems for emergency recovery.",
+    icon: (
+      <Image
+        src={"/specialities/critical.svg"}
+        alt="icon"
+        width={62}
+        height={62}
+      />
+    ),
+    link: "#",
   },
   {
     id: 10,
-    name: "GI Surgeries",
-    type: "speciality",
-    icon: "/home/gi.svg",
-    href: "/cardiac",
-  },
-
-  // Treatments (sample)
-  {
-    id: 101,
-    name: "Angioplasty",
-    type: "treatment",
-    icon: "/home/gi.svg",
-    href: "/cardiac",
-  },
-  {
-    id: 102,
-    name: "Bypass Surgery",
-    type: "treatment",
-    icon: "/home/gi.svg",
-    href: "/cardiac",
-  },
-  {
-    id: 103,
-    name: "Chemotherapy",
-    type: "treatment",
-    icon: "/home/gi.svg",
-    href: "/cardiac",
-  },
-
-  // Technologies (sample)
-  {
-    id: 201,
-    name: "Robotic Surgery",
-    type: "technology",
-    icon: "/home/gi.svg",
-    href: "/cardiac",
-  },
-  {
-    id: 202,
-    name: "3D Imaging",
-    type: "technology",
-    icon: "/home/gi.svg",
-    href: "/cardiac",
-  },
-  {
-    id: 203,
-    name: "Gamma Knife",
-    type: "technology",
-    icon: "/home/gi.svg",
-    href: "/cardiac",
+    title: "Gastrointestinal (GI) Surgery",
+    description:
+      "Advanced surgical interventions for digestive health using the latest laparoscopic techniques.",
+    icon: (
+      <Image
+        src={"/specialities/gastro.svg"}
+        alt="icon"
+        width={62}
+        height={62}
+      />
+    ),
+    link: "#",
   },
 ];
 
-const ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+// --- Sub-Components ---
 
-type TabKey = "speciality" | "treatment" | "technology";
+const SectionHeader = () => (
+  <div className="flex flex-col justify-start h-full pr-6">
+    <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-4 leading-tight">
+      Excellence Across Medical Specialties
+    </h2>
+    <p className="text-lg text-gray-600 leading-relaxed mb-6">
+      Access world-class clinical expertise and advanced treatment protocols
+      across our specialized centers of excellence.
+    </p>
+  </div>
+);
 
-const tabConfig: { key: TabKey; label: string }[] = [
-  { key: "speciality", label: "Speciality" },
-  { key: "treatment", label: "Treatments" },
-  { key: "technology", label: "Technologies" },
-];
+// Added h-full to the outer div so it stretches to fill the SwiperSlide
+const SpecialtyCard = ({ specialty }: { specialty: Specialty }) => (
+  <div className="bg-white rounded-2xl p-8 flex flex-col h-full shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-blue-100">
+    <div className="mb-6">{specialty.icon}</div>
+    <p className="text-xl font-medium text-black mb-3">{specialty.title}</p>
+    <p className="text-[#4B4B4B] text-sm leading-relaxed mb-6 flex-grow">
+      {specialty.description}
+    </p>
+    <a
+      href={specialty.link}
+      className="inline-flex items-center text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors"
+    >
+      Learn More
+      <ArrowUpRight className="w-4 h-4 ml-1" />
+    </a>
+  </div>
+);
 
-export const MedicalSpecialitiesSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<TabKey>("speciality");
-  const [activeLetter, setActiveLetter] = useState<string | null>(null);
-  const [selectedItemId, setSelectedItemId] = useState<number | null>(2); // default Oncology
-  const router = useRouter();
+// --- Main Component ---
 
-  const filteredItems = useMemo(() => {
-    return ALL_ITEMS.filter((item) => {
-      if (item.type !== activeTab) return false;
-      if (!activeLetter) return true;
-      return item.name.toUpperCase().startsWith(activeLetter);
-    });
-  }, [activeTab, activeLetter]);
-
-  // Keep selected item in sync with visible list
-  React.useEffect(() => {
-    if (
-      selectedItemId === null ||
-      !filteredItems.some((i) => i.id === selectedItemId)
-    ) {
-      setSelectedItemId(filteredItems[0]?.id ?? null);
-    }
-  }, [filteredItems, selectedItemId]);
-
-  const selectedItem =
-    filteredItems.find((i) => i.id === selectedItemId) ?? null;
-
+const MedicalSpecialtiesSection = () => {
   return (
-    <>
-      <div id="specialities" />
-      <section className="w-full bg-[#F3FBFF] py-16">
-        <div className="mx-auto max-w-[1200px]">
-          {/* Heading */}
-          <div className="text-center">
-            <h2 className="text-2xl md:text-4xl font-medium text-gray-900">
-              Medical Specialties
-            </h2>
-            <p className="mt-2 text-sm md:text-base text-gray-500">
-              Expert treatment across diverse medical fields, enabling better
-              outcomes through advanced technologies and personalized treatment
-              plans.
-            </p>
+    <section className="py-10 px-4 sm:px-6 lg:px-8 bg-[#F3FBFF] overflow-hidden">
+      <div className="max-w-[1280px] mx-auto">
+        {/* === MOBILE LAYOUT (Stacked Title + Swiper) === */}
+        <div className="block lg:hidden">
+          <div className="mb-8">
+            <SectionHeader />
           </div>
 
-          {/* Content */}
-          <div className="mt-10 grid gap-6 lg:grid-cols-[1.6fr_minmax(0,1fr)]">
-            {/* LEFT: list + detail (stack on mobile) */}
-            <div className=" h-full">
-              {/* List */}
-              <div className="grid gap-y-8 gap-x-6 sm:grid-cols-2">
-                {filteredItems.map((item) => {
-                  const isActive = item.id === selectedItemId;
-                  return (
-                    <button
-                      key={item.id}
-                      onClick={() => {
-                        setSelectedItemId(item.id);
-                        router.push(item.href)
-                      }}
-                      className={`flex items-center justify-between rounded-lg border px-4 py-3 text-left transition-all text-[17px] ${
-                        isActive
-                          ? "border-[#ff7268] bg-white shadow-sm"
-                          : "border-transparent bg-white/70 hover:bg-white"
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        {/* Icon placeholder */}
-                        <div className="flex p-2 items-center justify-center rounded-full bg-[#F3FBFF]">
-                          <Image
-                            src={item.icon}
-                            alt={item.name}
-                            width={24}
-                            height={24}
-                          />
-                        </div>
-                        <span className="text-sm font-medium text-gray-800">
-                          {item.name}
-                        </span>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Mobile detail card */}
-              {/* {selectedItem && (
-                <div className="rounded-xl bg-white p-4 shadow-sm lg:hidden mx-4">
-                  <h3 className="text-base font-semibold text-gray-900">
-                    {selectedItem.name}
-                  </h3>
-                  <p className="mt-2 text-sm text-gray-500">
-                    Short description about {selectedItem.name} and key services
-                    offered under this {activeTab}.
-                  </p>
-                </div>
-              )} */}
-
-              <button className="block w-full text-center text-xs font-semibold tracking-wide text-[#ff7268] lg:hidden mt-4">
-                VIEW ALL SPECIALITIES
-              </button>
-            </div>
-
-            {/* RIGHT: search panel */}
-            <div className="rounded-2xl bg-white p-4 shadow-sm mx-4">
-              <div className="flex items-center justify-between gap-4">
-                <p className="text-sm font-semibold text-gray-900">Search By</p>
-              </div>
-
-              {/* Tabs */}
-              <div className="mt-3 inline-flex gap-2 text-xs">
-                {tabConfig.map((tab) => {
-                  const isActive = tab.key === activeTab;
-                  return (
-                    <button
-                      key={tab.key}
-                      onClick={() => {
-                        setActiveTab(tab.key);
-                        setActiveLetter(null);
-                      }}
-                      className={`relative rounded-[999px] border px-4 py-2 text-[10px] md:text-sm font-medium transition
-          ${
-            isActive
-              ? "border-transparent bg-gradient-to-r from-[#E33C6A] to-[#EC7D4B] text-white shadow-md"
-              : "border-[#eceff5] bg-white text-gray-800 hover:border-[#ff6a6a33]"
-          }`}
-                    >
-                      {tab.label}
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Alphabet grid */}
-              <div className="mt-6 grid grid-cols-5 gap-4 text-sm sm:grid-cols-6">
-                {ALPHABETS.map((letter) => {
-                  const isActive = letter === activeLetter;
-                  const hasItems = ALL_ITEMS.some(
-                    (i) =>
-                      i.type === activeTab &&
-                      i.name.toUpperCase().startsWith(letter)
-                  );
-                  const disabled = !hasItems;
-
-                  return (
-                    <button
-                      key={letter}
-                      disabled={disabled}
-                      onClick={() =>
-                        setActiveLetter((prev) =>
-                          prev === letter ? null : letter
-                        )
-                      }
-                      className={`flex h-13 md:h-12 items-center justify-center rounded-full border text-base font-medium transition ${
-                        disabled
-                          ? "cursor-not-allowed border-gray-200 text-gray-300"
-                          : isActive
-                          ? "border-[#ff7268] bg-[#fff3f2] text-[#ff7268]"
-                          : "border-gray-200 bg-[#f6f8fc] text-gray-600 hover:border-[#ff7268]/60 hover:text-[#ff7268]"
-                      }`}
-                    >
-                      {letter}
-                    </button>
-                  );
-                })}
-              </div>
-
-              <button className="mt-6 text-xs font-semibold tracking-wide text-[#EA6D53]">
-                VIEW ALL SPECIALITY
-              </button>
-            </div>
-          </div>
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={16}
+            slidesPerView={1.15}
+            breakpoints={{
+              640: { slidesPerView: 1.5, spaceBetween: 20 },
+              768: { slidesPerView: 2.2, spaceBetween: 24 },
+            }}
+            className="pb-12 !overflow-visible"
+          >
+            {specialtiesData.map((specialty) => (
+              // Added !h-auto to force the slide to stretch to the container's height
+              <SwiperSlide key={specialty.id} className="!h-auto">
+                <SpecialtyCard specialty={specialty} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-      </section>
-    </>
+
+        {/* === DESKTOP LAYOUT (Unified Grid) === */}
+        <div className="hidden lg:grid grid-cols-4 gap-6">
+          <div className="col-span-2 row-span-1">
+            <SectionHeader />
+          </div>
+          {specialtiesData.map((specialty) => (
+            <div key={specialty.id} className="col-span-1">
+              <SpecialtyCard specialty={specialty} />
+            </div>
+          ))}
+        </div>
+
+        {/* === VIEW ALL BUTTON === */}
+        <div className="mt-12 flex justify-center w-full">
+          <button className="group flex items-center gap-2 px-8 py-3 rounded-xl border border-[#34ACE1] bg-white text-[#34ACE1] font-semibold hover:bg-blue-50 transition-colors shadow-sm">
+            View All
+            <span className="bg-[#34ACE1] text-white rounded-full p-1 w-5 h-5 flex items-center justify-center text-xs group-hover:bg-[#34ACE1] group-hover:text-white">
+              {">"}
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
+
+export default MedicalSpecialtiesSection;

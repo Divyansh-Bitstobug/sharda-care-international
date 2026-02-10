@@ -78,7 +78,7 @@ export const InternationalPatientServices: React.FC = () => {
   return (
     <>
     <div id="international-services" />
-      <section className="w-full bg-white py-16">
+      <section className="w-full bg-white py-10">
         {/* Heading */}
         <div className="mx-auto max-w-[1200px] px-4 text-center">
           <h2 className="text-2xl md:text-4xl font-medium text-[#333]">

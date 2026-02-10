@@ -88,7 +88,7 @@ const ShardaGroupsSection: React.FC = () => {
   );
 
   return (
-    <section id="sharda-group" className="w-full bg-white py-16">
+    <section id="sharda-group" className="w-full bg-white py-10">
       <div className="mx-auto max-w-6xl px-4">
         {/* Heading */}
         <div className="text-center">

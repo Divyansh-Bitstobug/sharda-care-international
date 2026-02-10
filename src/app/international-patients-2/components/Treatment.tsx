@@ -18,99 +18,75 @@ type Step = {
 const STEPS: Step[] = [
   {
     id: 1,
-    title: "Case ",
-    subtitle: "Assessment",
+    title: "Submit Your",
+    subtitle: "Medical Query",
     description:
-      "Our clinical team thoroughly reviews your medical history and case summaries prior to your arrival for effective preparation.",
+      "Share your medical concern and reports via our website, WhatsApp, or email.",
     icon: "/home/case.svg",
   },
   {
     id: 2,
-    title: "Teleconsultation",
-    subtitle: "(if required)",
+    title: "Connect with Our ",
+    subtitle: "International Patient Team",
     description:
-      "We conduct a teleconsultation to discuss your case and address any initial concerns before your physical visit.",
+      "A dedicated international patient coordinator contacts you within 24 hours to understand your requirements.",
     icon: "/home/teleconsultation.svg",
   },
   {
     id: 3,
-    title: "Appointment",
-    subtitle: "Assistance",
+    title: "Get Expert Medical Opinion",
+    subtitle: "",
     description:
-      "Our dedicated team assists in scheduling appointments with relevant specialists, ensuring a streamlined and efficient process.",
+      "Receive a personalized treatment plan, estimated cost, and recovery timeline from our specialist doctors.",
     icon: "/home/appointment.svg",
   },
   {
     id: 4,
-    title: "Visa",
-    subtitle: "Assistance",
+    title: "Visa & Travel Assistance",
+    subtitle: "",
     description:
-      "We provide comprehensive visa assistance for international patients to facilitate hassle-free entry into the country for treatment.",
+      "End-to-end assistance for medical visas, travel guidance, and accommodation.",
     icon: "/home/visa.svg",
   },
   {
     id: 5,
-    title: "Complementary Pick-up and Drop",
+    title: "Arrival in India",
     subtitle: "",
     description:
-      "Enjoy complimentary airport pick-up and drop-off services to ensure a comfortable start and end to your journey.",
+      "Airport pickup, logistics assistance, language support, and a dedicated coordinator during your stay.",
     icon: "/home/complement.svg",
   },
   {
     id: 6,
-    title: "Foreign Language Interpreter Service",
-    subtitle: "",
+    title: "Doctor Consultation & ",
+    subtitle: "Diagnostics",
     description:
-      "Our full-time interpreter services in multiple languages ensure communication and understanding throughout your medical stay.",
-    icon: "/home/foreign.svg",
+      "In-person doctor consultation, required investigations, and final confirmation of the treatment plan.",
+    icon: "/home/doctor.svg",
   },
   {
     id: 7,
-    title: "Express Check-In at International Patient's Lounge",
+    title: "Treatment & Hospital Care",
     subtitle: "",
     description:
-      "Experience a swift check-in process through our dedicated International Patient’s Lounge, ensuring a comfortable and efficient arrival.",
-    icon: "/home/express.svg",
+      "World-class medical care under expert doctors  at our world class facility.",
+    icon: "/home/treatment.svg",
   },
   {
     id: 8,
-    title: "Dedicated Buddy/Staff Allocation",
-    subtitle: "",
+    title: "Return Travel Support after",
+    subtitle: "Completion of Treatment",
     description:
-      "A dedicated staff buddy offers personalized support and seamless coordination throughout your treatment journey.",
-    icon: "/home/dedicated.svg",
+      "CompleteDocumnetation support , Airport drop and assistance until your safe departure.",
+    icon: "/home/return.svg",
   },
   {
     id: 9,
-    title: "Food",
-    subtitle: "Arrangements",
-    description:
-      "We provide patients and attendants with diverse vegetarian and non-vegetarian cuisine choices to meet nutritional needs.",
-    icon: "/home/food.svg",
-  },
-  {
-    id: 10,
-    title: "Affordable and Comfortable Guest House Arrangement ",
+    title: "Post-Treatment Follow-Up",
     subtitle: "",
     description:
-      "We assist in arranging affordable, comfortable guest house accommodations for a pleasant stay for you and your family.",
-    icon: "/home/affordable.svg",
-  },
-  {
-    id: 11,
-    title: "Ambulance Pick-Up (if required)",
-    subtitle: "",
-    description:
-      "For emergencies or specific medical needs, we offer ambulance services to transport you safely to the hospital.",
-    icon: "/home/ambulance.svg",
-  },
-  {
-    id: 12,
-    title: "Post",
-    subtitle: "Treatment Support",
-    description:
-      "We support your recovery with dedicated follow-ups, ongoing guidance, and continuous safety monitoring.",
-    icon: "/home/ambulance.svg",
+      "Online consultations, report reviews, and continued medical support even after you return home.",
+    icon: "/home/post.svg",
   },
 ];
 
@@ -129,11 +105,11 @@ const TreatmentJourney: React.FC = () => {
         <div className="flex flex-1 flex-col rounded-r-3xl py-3  md:py-5 min-h-[190px]">
           <div className="flex items-start justify-between gap-4 px-4 md:px-6 min-h-[70px]">
             <div>
-              <div className="text-base md:text-lg font-semibold text-gray-900">
+              <div className="text-base md:text-lg font-medium text-gray-900">
                 {step.title}
               </div>
               {step.subtitle && (
-                <div className="text-base md:text-lg font-semibold text-gray-900">
+                <div className="text-base md:text-lg font-medium text-gray-900">
                   {step.subtitle}
                 </div>
               )}
@@ -141,7 +117,7 @@ const TreatmentJourney: React.FC = () => {
 
             {/* Icon placeholder – replace with real icon */}
             <div className="flex items-center justify-center">
-              <Image src={step.icon} alt={step.title} width={32} height={32} />
+              <Image src={step.icon} alt={step.title} width={40} height={40} />
             </div>
           </div>
           <div className=" h-px w-full border-t border-dashed border-[#D9D9D9]" />
@@ -154,7 +130,7 @@ const TreatmentJourney: React.FC = () => {
   );
 
   return (
-    <section id="journey" className="w-full bg-white py-16 relative">
+    <section id="journey" className="w-full bg-white py-10 relative">
       <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 mt-[40px] md:mt-[43px] 2xl:mt-[43px]">
         <div className="h-px w-full border-t border-dashed border-[#E33C6A]" />
       </div>
