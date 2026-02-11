@@ -1,23 +1,12 @@
 "use client";
 
-import React, { useState } from "react"; // 1. Import useState
+import React, { useState } from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import {
-  Bone,
-  Activity,
-  Brain,
-  MoveVertical,
-  HeartPulse,
-  Baby,
-  Heart,
-  Bot,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
-import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // --- Types & Data ---
 type Program = {
@@ -26,7 +15,6 @@ type Program = {
   title: string;
   description: string;
   icon: React.ReactNode;
-  href: string;
 };
 
 const PROGRAMS: Program[] = [
@@ -36,16 +24,7 @@ const PROGRAMS: Program[] = [
     title: "Bone Marrow Transplantation (BMT)",
     description:
       "Comprehensive care for complex hematological conditions and malignant blood disorders.",
-    icon: (
-      <Image
-        src={"/svg/bone.svg"}
-        alt="icon"
-        width={1000}
-        height={1000}
-        className="w-8 h-8"
-      />
-    ),
-    href: "#",
+    icon: <Image src={"/svg/bone.svg"} alt="icon" width={32} height={32} />,
   },
   {
     id: "2",
@@ -53,16 +32,7 @@ const PROGRAMS: Program[] = [
     title: "Kidney Transplant",
     description:
       "Minimally invasive surgery ensuring faster patient recovery and clinical outcomes.",
-    icon: (
-      <Image
-        src={"/svg/kidney.svg"}
-        alt="icon"
-        width={1000}
-        height={1000}
-        className="w-8 h-8"
-      />
-    ),
-    href: "#",
+    icon: <Image src={"/svg/kidney.svg"} alt="icon" width={32} height={32} />,
   },
   {
     id: "3",
@@ -70,16 +40,7 @@ const PROGRAMS: Program[] = [
     title: "Brain Surgery (Neurosurgery)",
     description:
       "Precision neuro-navigation for complex tumors and vascular conditions.",
-    icon: (
-      <Image
-        src={"/svg/brain.svg"}
-        alt="icon"
-        width={1000}
-        height={1000}
-        className="w-8 h-8"
-      />
-    ),
-    href: "#",
+    icon: <Image src={"/svg/brain.svg"} alt="icon" width={32} height={32} />,
   },
   {
     id: "4",
@@ -87,16 +48,7 @@ const PROGRAMS: Program[] = [
     title: "Spine Surgery",
     description:
       "Minimally invasive techniques for spinal correction and long-term pain relief.",
-    icon: (
-      <Image
-        src={"/svg/spine.svg"}
-        alt="icon"
-        width={1000}
-        height={1000}
-        className="w-8 h-8"
-      />
-    ),
-    href: "#",
+    icon: <Image src={"/svg/spine.svg"} alt="icon" width={32} height={32} />,
   },
   {
     id: "5",
@@ -104,16 +56,7 @@ const PROGRAMS: Program[] = [
     title: "Heart Valve Replacement Surgery",
     description:
       "Advanced surgical and catheter-based options for valvular restoration.",
-    icon: (
-      <Image
-        src={"/svg/heart.svg"}
-        alt="icon"
-        width={1000}
-        height={1000}
-        className="w-8 h-8"
-      />
-    ),
-    href: "#",
+    icon: <Image src={"/svg/heart.svg"} alt="icon" width={32} height={32} />,
   },
   {
     id: "6",
@@ -121,16 +64,7 @@ const PROGRAMS: Program[] = [
     title: "In Vitro Fertilization (IVF)",
     description:
       "Compassionate fertility care utilizing the latest embryology technology.",
-    icon: (
-      <Image
-        src={"/svg/in.svg"}
-        alt="icon"
-        width={1000}
-        height={1000}
-        className="w-8 h-8"
-      />
-    ),
-    href: "#",
+    icon: <Image src={"/svg/in.svg"} alt="icon" width={32} height={32} />,
   },
   {
     id: "7",
@@ -142,12 +76,10 @@ const PROGRAMS: Program[] = [
       <Image
         src={"/svg/transcatheter.svg"}
         alt="icon"
-        width={1000}
-        height={1000}
-        className="w-8 h-8"
+        width={32}
+        height={32}
       />
     ),
-    href: "#",
   },
   {
     id: "8",
@@ -155,16 +87,7 @@ const PROGRAMS: Program[] = [
     title: "Robotic-Assisted Surgery",
     description:
       "Enhanced surgical precision with less pain and shorter hospital stays.",
-    icon: (
-      <Image
-        src={"/svg/robotic.svg"}
-        alt="icon"
-        width={1000}
-        height={1000}
-        className="w-8 h-8"
-      />
-    ),
-    href: "#",
+    icon: <Image src={"/svg/robotic.svg"} alt="icon" width={32} height={32} />,
   },
 ];
 
@@ -189,7 +112,6 @@ const ProgramCard = ({ program }: { program: Program }) => (
 );
 
 const SpecializedTransplantPrograms: React.FC = () => {
-  // 2. Create state to hold the button elements
   const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
   const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
 
@@ -207,27 +129,9 @@ const SpecializedTransplantPrograms: React.FC = () => {
         </div>
 
         <div className="relative group/slider">
-          {/* 3. Attach 'ref' using the state setter functions */}
-
-          {/* Desktop Left Arrow */}
-          <button
-            ref={(node) => setPrevEl(node)}
-            className="absolute -left-4 lg:-left-12 top-1/2 z-10 hidden md:flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-600 shadow-md border border-gray-100 hover:text-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-
-          {/* Desktop Right Arrow */}
-          <button
-            ref={(node) => setNextEl(node)}
-            className="absolute -right-4 lg:-right-12 top-1/2 z-10 hidden md:flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-600 shadow-md border border-gray-100 hover:text-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
+          {/* Swiper */}
           <Swiper
             modules={[Navigation]}
-            // 4. Pass the state variables directly to navigation
             navigation={{ prevEl, nextEl }}
             spaceBetween={24}
             slidesPerView={1}
@@ -244,22 +148,39 @@ const SpecializedTransplantPrograms: React.FC = () => {
             ))}
           </Swiper>
 
-          {/* Mobile-Only Navigation Overlay */}
-          <div className="flex md:hidden absolute top-1/2 w-full justify-between px-0 z-20 pointer-events-none -mt-4"></div>
-
+          {/* --- NAVIGATION ARROWS --- */}
+          
+          {/* 1. Desktop: Absolute positioning (Left/Right) */}
           <button
-            onClick={() => prevEl?.click()} // Programmatically click the main nav button
-            className="md:hidden absolute left-0 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md border border-gray-100 -ml-3"
+            ref={(node) => setPrevEl(node)}
+            className="hidden md:flex absolute -left-4 lg:-left-12 top-1/2 z-10 h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-600 shadow-md border border-gray-100 hover:text-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <ChevronLeft className="w-5 h-5 text-gray-600" />
+            <ChevronLeft className="w-6 h-6" />
           </button>
 
           <button
-            onClick={() => nextEl?.click()} // Programmatically click the main nav button
-            className="md:hidden absolute right-0 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-blue-400 shadow-md border border-blue-400 -mr-3"
+            ref={(node) => setNextEl(node)}
+            className="hidden md:flex absolute -right-4 lg:-right-12 top-1/2 z-10 h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-600 shadow-md border border-gray-100 hover:text-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <ChevronRight className="w-5 h-5 text-white" />
+            <ChevronRight className="w-6 h-6" />
           </button>
+
+          {/* 2. Mobile: Flex container at bottom */}
+          <div className="mt-6 flex items-center justify-center gap-4 md:hidden">
+            <button
+              onClick={() => prevEl?.click()}
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm text-gray-600 hover:bg-gray-50 active:scale-95 transition-transform"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => nextEl?.click()}
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#34ACE1] border border-[#34ACE1] shadow-sm text-white hover:bg-blue-500 active:scale-95 transition-transform"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -93,7 +93,6 @@ const FacilityCard = ({ item }: { item: Facility }) => (
     <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-gray-100">
       {/* Placeholder div - Replace with <Image /> */}
       <div className="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-400">
-        {/* Placeholder Icon */}
         <svg
           className="h-12 w-12"
           fill="none"
@@ -109,7 +108,7 @@ const FacilityCard = ({ item }: { item: Facility }) => (
         </svg>
       </div>
 
-      {/* UNCOMMENT THIS when you have your images ready: */}
+      {/* Actual Image */}
       <Image src={item.image} alt={item.title} fill className="object-cover" />
     </div>
 
@@ -127,9 +126,6 @@ const FacilityCard = ({ item }: { item: Facility }) => (
 
 // --- Main Section ---
 const InfrastructureSection: React.FC = () => {
-  const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
-  const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
-
   return (
     <section className="w-full bg-white py-10">
       <div className="mx-auto w-full max-w-[1400px]">
@@ -147,40 +143,24 @@ const InfrastructureSection: React.FC = () => {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative group">
-          {/* Desktop Navigation Arrows */}
-          <button
-            ref={(node) => setPrevEl(node)}
-            className="absolute left-4 top-[40%] z-20 hidden -translate-y-1/2 items-center justify-center rounded-full bg-white h-12 w-12 shadow-lg transition-transform hover:scale-105 hover:bg-gray-50 md:flex disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <ChevronLeft className="h-6 w-6 text-gray-700" />
-          </button>
-
-          <button
-            ref={(node) => setNextEl(node)}
-            className="absolute right-4 top-[40%] z-20 hidden -translate-y-1/2 items-center justify-center rounded-full bg-white h-12 w-12 shadow-lg transition-transform hover:scale-105 hover:bg-gray-50 md:flex disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <ChevronRight className="h-6 w-6 text-gray-700" />
-          </button>
-
-          {/* Swiper */}
+        <div className="relative">
           <Swiper
             modules={[Navigation, Pagination]}
-            navigation={{ prevEl, nextEl }}
+            // 1. USE CSS SELECTORS FOR NAVIGATION
+            navigation={{ prevEl: ".infra-prev", nextEl: ".infra-next" }}
             pagination={{
               clickable: true,
-              // This relies on the global styles below for the blue dash effect
             }}
             centeredSlides={true}
             loop={true}
             spaceBetween={16}
             slidesPerView={1.15} // Mobile: 1 full + slivers
             breakpoints={{
-              640: { slidesPerView: 1.5, spaceBetween: 24 },
+              640: { slidesPerView: 1, spaceBetween: 24 },
               1024: { slidesPerView: 2, spaceBetween: 32 }, // Desktop: 2 centered
-              1280: { slidesPerView: 2.3, spaceBetween: 40 },
+              1280: { slidesPerView: 3, spaceBetween: 40 },
             }}
-            className="!pb-12 px-4 md:px-0"
+            className="!pb-12 px-4 md:px-0 infrastructure-swiper"
           >
             {FACILITIES.map((item) => (
               <SwiperSlide
@@ -193,16 +173,34 @@ const InfrastructureSection: React.FC = () => {
           </Swiper>
         </div>
 
-        {/* Custom Pagination Styles */}
+        {/* Navigation Arrows - Moved to Bottom & Hidden on Mobile */}
+        <div className="mt-8 hidden items-center justify-center gap-4 md:flex">
+          {/* 2. ADD CORRESPONDING CLASS NAMES TO BUTTONS */}
+          <button
+            className="infra-prev flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition-all hover:border-[#21A9FF] hover:text-[#21A9FF] disabled:opacity-50"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+
+          <button
+            className="infra-next flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition-all hover:border-[#21A9FF] hover:text-[#21A9FF] disabled:opacity-50"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+        </div>
+
+        {/* Custom Styles */}
         <style jsx global>{`
-          .swiper-pagination-bullet {
+          .infrastructure-swiper .swiper-pagination-bullet {
             width: 8px;
             height: 8px;
             background: #e5e7eb; /* Gray-200 */
             opacity: 1;
             transition: all 0.3s ease;
           }
-          .swiper-pagination-bullet-active {
+          .infrastructure-swiper .swiper-pagination-bullet-active {
             background: #21a9ff; /* Brand Blue */
             width: 24px;
             border-radius: 4px;

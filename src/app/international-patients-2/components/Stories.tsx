@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+// 1. IMPORT AUTOPLAY MODULE
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { X, Play, ChevronLeft, ChevronRight } from "lucide-react";
@@ -49,10 +50,7 @@ const PatientStoriesSection: React.FC = () => {
       className="group relative h-full w-full cursor-pointer overflow-hidden rounded-2xl bg-white shadow-sm border border-gray-100 p-3 transition-all hover:shadow-md"
       onClick={() => setActiveVideo(story.videoId)}
     >
-      {/* Thumbnail Container (16:9) */}
       <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
-        
-        {/* AUTOMATIC YOUTUBE THUMBNAIL */}
         <Image
           src={`https://img.youtube.com/vi/${story.videoId}/maxresdefault.jpg`}
           alt={story.altText}
@@ -60,14 +58,10 @@ const PatientStoriesSection: React.FC = () => {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           unoptimized
         />
-        
-        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors" />
-
-        {/* Play Button */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-red-600 text-white shadow-lg transition-transform duration-300 group-hover:scale-110">
-            <Play className="ml-1 h-6 w-6 fill-current" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600 text-white shadow-lg transition-transform duration-300 group-hover:scale-110">
+            <Play className="ml-1 h-5 w-5 fill-current" />
           </div>
         </div>
       </div>
@@ -75,10 +69,8 @@ const PatientStoriesSection: React.FC = () => {
   );
 
   return (
-    <section id="patient-stories" className="w-full bg-white py-10">
+    <section id="patient-stories" className="w-full bg-white py-16">
       <div className="mx-auto max-w-7xl px-4">
-        
-        {/* Header */}
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-medium text-gray-900">
             Patient Stories
@@ -88,36 +80,38 @@ const PatientStoriesSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Swiper Container with Side Arrows */}
-        <div className="relative px-10 md:px-14">
-          
-          {/* Left Arrow */}
+        <div className="relative px-0 md:px-14">
           <button
-            className="stories-prev absolute -left-2 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-700 shadow-md border border-gray-100 hover:text-[#21a9ff] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="stories-prev absolute -left-2 top-1/2 z-10 hidden md:flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-700 shadow-md border border-gray-100 hover:text-[#21a9ff] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             aria-label="Previous"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
 
-          {/* Right Arrow */}
           <button
-            className="stories-next absolute -right-2 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-700 shadow-md border border-gray-100 hover:text-[#21a9ff] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="stories-next absolute -right-2 top-1/2 z-10 hidden md:flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-700 shadow-md border border-gray-100 hover:text-[#21a9ff] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             aria-label="Next"
           >
             <ChevronRight className="h-6 w-6" />
           </button>
 
           <Swiper
-            modules={[Navigation]}
+            // 2. ADD AUTOPLAY MODULE HERE
+            modules={[Navigation, Autoplay]} 
             navigation={{ prevEl: ".stories-prev", nextEl: ".stories-next" }}
-            spaceBetween={24}
+            spaceBetween={16}
             slidesPerView={1}
-            breakpoints={{
-              640: { slidesPerView: 1.5, spaceBetween: 20 }, // Mobile Landscape: 1.5 cards (larger)
-              768: { slidesPerView: 2, spaceBetween: 24 },   // Tablet: 2 cards
-              1024: { slidesPerView: 3, spaceBetween: 30 },  // Desktop: 3 cards (Much bigger than 4)
+            // 3. CONFIGURE AUTOPLAY
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false, // Continue autoplay after user swipes
+              pauseOnMouseEnter: true,     // Optional: Pause when hovering
             }}
-            className="patient-stories-swiper !py-4"
+            breakpoints={{
+              640: { slidesPerView: 2, spaceBetween: 20 },
+              1024: { slidesPerView: 3, spaceBetween: 30 },
+            }}
+            className="patient-stories-swiper !py-4 !px-4 md:!px-0"
           >
             {PATIENT_STORIES.map((story) => (
               <SwiperSlide key={story.id} className="!h-auto">
@@ -128,11 +122,9 @@ const PatientStoriesSection: React.FC = () => {
         </div>
       </div>
 
-      {/* --- VIDEO MODAL --- */}
       {activeVideo && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="relative w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-2xl">
-            {/* Header */}
             <div className="flex items-center justify-between border-b border-gray-100 px-6 py-4">
               <h3 className="text-lg font-semibold text-gray-900">Patient Testimonial</h3>
               <button
@@ -142,7 +134,6 @@ const PatientStoriesSection: React.FC = () => {
                 <X className="h-6 w-6" />
               </button>
             </div>
-            {/* Player */}
             <div className="relative aspect-video w-full bg-black">
               <iframe
                 width="100%"
