@@ -251,7 +251,7 @@ const MedicalExpertsSection: React.FC = () => {
   const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
 
   return (
-    <section className="w-full bg-white py-10">
+    <section className="w-full bg-white py-10 overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-4">
         
         <div className="mb-12 text-center">
@@ -297,7 +297,7 @@ const MedicalExpertsSection: React.FC = () => {
               1024: { slidesPerView: 4, spaceBetween: 24, centeredSlides: false },
               1280: { slidesPerView: 4, spaceBetween: 24, centeredSlides: false },
             }}
-            className="!pb-12 md:!pb-0 !pt-2 doctor-swiper !overflow-visible" // Added !overflow-visible here as well just in case
+            className="!pb-12 md:!pb-0 !pt-2 doctor-swiper !overflow-hidden" // Added !overflow-visible here as well just in case
           >
             {DOCTORS.map((doctor) => (
               <SwiperSlide key={doctor.id} className="!h-auto !overflow-visible"> 

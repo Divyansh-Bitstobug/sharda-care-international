@@ -100,7 +100,7 @@ const AdvancedMedicalTechnologies: React.FC = () => {
           >
             {TECH_SLIDES.map((item) => (
               <SwiperSlide key={item.id} className="!h-auto">
-                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl md:rounded-3xl bg-gray-100">
+                <div className="relative aspect-[4/3] md:aspect-[3/4] w-full overflow-hidden rounded-2xl md:rounded-3xl bg-gray-100">
                   <div className="absolute inset-0">
                     <Image
                       src={item.image}
