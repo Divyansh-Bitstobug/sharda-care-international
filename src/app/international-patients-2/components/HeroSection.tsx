@@ -7,17 +7,17 @@ import { FaChevronRight } from "react-icons/fa";
 const FORM_WIDTH = 370;
 
 const HeroSection: React.FC = () => (
-  <section className="flex flex-col md:flex-row items-center justify-center w-full rounded-lg p-4 md:p-8 md:pt-0 gap-6 relative bg-white overflow-hidden min-h-screen">
+  <section id = "hero" className="flex flex-col md:flex-row items-center justify-center w-full rounded-lg p-4 md:p-8 md:pt-0 gap-6 relative bg-white overflow-hidden min-h-screen">
     <div className="flex flex-col md:flex-row h-full w-full max-w-[1200px]">
       <Image
         src="/home/hero.png"
         alt="image"
-        width={900}
-        height={600}
-        className="absolute right-5 md:block hidden"
+        width={700}
+        height={400}
+        className="absolute right-44 md:block hidden bg-transparent"
       />
       <Image
-        src="/home/hero-phone.png"
+        src="/home/hero.png"
         alt="image"
         width={230}
         height={230}
@@ -134,7 +134,7 @@ const HeroSection: React.FC = () => (
           </div>
         </div>
       </div>
-      <div className="z-10 md:w-[500px] md:mt-0 mt-5">
+      <div className="z-10 md:mt-0 mt-5">
         <RequestCallBackForm />
       </div>
     </div>
