@@ -36,8 +36,8 @@ const HeroSection: React.FC = () => {
         <Image
           src="/home/hero.png"
           alt="image"
-          width={700}
-          height={400}
+          width={750}
+          height={300}
           className="absolute right-44 md:block hidden bg-transparent"
         />
         <Image
@@ -137,8 +137,7 @@ const HeroSection: React.FC = () => {
                   </svg>
                 </span>
                 <span className="text-sm font-medium text-left ml-2">
-                  Your journey from Delhi to International airport to ShardaCare
-                  - Healthcity
+                  Your journey from Delhi International airport to ShardaCare - Healthcity
                 </span>
                 <span className="bg-black py-2 px-3 rounded-full">
                   <svg
