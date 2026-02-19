@@ -5,16 +5,20 @@ import React from "react";
 
 const SECTION_LINKS = [
   { label: "Statistics", href: "#statistics" },
-  { label: "Stats International Patient Services", href: "#international-services" },
   { label: "Our Specialities and Procedures", href: "#specialities" },
   { label: "Journey", href: "#journey" },
+  { label: "Our Medical Experts", href: "#experts" },
+  { label: "Technologies", href: "#technologies" },
   { label: "Patient Stories", href: "#patient-stories" },
   { label: "Awards & Accreditations", href: "#awards" },
   { label: "Sharda Group", href: "#sharda-group" },
 ];
 
 export const ClinicalTopStrip: React.FC = () => {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     if (!href.startsWith("#")) return;
 
     e.preventDefault();

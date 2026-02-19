@@ -45,7 +45,7 @@ const AdvancedMedicalTechnologies: React.FC = () => {
   const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
 
   return (
-    <section className="w-full bg-white py-10">
+    <section id="technologies" className="w-full bg-white py-10">
       <div className="mx-auto max-w-[1400px] px-4">
         {/* Header */}
         <div className="mb-10 text-center">

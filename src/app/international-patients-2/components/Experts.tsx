@@ -251,7 +251,7 @@ const MedicalExpertsSection: React.FC = () => {
   const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
 
   return (
-    <section className="w-full bg-white py-10 overflow-hidden">
+    <section id="experts" className="w-full bg-white py-10 overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-4">
         
         <div className="mb-12 text-center">
