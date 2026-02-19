@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => (
         </div>
         {/* Virtual Tour Button/Card */}
         <div className="mt-6 md:w-[400px] flex flex-col gap-4">
-          <button className="flex flex-row items-center justify-between w-full max-w-md px-4 py-2 bg-gradient-to-r from-[#E3376D] to-[#ED814A] text-white rounded-lg font-bold shadow relative overflow-hidden">
+          <Link href="https://youtu.be/9jqObOJb1Fc?si=x1cJQW_rpqFT2hu1" className="flex flex-row items-center justify-between w-full max-w-md px-4 py-2 bg-gradient-to-r from-[#E3376D] to-[#ED814A] text-white rounded-lg font-bold shadow relative overflow-hidden">
             <span className="mr-2 flex items-center">
               <Image
                 src="/assets/drum.svg"
@@ -84,7 +84,7 @@ const HeroSection: React.FC = () => (
                 height={36}
               />
             </span>
-          </button>
+          </Link>
           <div className="bg-gradient-to-r from-[#EA7154] to-[#FFFFFF] p-[1px] rounded-[12px]">
             <button className="flex items-center justify-baseline bg-gradient-to-r from-[#FFFFFF] to-[#FFEADA] px-4 py-2 rounded-[12px]">
               <span className="bg-gradient-to-t from-[#E3376D] to-[#ED814A] py-2 px-2.5 rounded-full">
@@ -101,7 +101,7 @@ const HeroSection: React.FC = () => (
                   />
                 </svg>
               </span>
-              <span className="text-sm font-medium">Patient journey from India airport to ShardaCare</span>
+              <span className="text-sm font-medium text-left ml-2">Your journey from Delhi to International airport to ShardaCare - Healthcity</span>
               <span className="bg-black py-2 px-3 rounded-full">
                 <svg
                   width="21"
