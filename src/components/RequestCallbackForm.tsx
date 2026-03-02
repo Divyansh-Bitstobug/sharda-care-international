@@ -25,15 +25,14 @@ const RequestCallBackForm: React.FC = () => {
     dialCode: "+91",
   });
   const [whatsappOptIn, setWhatsappOptIn] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false); // <-- Added loading state
+  const [isSubmitting, setIsSubmitting] = useState(false); 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (isSubmitting) return; // Prevent double clicks
+    if (isSubmitting) return; 
     setIsSubmitting(true);
 
-    // Determine if we should send the dropdown value or the custom textbox value
     const isOtherSelected =
       query.toLowerCase() === "others" || query.toLowerCase() === "other";
     const finalQuery = isOtherSelected ? customQuery : query;
@@ -59,15 +58,12 @@ const RequestCallBackForm: React.FC = () => {
         body: JSON.stringify(payload),
       });
 
-      // success alert
       Swal.fire({
         icon: "success",
         title: "Details submitted",
         text: "Our team will reach out to you shortly.",
         confirmButtonColor: "#34ACE1",
       }).then(() => {
-        // Reload the page after the user closes the success alert 
-        // to completely reset the form and Locality API
         window.location.reload();
       });
 
@@ -80,7 +76,7 @@ const RequestCallBackForm: React.FC = () => {
         text: "Please try again in a moment.",
         confirmButtonColor: "#e53e3e",
       });
-      setIsSubmitting(false); // Re-enable button so they can try again if it fails
+      setIsSubmitting(false); 
     }
   };
 
@@ -88,9 +84,10 @@ const RequestCallBackForm: React.FC = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className=" border border-blue-100 p-0 rounded-[24px] max-w-[410px] w-full"
+        className="border border-blue-100 p-0 rounded-[24px] max-w-[410px] w-full"
         style={{
-          minWidth: 340,
+          // FIXED: Adjusted minWidth so it doesn't break on ultra-small 320px screens
+          minWidth: "min(100%, 340px)",
           backgroundImage: "url('/assets/form-bg.png')",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
@@ -126,8 +123,9 @@ const RequestCallBackForm: React.FC = () => {
                 value={phoneMeta}
                 onChange={(meta) => setPhoneMeta(meta)}
               />
+              {/* FIXED: Added 'min-w-0' to this input so it shrinks properly in the flex container */}
               <input
-                className="flex-1 border border-gray-300 rounded-lg px-4 h-[44px] text-base placeholder-gray-400 focus:outline-none focus:border-blue-300 bg-white"
+                className="flex-1 min-w-0 border border-gray-300 rounded-lg px-4 h-[44px] text-base placeholder-gray-400 focus:outline-none focus:border-blue-300 bg-white"
                 type="tel"
                 placeholder="Enter Mobile No."
                 value={mobile}
