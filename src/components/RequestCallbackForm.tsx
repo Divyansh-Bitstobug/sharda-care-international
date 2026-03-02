@@ -16,7 +16,7 @@ const RequestCallBackForm: React.FC = () => {
   const [email, setEmail] = useState("");
   const [locality, setLocality] = useState("");
   const [query, setQuery] = useState("");
-  const [customQuery, setCustomQuery] = useState(""); // <-- New state for custom query
+  const [customQuery, setCustomQuery] = useState(""); 
   const [phoneMeta, setPhoneMeta] = useState<{
     countryCode: string;
     dialCode: string;
@@ -25,11 +25,15 @@ const RequestCallBackForm: React.FC = () => {
     dialCode: "+91",
   });
   const [whatsappOptIn, setWhatsappOptIn] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // <-- Added loading state
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (isSubmitting) return; // Prevent double clicks
+    setIsSubmitting(true);
 
-    // Decide which query to send based on the dropdown selection
+    // Determine if we should send the dropdown value or the custom textbox value
     const isOtherSelected =
       query.toLowerCase() === "others" || query.toLowerCase() === "other";
     const finalQuery = isOtherSelected ? customQuery : query;
@@ -39,33 +43,21 @@ const RequestCallBackForm: React.FC = () => {
       mobile,
       email,
       locality,
-      query: finalQuery, // <-- Sends the custom text if "Others" is selected
+      query: finalQuery, 
       whatsappOptIn,
       phoneCountryCode: phoneMeta.countryCode,
       phoneDialCode: phoneMeta.dialCode,
     };
 
     try {
-      const response = await fetch(SCRIPT_URL, {
+      await fetch(SCRIPT_URL, {
         method: "POST",
+        mode: "no-cors",
         headers: {
-          "Content-Type": "text/plain;charset=utf-8", // Bypasses CORS preflight
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
       });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      // reset form
-      setFullName("");
-      setMobile("");
-      setEmail("");
-      setLocality("");
-      setQuery("");
-      setCustomQuery(""); // <-- Reset custom query
-      setWhatsappOptIn(false);
 
       // success alert
       Swal.fire({
@@ -73,7 +65,12 @@ const RequestCallBackForm: React.FC = () => {
         title: "Details submitted",
         text: "Our team will reach out to you shortly.",
         confirmButtonColor: "#34ACE1",
+      }).then(() => {
+        // Reload the page after the user closes the success alert 
+        // to completely reset the form and Locality API
+        window.location.reload();
       });
+
     } catch (err) {
       console.error("Error submitting to Google Sheet", err);
 
@@ -83,6 +80,7 @@ const RequestCallBackForm: React.FC = () => {
         text: "Please try again in a moment.",
         confirmButtonColor: "#e53e3e",
       });
+      setIsSubmitting(false); // Re-enable button so they can try again if it fails
     }
   };
 
@@ -121,6 +119,7 @@ const RequestCallBackForm: React.FC = () => {
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               required
+              disabled={isSubmitting}
             />
             <div className="flex gap-3 mb-3">
               <PhonePrefixBox
@@ -134,6 +133,7 @@ const RequestCallBackForm: React.FC = () => {
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
                 required
+                disabled={isSubmitting}
               />
             </div>
             <input
@@ -143,11 +143,12 @@ const RequestCallBackForm: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              disabled={isSubmitting}
             />
-            
+
             <CountrySelect value={locality} onChange={setLocality} />
 
-            <div className="mb-3">
+            <div className={(query.toLowerCase() === "others" || query.toLowerCase() === "other") ? "mb-3" : "mb-3"}>
               <QuerySelect value={query} onChange={setQuery} />
             </div>
 
@@ -160,6 +161,7 @@ const RequestCallBackForm: React.FC = () => {
                 value={customQuery}
                 onChange={(e) => setCustomQuery(e.target.value)}
                 required
+                disabled={isSubmitting}
               />
             )}
 
@@ -182,6 +184,7 @@ const RequestCallBackForm: React.FC = () => {
                 checked={whatsappOptIn}
                 onChange={() => setWhatsappOptIn(!whatsappOptIn)}
                 className="mr-2 accent-blue-500 scale-110"
+                disabled={isSubmitting}
               />
               <span>
                 Get Updates on Whatsapp. I agree to the{" "}
@@ -191,10 +194,11 @@ const RequestCallBackForm: React.FC = () => {
               </span>
             </label>
             <button
-              className="w-full h-[52px] rounded-[14px] bg-gradient-to-b from-[#43455B] to-[#282A3C] text-white font-semibold text-lg mb-3 cursor-pointer"
+              className={`w-full h-[52px] rounded-[14px] bg-gradient-to-b from-[#43455B] to-[#282A3C] text-white font-semibold text-lg mb-3 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
               type="submit"
+              disabled={isSubmitting}
             >
-              Submit Details
+              {isSubmitting ? "Submitting..." : "Submit Details"}
             </button>
           </div>
         </div>
@@ -211,7 +215,6 @@ const RequestCallBackForm: React.FC = () => {
           style={{
             boxShadow: "0 4px 32px 0 rgba(52, 172, 225, 0.10)",
           }}
-          
         >
           <Image
             src="/assets/background-blur.svg"

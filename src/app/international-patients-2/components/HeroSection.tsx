@@ -80,7 +80,7 @@ const HeroSection: React.FC = () => {
                   href={"/under-construction"}
                   className="px-2 py-1 md:px-5 md:py-2 rounded-3xl border text-[10px] md:text-base border-black font-medium w-fit flex items-center justify-center gap-2"
                 >
-                  Get Expert Opinion
+                  Get an Expert Opinion
                   <span className="bg-black px-1 py-1 rounded-full">
                     <FaChevronRight color="white" size={10} />
                   </span>
