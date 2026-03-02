@@ -104,10 +104,10 @@ const ProgramCard = ({ program }: { program: Program }) => (
     <h3 className="mb-4 text-lg font-medium text-black leading-tight min-h-[54px] pt-2">
       {program.title}
     </h3>
-    <div className="mb-4 h-px w-full bg-[#000000]/10"></div>
+    {/* <div className="mb-4 h-px w-full bg-[#000000]/10"></div>
     <p className="text-sm text-[#4B4B4B] leading-relaxed flex-grow">
       {program.description}
-    </p>
+    </p> */}
   </div>
 );
 
