@@ -7,9 +7,8 @@ import QuerySelect from "./form/QuerySelect";
 import Swal from "sweetalert2";
 import Link from "next/link";
 
-
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzh00Nyp27Czoy2dCo_-Y9EGEntMMNRnAuBXvqdWBe2sQq9xc9sesyZdD5LPqKjI6JiPg/exec";
+  "https://script.google.com/macros/s/AKfycbwl14-1rIEtStOc3aLh-2KhiQa3zc3xs3WMB9ZeCCtWSUrYrUb8t-Y_0QnvGacXjw65Tw/exec";
 
 const RequestCallBackForm: React.FC = () => {
   const [fullName, setFullName] = useState("");
@@ -17,6 +16,7 @@ const RequestCallBackForm: React.FC = () => {
   const [email, setEmail] = useState("");
   const [locality, setLocality] = useState("");
   const [query, setQuery] = useState("");
+  const [customQuery, setCustomQuery] = useState(""); // <-- New state for custom query
   const [phoneMeta, setPhoneMeta] = useState<{
     countryCode: string;
     dialCode: string;
@@ -29,26 +29,34 @@ const RequestCallBackForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Decide which query to send based on the dropdown selection
+    const isOtherSelected =
+      query.toLowerCase() === "others" || query.toLowerCase() === "other";
+    const finalQuery = isOtherSelected ? customQuery : query;
+
     const payload = {
       fullName,
       mobile,
       email,
       locality,
-      query,
+      query: finalQuery, // <-- Sends the custom text if "Others" is selected
       whatsappOptIn,
       phoneCountryCode: phoneMeta.countryCode,
       phoneDialCode: phoneMeta.dialCode,
     };
 
     try {
-      await fetch(SCRIPT_URL, {
+      const response = await fetch(SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "text/plain;charset=utf-8", // Bypasses CORS preflight
         },
         body: JSON.stringify(payload),
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       // reset form
       setFullName("");
@@ -56,6 +64,7 @@ const RequestCallBackForm: React.FC = () => {
       setEmail("");
       setLocality("");
       setQuery("");
+      setCustomQuery(""); // <-- Reset custom query
       setWhatsappOptIn(false);
 
       // success alert
@@ -114,20 +123,6 @@ const RequestCallBackForm: React.FC = () => {
               required
             />
             <div className="flex gap-3 mb-3">
-              {/* <div className="flex items-center border border-gray-300 bg-white rounded-lg px-2 h-[44px]">
-                <span className="mr-2">🇮🇳</span>
-                <span className="text-gray-700 font-medium">+91</span>
-                <span className="ml-1">
-                  <svg
-                    className="w-3 h-3 text-gray-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M19 9l-7 7-7-7" />
-                  </svg>
-                </span>
-              </div> */}
               <PhonePrefixBox
                 value={phoneMeta}
                 onChange={(meta) => setPhoneMeta(meta)}
@@ -149,27 +144,24 @@ const RequestCallBackForm: React.FC = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            {/* <select
-              className="w-full h-[44px] border border-gray-300 rounded-lg px-4 mb-3 text-base text-gray-700 focus:outline-none focus:border-blue-300 bg-white"
-              value={locality}
-              onChange={(e) => setLocality(e.target.value)}
-            >
-              <option value="India">Locality : India</option>
-              
-            </select> */}
+            
             <CountrySelect value={locality} onChange={setLocality} />
 
-            {/* <select
-              className="w-full h-[44px] border border-gray-300 rounded-lg px-4 mb-3 text-base text-gray-600 focus:outline-none focus:border-blue-300 bg-white"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            >
-              <option value="">Query</option>
-              <option value="Treatment">Treatment</option>
-              <option value="Cost">Cost</option>
-              <option value="Appointment">Appointment</option>
-            </select> */}
-            <QuerySelect value={query} onChange={setQuery} />
+            <div className="mb-3">
+              <QuerySelect value={query} onChange={setQuery} />
+            </div>
+
+            {/* Conditionally render the custom query input if "Others" is selected */}
+            {(query.toLowerCase() === "others" || query.toLowerCase() === "other") && (
+              <input
+                className="w-full h-[44px] border border-gray-300 rounded-lg px-4 mb-3 text-base placeholder-gray-400 focus:outline-none focus:border-blue-300 bg-white"
+                type="text"
+                placeholder="Please specify your query"
+                value={customQuery}
+                onChange={(e) => setCustomQuery(e.target.value)}
+                required
+              />
+            )}
 
             <hr
               className="my-4 border-t border-dashed"

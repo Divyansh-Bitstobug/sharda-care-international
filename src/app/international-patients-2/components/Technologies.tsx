@@ -25,8 +25,8 @@ const TECH_SLIDES: TechSlide[] = [
   },
   {
     id: 2,
-    image: "/technologies/ge.png",
-    title: "GE 256 Slice CT-Scan",
+    image: "/technologies/varion.jpeg",
+    title: "Varian Truebeam Radiotherapy",
   },
   {
     id: 3,

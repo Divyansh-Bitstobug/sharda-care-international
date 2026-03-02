@@ -16,66 +16,71 @@ const specialtiesData: Specialty[] = [
   {
     id: 1,
     title: "Cardiac Sciences",
-    modalHeader: "Institute of Cardiac Sciences",
+    modalHeader: "Department of Cardiac Sciences",
     shortDescription: "Advanced heart care featuring 24/7 emergency response and non-invasive diagnostics.",
     icon: <Image src={"/specialities/cardiac.svg"} alt="icon" width={62} height={62} />,
     fullTitle: "ShardaCare HealthCity Heart Institute",
-    longDescription: "The ShardaCare HealthCity Heart Institute has an exceptional team comprising heart surgeons, cardiologists, and radiologists who work together to provide comprehensive care for patients with all heart conditions. The \"Heart Team\" approach helps in thorough evaluations by cardiac experts to ensure precision and accuracy in treatment.",
+    longDescription: "The ShardaCare HealthCity Heart Institute has an exceptional team comprising Heart Surgeons, Cardiologists and non-invasive cardiologist who work together to provide comprehensive care for patients with all heart conditions. The \"Heart Team\" approach helps in thorough evaluation by cardiac experts to ensure precision and accuracy in treatment.",
     features: [
       "Comprehensive Heart Condition Care",
-      "Robotic Surgery",
+      "PTCA",
       "Minimally Invasive Techniques",
-      "Thorough Cardiac Evaluations",
+      "Thorough Cardiac Evaluation",
+      "Adult congenital heart disease"
     ],
     footerNote: "The use of cutting-edge technologies such as robotic surgery and minimally invasive techniques ensures precision and accuracy in treatment for all patients."
   },
   {
     id: 2,
     title: "Oncology",
-    modalHeader: "Institute of Cancer Care",
+    modalHeader: "Department of Oncology",
     shortDescription: "Advanced cancer care featuring precision diagnostics and specialized surgical expertise.",
     icon: <Image src={"/specialities/oncology.svg"} alt="icon" width={62} height={62} />,
-    fullTitle: "ShardaCare HealthCity Institute",
-    longDescription: "The ShardaCare HealthCity Institute of Cancer Care is a one-stop destination for comprehensive treatment of all cancers – from risk assessment, prevention to multi-modal treatment and palliative care. We utilize a Tumor Board that includes organ-specific cancer surgeons, radiologists, and medical and haemato oncologists to create unique treatment plans.",
+    fullTitle: "ShardaCare HealthCity Institute of Oncology – International Oncology OPD",
+    longDescription: "The ShardaCare HealthCity Institute of Oncology – International Oncology OPD provides comprehensive cancer care for patients from CIS and African countries. We deliver advanced, multidisciplinary, evidence-based cancer treatment with global standards of precision and compassion. Our multidisciplinary Tumor Board ensures thorough evaluation by oncology experts to create personalized and precise treatment plans for every patient.",
     features: [
-      "Multi-modal Treatment & Palliative Care",
-      "Varian Edge & CyberKnife VSI Robotic Radiosurgery",
-      "VMAT, IGRT, & Tomotherapy",
-      "CAR T-cell Therapy & Clinical Research",
+      "Radiation Oncology: Precision Driven Technology, 3DCRT, IMRT, IGRT, SRT, SRS, 6D Robotic Couch",
+      "Interventional Oncology: TACE, TARE, and Image-Guided Tumor-Directed Procedures",
+      "Medical Oncology: Chemotherapy, Targeted Therapy, Immunotherapy & Precision Oncology",
+      "Surgical Oncology: Advanced & Minimally Invasive Cancer Surgeries",
+      "Dedicated International Patient Services"
     ],
-    footerNote: "Our specialists work together seamlessly with surgeons across departments to provide cutting-edge care using innovative diagnostic and imaging equipment."
+    footerNote: "Excellence in Oncology. Precision in Treatment. Compassion in Care."
   },
   {
     id: 3,
     title: "Neurosciences",
-    modalHeader: "Institute of Neurosciences",
+    modalHeader: "Department of Neurosciences",
     shortDescription: "Comprehensive treatment for complex neurological disorders and minimally invasive spine surgeries.",
     icon: <Image src={"/specialities/neuro.svg"} alt="icon" width={62} height={62} />,
-    fullTitle: "ShardaCare HealthCity Institute",
-    longDescription: "The ShardaCare HealthCity Institute of Neurosciences is an integrated institute that aims to provide comprehensive, multidisciplinary, multispeciality care for all disorders of the brain and spine, including cancers. The institute has a team of highly qualified neurologists, neurosurgeons, neurointerventionists, neuro-anaesthetists, and dedicated neuro critical care specialists, neuropsychologists and neuropsychiatrists.",
+    fullTitle: "ShardaCare HealthCity Institute of Neurosciences",
+    longDescription: "The ShardaCare HealthCity Institute of Neurosciences is an integrated centre dedicated to providing comprehensive, multidisciplinary, and multispecialty care for disorders of the brain and spine, including neurological cancers. Our team comprises highly qualified neurosurgeons, neurointerventionists, neuro-anaesthetists, neurologists, dedicated neuro critical care specialists, neuropsychologists, and neuropsychiatrists, ensuring complete neurological care under one roof.",
     features: [
-      "Brain Tumours & Spinal Disorders",
-      "Stroke & Epilepsy",
-      "Movement Disorders & Headaches",
-      "Emergency Management of Stroke & Neurological Trauma",
+      "Brain & Spinal Tumours, Trauma & Scoliosis Surgery",
+      "Stereotactic Surgery & DBS Surgery for Parkinson’s Disease",
+      "Stroke & Epilepsy Management",
+      "Movement Disorders & Headache Clinics",
+      "Emergency Management of Stroke & Neurological Trauma"
     ],
-    footerNote: "The institute operates specialised clinics and provides specialized services and protocols for the emergency management of stroke and other neurological trauma."
+    footerNote: "The institute operates specialized clinics and follows advanced protocols for the emergency management of head injury, intracerebral bleed, stroke, and other neurological trauma, ensuring timely intervention and comprehensive neurocritical care."
   },
   {
     id: 4,
-    title: "Orthopaedics",
-    modalHeader: "Institute of Orthopaedics",
+    title: "Orthopaedics & Joint Replacement",
+    modalHeader: "Department of Orthopaedics and Spine Care",
     shortDescription: "Specialized care for bone health, sports injuries, and robotic-assisted joint replacement surgeries.",
     icon: <Image src={"/specialities/ortho.svg"} alt="icon" width={62} height={62} />,
-    fullTitle: "ShardaCare HealthCity Institute",
-    longDescription: "The ShardaCare HealthCity Institute of Orthopaedics is a state-of-the-art centre dedicated to end-to-end care of all musculoskeletal conditions across age groups, especially children. Led by a team of clinical experts, this multidisciplinary team of orthopaedic surgeons, pain management specialists, and physiotherapists offer comprehensive, personalised treatments for enhanced quality of life.",
+    fullTitle: "ShardaCare HealthCity Institute of Orthopaedics and Spine Care",
+    longDescription: "The ShardaCare HealthCity Institute of Orthopaedics and Spine Care is a state-of-the-art centre dedicated to end-to-end care of all musculoskeletal conditions across all age groups, especially children. Led by a team of clinical experts, this multidisciplinary team of orthopaedic surgeons, pain management specialists, and physiotherapists offer comprehensive, personalised treatments for enhanced quality of life.",
     features: [
-      "Joint Replacements & Spine Problems",
-      "Sports Injuries & Trauma",
-      "Congenital Defects",
-      "Paediatric Bone & Joint Care",
+      "Joint Replacements (knee and Hip)",
+      "Sports Injuries & Rehabilitation",
+      "Arthroscopy Services",
+      "Trauma and Fracture Surgeries",
+      "Paediatric deformity correction and Surgeries",
+      "Spine Surgeries"
     ],
-    footerNote: "Our experts are backed by robust teams of specially trained nursing and paramedical staff, utilizing advanced diagnostic and surgical technologies to provide top-notch care."
+    footerNote: "Our experts are backed by robust teams of specially trained nursing and paramedical staff, utilising advanced diagnostic and surgical technologies to provide top-notch care."
   },
   {
     id: 5,
@@ -83,95 +88,99 @@ const specialtiesData: Specialty[] = [
     modalHeader: "Institute of ENT",
     shortDescription: "Expert solutions for hearing loss, sinus issues, and advanced cochlear implant procedures.",
     icon: <Image src={"/specialities/ent.svg"} alt="icon" width={62} height={62} />,
-    fullTitle: "ShardaCare HealthCity Institute",
-    longDescription: "The ShardaCare HealthCity ENT and Head & Neck Surgery department is a pioneering department that combines cutting-edge technology with highly trained doctors to provide comprehensive care for ear, nose, throat and head and neck conditions. It is a sought-after referral centre for laser voice surgery, cochlear implants, advanced airway surgery, and complex skull base surgery.",
+    fullTitle: "ShardaCare HealthCity ENT and Head & Neck Surgery Department",
+    longDescription: "The ShardaCare HealthCity ENT and Head & Neck Surgery Department is a pioneering department that combines cutting-edge technology with highly trained doctors to provide comprehensive care for ear, nose, throat, and head and neck conditions.",
     features: [
-      "Laser Voice Surgery & Cochlear Implants",
+      "Voice Surgery & Cochlear Implants",
       "Endoscopic Sinus Surgery & Skull Base Surgery",
       "Surgery for Sleep Apnea & Microscopic Ear Surgery",
       "Advanced Airway & Head and Neck Surgery",
+      "Microlaryngeal Surgery"
     ],
-    footerNote: "Equipped with advanced technologies like lumens CO2 laser, video stroboscopy, Carl Zeiss operating microscope, and Olympus system for flexible fibreoptic laryngoscopy, the department provides top-tier care for patients from India and overseas."
+    footerNote: "Equipped with advanced technologies such as Lumenis CO₂ Laser, Leica Operating Microscope, Carl Zeiss Operating Microscope, and the Olympus system for flexible fibreoptic laryngoscopy, the department provides top-tier care to patients from India and overseas."
   },
   {
     id: 6,
     title: "Urology",
-    modalHeader: "Institute of Urology",
+    modalHeader: "Department of Urology",
     shortDescription: "Precision treatment for kidney health, urinary disorders, and advanced laser-assisted procedures.",
     icon: <Image src={"/specialities/urology.svg"} alt="icon" width={62} height={62} />,
-    fullTitle: "ShardaCare HealthCity Institute",
-    longDescription: "The ShardaCare HealthCity Urology Division is a leading centre for urological care. Our expert team specializes in advanced treatments for urinary tract and male reproductive organ disorders, utilizing minimally invasive techniques like robotic-assisted surgery for better outcomes and quicker recovery.",
+    fullTitle: "ShardaCare HealthCity Institute of Urology",
+    longDescription: "The ShardaCare HealthCity Institute of Urology is a leading centre for comprehensive urological care. Our expert team of urologists and transplant specialists provides advanced treatment for urinary tract and male reproductive organ disorders, utilizing minimally invasive and robotic-assisted techniques to ensure better clinical outcomes and faster recovery. Our integrated team approach ensures detailed evaluation and personalized treatment planning tailored to each patient’s condition.",
     features: [
       "Prostate Health & Urological Cancers",
-      "Adult and Paediatric Urological Care",
+      "Kidney Transplantation, including ABO Transplant",
+      "Adult Urological Care",
       "Urinary Tract & Reproductive Organ Disorders",
-      "Robotic-Assisted & Minimally Invasive Surgery",
+      "Laparoscopic Donor Nephrectomy & Minimally Invasive Surgery"
     ],
-    footerNote: "Our patient-centric approach emphasizes personalized treatments, education, and compassionate care. Committed to innovation, we continuously advance our practices through research, striving for excellence in patient care and outcomes."
+    footerNote: "Our patient-centric approach emphasizes personalized treatment, patient education, and compassionate care. Committed to innovation and excellence, we continuously advance our practices to deliver superior outcomes and quality urological care."
   },
   {
     id: 7,
-    title: "Bone Marrow Transplant",
+    title: "Bone Marrow Transplantation (BMT)",
     modalHeader: "Bone Marrow Transplant Division",
     shortDescription: "High-precision bone marrow transplants and specialized care for complex blood-related disorders.",
     icon: <Image src={"/specialities/bone.svg"} alt="icon" width={62} height={62} />,
-    fullTitle: "ShardaCare HealthCity Institute",
+    fullTitle: "ShardaCare HealthCity Bone Marrow Transplant Division",
     longDescription: "The ShardaCare HealthCity Bone Marrow Transplant Division is a leading centre for all types of stem cell transplantations. Our division is dedicated to offering life-saving treatments for patients with malignant and non-malignant blood disorders, managed by highly experienced haematologists, oncologists, and transplant specialists.",
     features: [
       "Autologous & Allogeneic Transplants",
       "Leukaemia, Lymphoma & Multiple Myeloma",
       "Aplastic Anaemia & Thalassemia",
       "Related & Unrelated Donor Transplants",
+      "CAR-T Cell therapy"
     ],
     footerNote: "We are equipped with state-of-the-art facilities and adopt the latest technologies in stem cell therapy, following international protocols and supported by a robust infrastructure for patient isolation to minimize infection risks."
   },
   {
     id: 8,
-    title: "Plastic Surgery",
-    modalHeader: "Institute of Plastic, Aesthetic & Reconstructive Surgery",
+    title: "Plastic & Reconstructive Surgery",
+    modalHeader: "Department of Plastic, Aesthetic & Reconstructive Surgery",
     shortDescription: "Specialized reconstructive procedures and aesthetic surgeries led by board-certified experts.",
     icon: <Image src={"/specialities/plastic.svg"} alt="icon" width={62} height={62} />,
-    fullTitle: "ShardaCare HealthCity Institute",
-    longDescription: "The ShardaCare HealthCity Plastic, Aesthetic & Reconstructive Surgery division represents the pinnacle of medical innovation and aesthetic artistry. With a commitment to restoring bodily functions and enhancing aesthetic appeal, our centre is at the forefront of integrating cutting-edge technologies, such as CAD/CAM modelling and artificial intelligence, for unparalleled pre-surgery planning.",
+    fullTitle: "ShardaCare HealthCity Institute of Plastic, Aesthetic & Reconstructive Surgery",
+    longDescription: "The ShardaCare HealthCity Institute of Plastic, Aesthetic & Reconstructive Surgery represents the best of medical innovation and aesthetic artistry. Our expert team is committed to restoring bodily function and enhancing aesthetic appearance, integrating cutting-edge technologies to deliver safe and advanced surgical care. Our integrated team approach ensures detailed evaluation and personalized treatment planning tailored to each patient’s needs.",
     features: [
-      "Cosmetic Surgery & Body Contouring",
-      "Reconstructive Surgery & Trauma Restoration",
-      "Regenerative Medicine & Tissue Rejuvenation",
-      "Aesthetic Dermatology & Non-Surgical Rejuvenation",
+      "Reconstructive Surgery",
+      "Trauma Restoration",
+      "Aesthetic Enhancements",
+      "Advanced Surgical Care"
     ],
-    footerNote: "Our team of exceptional specialists works in synergy with advanced technology to provide comprehensive care, specializing in techniques like liposuction and tummy tucks while prioritizing safety and infection control to ensure optimal outcomes."
+    footerNote: "Our team of exceptional specialists works in synergy with advanced technology to provide comprehensive care, specializing in techniques such as liposuction and tummy tucks while prioritizing safety and infection control. Our patient-centric approach emphasizes personalized treatment, patient education, and compassionate care."
   },
   {
     id: 9,
-    title: "Critical Care",
-    modalHeader: "Emergency Department",
+    title: "Critical Care Medicine",
+    modalHeader: "Department of Critical Care Medicine",
     shortDescription: "Round-the-clock intensive care with advanced life support systems for emergency recovery.",
     icon: <Image src={"/specialities/critical.svg"} alt="icon" width={62} height={62} />,
-    fullTitle: "ShardaCare HealthCity Institute",
-    longDescription: "The ShardaCare HealthCity Emergency Department stands as a paragon of excellence in immediate medical intervention, embodying a swift, expert approach to emergency care. Our Department is renowned for its use of the finest triage protocols and cutting-edge technologies, ensuring that every patient facing life-threatening conditions receives rapid and effective treatment.",
+    fullTitle: "ShardaCare HealthCity Institute of Critical Care Medicine",
+    longDescription: "With every heartbeat, we’re here for you. The ShardaCare HealthCity Institute of Critical Care Medicine provides advanced, life-saving care with precision, compassion, and continuous monitoring. Our expert team of intensivists, critical care nurses, and allied specialists deliver 24/7 comprehensive support for patients facing life-threatening conditions using state-of-the-art ICU technology.",
     features: [
-      "Trauma & Acute Medical Crises",
-      "Heart Attack & Stroke Intervention",
-      "Obstetric Emergencies",
-      "Ground and Air Ambulance Services",
+      "24/7 Dedicated Critical Care Team led by experienced intensivists",
+      "State-of-the-Art ICU Facility with advanced ventilators & monitoring",
+      "24/7 Diagnostics & Radiology Support (Ultrasound, CT, MRI, PET-CT)",
+      "Multispecialty & Super-Specialty Collaboration"
     ],
-    footerNote: "With a highly skilled team of specialized physicians and surgeons across specialities, the ER team is especially trained in emergency medicine and remains on hand 24x7, exemplifying our commitment to the Golden Hour concept."
+    footerNote: "We are committed to delivering safe, ethical, evidence-based care while ensuring dignity, empathy, and excellence in every critical moment."
   },
   {
     id: 10,
-    title: "Gastrointestinal Surgery",
-    modalHeader: "Institute of Gastrosciences",
+    title: "Gastrointestinal (GI) Surgery",
+    modalHeader: "Department of Gastrosciences",
     shortDescription: "Advanced surgical interventions for digestive health using the latest laparoscopic techniques.",
     icon: <Image src={"/specialities/gastro.svg"} alt="icon" width={62} height={62} />,
-    fullTitle: "ShardaCare HealthCity Institute",
-    longDescription: "The ShardaCare HealthCity Institute of Gastrosciences provides end-to-end care for all conditions affecting the digestive tract, pancreas, or liver, including tumours and cancers. We provide the full spectrum of multi-disciplinary, collaborative care, from preventive to curative, and diagnostic to surgical, with a focus on disease reversal and long-term management.",
+    fullTitle: "ShardaCare HealthCity Institute of Gastrosciences",
+    longDescription: "The ShardaCare HealthCity Institute of Gastrosciences provides end-to-end care for all conditions affecting the digestive tract, pancreas, and liver, including tumours and cancers. We offer the full spectrum of multidisciplinary and collaborative care — from preventive to curative, and from diagnostic to surgical — with a strong focus on disease reversal and long-term management.",
     features: [
-      "Oesophagus, Stomach & Biliary Tract Care",
-      "Liver, Pancreas & Intestinal Disorders",
-      "Advanced Whipple & Bariatric Surgery",
-      "Minimally Invasive & Robotic Procedures",
+      "Inflammatory Bowel Disease (IBD) Clinic & Liver Clinic",
+      "Oesophagus, Stomach, Biliary Tract & Intestinal Care",
+      "Diagnostic and Therapeutic Endoscopic Procedures (ERCP, EUS)",
+      "PEG Placement & SpyGlass™ Cholangioscopy",
+      "Third Space Surgery & Liver Biopsy"
     ],
-    footerNote: "Led by pioneers of gastrointestinal surgery, our team utilizes state-of-the-art diagnostic and therapeutic technologies for high-volume procedures like Lap Cholecystectomy and Liver Biopsy, achieving success rates comparable to international standards."
+    footerNote: "Led by senior gastroenterologists, our team utilizes state-of-the-art diagnostic and therapeutic technologies to perform a wide range of advanced endoscopic procedures, achieving outcomes comparable to international standards."
   },
 ];
 

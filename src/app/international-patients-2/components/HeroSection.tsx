@@ -38,7 +38,7 @@ const HeroSection: React.FC = () => {
           alt="image"
           width={750}
           height={300}
-          className="absolute right-44 md:block hidden bg-transparent"
+          className="absolute right-56 md:block hidden bg-transparent"
         />
         <Image
           src="/home/hero.png"
