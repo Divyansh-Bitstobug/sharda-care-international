@@ -30,6 +30,7 @@ const PATIENT_STORIES: Story[] = [
 
 const PatientStoriesSection: React.FC = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false); // <-- Added loading state
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -43,12 +44,18 @@ const PatientStoriesSection: React.FC = () => {
     };
   }, [activeVideo]);
 
-  const handleClose = () => setActiveVideo(null);
+  const handleClose = () => {
+    setActiveVideo(null);
+    setIsVideoLoaded(false); // Reset loader when closing
+  };
 
   const renderCard = (story: Story) => (
     <div 
       className="group relative h-full w-full cursor-pointer overflow-hidden rounded-2xl bg-white shadow-sm border border-gray-100 p-3 transition-all hover:shadow-md"
-      onClick={() => setActiveVideo(story.videoId)}
+      onClick={() => {
+        setActiveVideo(story.videoId);
+        setIsVideoLoaded(false); // Ensure loader shows when opening a new video
+      }}
     >
       <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
         <Image
@@ -96,16 +103,15 @@ const PatientStoriesSection: React.FC = () => {
           </button>
 
           <Swiper
-            // 2. ADD AUTOPLAY MODULE HERE
             modules={[Navigation, Autoplay]} 
             navigation={{ prevEl: ".stories-prev", nextEl: ".stories-next" }}
             spaceBetween={16}
             slidesPerView={1}
-            // 3. CONFIGURE AUTOPLAY
+            loop={true} // <-- Added loop for infinite scrolling
             autoplay={{
               delay: 3000,
-              disableOnInteraction: false, // Continue autoplay after user swipes
-              pauseOnMouseEnter: true,     // Optional: Pause when hovering
+              disableOnInteraction: false, 
+              pauseOnMouseEnter: true,     
             }}
             breakpoints={{
               640: { slidesPerView: 2, spaceBetween: 20 },
@@ -134,7 +140,16 @@ const PatientStoriesSection: React.FC = () => {
                 <X className="h-6 w-6" />
               </button>
             </div>
-            <div className="relative aspect-video w-full bg-black">
+            
+            <div className="relative aspect-video w-full bg-black flex items-center justify-center">
+              {/* Loader: Shows while isVideoLoaded is false */}
+              {!isVideoLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-600 border-t-white"></div>
+                </div>
+              )}
+              
+              {/* Iframe: Fades in once loaded */}
               <iframe
                 width="100%"
                 height="100%"
@@ -142,7 +157,10 @@ const PatientStoriesSection: React.FC = () => {
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
-                className="absolute inset-0 h-full w-full"
+                onLoad={() => setIsVideoLoaded(true)} // <-- Trigger state update on load
+                className={`absolute inset-0 h-full w-full transition-opacity duration-500 ${
+                  isVideoLoaded ? "opacity-100" : "opacity-0"
+                }`}
               ></iframe>
             </div>
           </div>

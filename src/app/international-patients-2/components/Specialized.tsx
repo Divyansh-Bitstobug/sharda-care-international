@@ -24,7 +24,7 @@ const PROGRAMS: Program[] = [
     title: "Bone Marrow Transplantation (BMT)",
     description:
       "Comprehensive care for complex hematological conditions and malignant blood disorders.",
-    icon: <Image src={"/svg/bone.svg"} alt="icon" width={32} height={32} />,
+    icon: <Image src={"/svg/bone.svg"} alt="icon" width={46} height={46} />,
   },
   {
     id: "2",
@@ -32,7 +32,7 @@ const PROGRAMS: Program[] = [
     title: "Kidney Transplant",
     description:
       "Minimally invasive surgery ensuring faster patient recovery and clinical outcomes.",
-    icon: <Image src={"/svg/kidney.svg"} alt="icon" width={32} height={32} />,
+    icon: <Image src={"/svg/kidney.svg"} alt="icon" width={46} height={46} />,
   },
   {
     id: "3",
@@ -40,7 +40,7 @@ const PROGRAMS: Program[] = [
     title: "Brain Surgery (Neurosurgery)",
     description:
       "Precision neuro-navigation for complex tumors and vascular conditions.",
-    icon: <Image src={"/svg/brain.svg"} alt="icon" width={32} height={32} />,
+    icon: <Image src={"/svg/brain.svg"} alt="icon" width={46} height={46} />,
   },
   {
     id: "4",
@@ -48,7 +48,7 @@ const PROGRAMS: Program[] = [
     title: "Spine Surgery",
     description:
       "Minimally invasive techniques for spinal correction and long-term pain relief.",
-    icon: <Image src={"/svg/spine.svg"} alt="icon" width={32} height={32} />,
+    icon: <Image src={"/svg/spine.svg"} alt="icon" width={46} height={46} />,
   },
   {
     id: "5",
@@ -56,7 +56,7 @@ const PROGRAMS: Program[] = [
     title: "Heart Valve Replacement Surgery",
     description:
       "Advanced surgical and catheter-based options for valvular restoration.",
-    icon: <Image src={"/svg/heart.svg"} alt="icon" width={32} height={32} />,
+    icon: <Image src={"/svg/heart.svg"} alt="icon" width={46} height={46} />,
   },
   {
     id: "6",
@@ -64,7 +64,7 @@ const PROGRAMS: Program[] = [
     title: "In Vitro Fertilization (IVF)",
     description:
       "Compassionate fertility care utilizing the latest embryology technology.",
-    icon: <Image src={"/svg/in.svg"} alt="icon" width={32} height={32} />,
+    icon: <Image src={"/svg/in.svg"} alt="icon" width={46} height={46} />,
   },
   {
     id: "7",
@@ -76,8 +76,8 @@ const PROGRAMS: Program[] = [
       <Image
         src={"/svg/transcatheter.svg"}
         alt="icon"
-        width={32}
-        height={32}
+        width={46}
+        height={46}
       />
     ),
   },
@@ -87,21 +87,21 @@ const PROGRAMS: Program[] = [
     title: "Robotic-Assisted Surgery",
     description:
       "Enhanced surgical precision with less pain and shorter hospital stays.",
-    icon: <Image src={"/svg/robotic.svg"} alt="icon" width={32} height={32} />,
+    icon: <Image src={"/svg/robotic.svg"} alt="icon" width={46} height={46} />,
   },
 ];
 
 const ProgramCard = ({ program }: { program: Program }) => (
-  <div className="group relative flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-100">
+  <div className="group relative flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-100">
     <div className="mb-2 flex items-start justify-between">
-      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#F3FBFF] group-hover:bg-blue-50 transition-colors">
+      <div className="flex h-18 w-18 items-center justify-center rounded-full bg-[#F3FBFF] group-hover:bg-blue-50 transition-colors">
         {program.icon}
       </div>
       <span className="text-7xl font-semibold text-[#000000]/10 select-none">
         {program.number}
       </span>
     </div>
-    <h3 className="mb-4 text-lg font-medium text-black leading-tight min-h-[54px] pt-2">
+    <h3 className="text-lg font-medium text-black leading-tight min-h-[54px] pt-2 flex items-center ">
       {program.title}
     </h3>
     {/* <div className="mb-4 h-px w-full bg-[#000000]/10"></div>

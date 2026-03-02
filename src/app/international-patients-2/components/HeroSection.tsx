@@ -11,6 +11,7 @@ const FORM_WIDTH = 370;
 
 const HeroSection: React.FC = () => {
   const [showVideo, setShowVideo] = useState(false);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false); // <-- Added loading state
   const videoId = "9jqObOJb1Fc"; // Extracted from your youtu.be link
 
   // Lock body scroll when modal is open
@@ -25,7 +26,10 @@ const HeroSection: React.FC = () => {
     };
   }, [showVideo]);
 
-  const handleClose = () => setShowVideo(false);
+  const handleClose = () => {
+    setShowVideo(false);
+    setIsVideoLoaded(false); // <-- Reset loader when closing
+  };
 
   return (
     <section
@@ -92,8 +96,11 @@ const HeroSection: React.FC = () => {
           <div className="mt-6 md:w-[400px] flex flex-col gap-4">
             {/* Changed from Link to Button to trigger popup */}
             <button
-              onClick={() => setShowVideo(true)}
-              className="flex flex-row items-center justify-between w-full max-w-md px-4 py-2 bg-gradient-to-r from-[#E3376D] to-[#ED814A] text-white rounded-lg font-bold shadow relative overflow-hidden"
+              onClick={() => {
+                setShowVideo(true);
+                setIsVideoLoaded(false); // <-- Ensure loader shows when opening video
+              }}
+              className="cursor-pointer flex flex-row items-center justify-between w-full max-w-md px-4 py-2 bg-gradient-to-r from-[#E3376D] to-[#ED814A] text-white rounded-lg font-bold shadow relative overflow-hidden"
             >
               <span className="mr-2 flex items-center">
                 <Image
@@ -191,7 +198,15 @@ const HeroSection: React.FC = () => {
                 <X className="h-6 w-6" />
               </button>
             </div>
-            <div className="relative aspect-video w-full bg-black">
+            
+            {/* Added Loader and Fade effect to iframe container */}
+            <div className="relative aspect-video w-full bg-black flex items-center justify-center">
+              {!isVideoLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-600 border-t-white"></div>
+                </div>
+              )}
+              
               <iframe
                 width="100%"
                 height="100%"
@@ -199,9 +214,13 @@ const HeroSection: React.FC = () => {
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
-                className="absolute inset-0 h-full w-full"
+                onLoad={() => setIsVideoLoaded(true)} // <-- Trigger state update on load
+                className={`absolute inset-0 h-full w-full transition-opacity duration-500 ${
+                  isVideoLoaded ? "opacity-100" : "opacity-0"
+                }`}
               ></iframe>
             </div>
+
           </div>
           <div className="absolute inset-0 -z-10" onClick={handleClose}></div>
         </div>
