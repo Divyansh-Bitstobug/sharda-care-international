@@ -134,7 +134,7 @@ const InfrastructureSection: React.FC = () => {
           <h2 className="mb-4 text-3xl font-medium text-gray-900 md:text-4xl">
             State-of-the-Art Infrastructure at{" "}
             <br className="hidden md:block" />
-            ShardaCare Healthcity
+            ShardaCare - Healthcity
           </h2>
           <p className="mx-auto max-w-2xl text-sm text-gray-500 md:text-base">
             World-class medical facilities and high-tech surgical suites

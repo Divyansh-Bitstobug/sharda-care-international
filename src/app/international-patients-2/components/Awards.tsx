@@ -114,7 +114,7 @@ const AwardsSection: React.FC = () => {
   // (Removed certPrevRef/certNextRef since 2 items fit easily or don't need sliding)
 
   return (
-    <section className="w-full bg-white py-10 relative overflow-hidden">
+    <section id="awards" className="w-full bg-white py-10 relative overflow-hidden">
       <Image
         src="/home/r.png"
         alt="bg"

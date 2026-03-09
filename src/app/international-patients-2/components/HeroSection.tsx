@@ -64,7 +64,7 @@ const HeroSection: React.FC = () => {
                 <br /> Needs
               </h2>
               <p className="text-[#4B4B4B] mb-5 text-left text-sm md:text-lg max-w-[260px] md:max-w-lg">
-                ShardaCare understands the challenges of seeking treatment abroad.
+                ShardaCare - Healthcity understands the challenges of seeking treatment abroad.
               </p>
               <div className="flex sm:flex-row gap-2 sm:gap-4 mb-2 sm:mb-4 w-full mx-auto md:mx-0">
                 <Link

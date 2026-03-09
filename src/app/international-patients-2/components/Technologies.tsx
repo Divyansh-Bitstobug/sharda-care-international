@@ -125,14 +125,14 @@ const AdvancedMedicalTechnologies: React.FC = () => {
         </div>
 
         {/* View All Button */}
-        <div className="mt-8 flex justify-center w-full">
+        {/* <div className="mt-8 flex justify-center w-full">
           <button className="group flex items-center gap-2 px-8 py-3 rounded-xl border border-[#34ACE1] bg-white text-[#34ACE1] font-semibold hover:bg-blue-50 transition-colors shadow-sm">
             View All
             <span className="bg-[#34ACE1] text-white rounded-full p-1 w-5 h-5 flex items-center justify-center text-xs group-hover:bg-[#34ACE1] group-hover:text-white">
               {">"}
             </span>
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Styles for Pagination Dots (Mobile Only) */}

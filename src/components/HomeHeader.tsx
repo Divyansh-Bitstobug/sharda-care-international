@@ -3,10 +3,12 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { FaChevronDown } from "react-icons/fa";
 import Link from "next/link";
+import { ClinicalTopStrip } from "@/app/international-patients-2/components/TopStrip";
 
 const LANGUAGES = [
   { label: "English", value: "en", icon: "/assets/india.png" },
-  { label: "Russian", value: "ru", icon: "/assets/language-ru.svg" },
+  { label: "Russia", value: "ru", icon: "/russia.svg" },
+  { label: "French", value: "fr", icon: "/france.svg" },
 ];
 
 const HomeHeader: React.FC = () => {
@@ -184,7 +186,7 @@ const HomeHeader: React.FC = () => {
                       alt={lang.label}
                       width={22}
                       height={22}
-                      className="w-5 h-5"
+                      className="w-5 h-5 rounded-full"
                     />
                     <span>{lang.label}</span>
                   </button>
@@ -194,6 +196,7 @@ const HomeHeader: React.FC = () => {
           </div>
         </div>
       </div>
+      <ClinicalTopStrip />
     </header>
   );
 };

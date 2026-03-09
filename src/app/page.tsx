@@ -22,7 +22,6 @@ export default function Home() {
     <div className="min-h-screen w-screen">
       <HomeHeader />
       <div className="pt-16">
-        <ClinicalTopStrip />
         <HeroSection />
         <StatsStrip />
         {/* <InternationalPatientServices /> */}

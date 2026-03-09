@@ -133,10 +133,10 @@ const HomeFooter: React.FC = () => {
                 Helpline - +91 88009 98987
               </div>
               <a
-                href="mailto:queriesintl@shardacare.com"
+                href="mailto:info@shardacare.com"
                 className="text-xs text-[#232323] font-light mt-6 block"
               >
-                Email: queriesintl@shardacare.com
+                Email: info@shardacare.com
               </a>
             </div>
             <div className="flex gap-3 mt-2 text-[#232323]">

@@ -243,7 +243,7 @@ const MedicalSpecialtiesSection = () => {
   return (
     <section
       className="py-10 px-4 sm:px-6 lg:px-8 bg-[#F3FBFF] overflow-hidden"
-      id="specialties"
+      id="specialities"
     >
       <div className="max-w-[1280px] mx-auto">
         {/* === MOBILE LAYOUT === */}

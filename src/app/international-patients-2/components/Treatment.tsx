@@ -140,10 +140,10 @@ const TreatmentJourney: React.FC = () => {
           <h2 className="text-2xl md:text-4xl font-medium text-gray-900">
             Your Treatment Journey At
             <br />
-            ShardaCare Hospitals
+            ShardaCare - Healthcity
           </h2>
           <p className="mt-2  md:text-base text-gray-500">
-            Here&apos;s what your treatment journey will look like at ShardaCare
+            Here&apos;s what your treatment journey will look like at ShardaCare - Heathcity
           </p>
         </div>
 
