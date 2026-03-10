@@ -92,7 +92,8 @@ const PROGRAMS: Program[] = [
 ];
 
 const ProgramCard = ({ program }: { program: Program }) => (
-  <div className="group relative flex h-fit flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-100">
+  // Changed `h-fit` to `h-full` right here so it stretches to the SwiperSlide's height
+  <div className="group relative flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-blue-100">
     <div className="mb-2 flex items-start justify-between">
       <div className="flex h-18 w-18 items-center justify-center rounded-full bg-[#F3FBFF] group-hover:bg-blue-50 transition-colors">
         {program.icon}
@@ -101,7 +102,7 @@ const ProgramCard = ({ program }: { program: Program }) => (
         {program.number}
       </span>
     </div>
-    <h3 className="text-lg font-medium text-black leading-tight min-h-[54px] pt-2 flex items-center ">
+    <h3 className="text-lg font-medium text-black leading-tight min-h-[54px] pt-2 flex items-center flex-grow">
       {program.title}
     </h3>
     {/* <div className="mb-4 h-px w-full bg-[#000000]/10"></div>
