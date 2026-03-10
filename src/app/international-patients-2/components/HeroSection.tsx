@@ -34,7 +34,7 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="flex flex-col md:flex-row items-center justify-center w-full rounded-lg p-4 md:p-8 md:pt-0 gap-6 relative bg-white overflow-hidden min-h-screen"
+      className="flex flex-col md:flex-row items-center justify-center w-full rounded-lg px-4 pt-12 pb-4 md:p-8 md:pt-0 gap-6 relative bg-white overflow-hidden min-h-screen"
     >
       <div className="flex flex-col md:flex-row h-full w-full max-w-[1200px]">
         <Image
