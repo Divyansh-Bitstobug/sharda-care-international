@@ -13,7 +13,6 @@ import {
   GraduationCap,
   FileText,
   Share2,
-  MoreVertical,
   Download,
 } from "lucide-react";
 
@@ -21,6 +20,7 @@ import {
 type Doctor = {
   id: number;
   name: string;
+  designation: string; // <-- Added designation field
   specialty: string;
   experience: string;
   image: string;
@@ -31,6 +31,7 @@ const DOCTORS: Doctor[] = [
   {
     id: 1,
     name: "Dr. Pawan Kumar Singh",
+    designation: "Vice Chairman",
     specialty: "Oncology",
     experience: "15+",
     image: "/doctors/pawan.png",
@@ -39,6 +40,7 @@ const DOCTORS: Doctor[] = [
   {
     id: 2,
     name: "Dr. Anil Thakwani",
+    designation: "Senior Consultant & H.O.D",
     specialty: "Oncology",
     experience: "25+",
     image: "/doctors/anil.png",
@@ -47,6 +49,7 @@ const DOCTORS: Doctor[] = [
   {
     id: 3,
     name: "Dr. Hemkant Verma",
+    designation: "Consultant - (Surgical Oncology)",
     specialty: "Oncology",
     experience: "12+",
     image: "/doctors/hemkant.png",
@@ -55,6 +58,7 @@ const DOCTORS: Doctor[] = [
   {
     id: 4,
     name: "Dr. Vivek Tandon",
+    designation: "Director",
     specialty: "Cardiac Sciences",
     experience: "20+",
     image: "/doctors/vivek.png",
@@ -63,6 +67,7 @@ const DOCTORS: Doctor[] = [
   {
     id: 5,
     name: "Dr. Akhil Kumar Rustagi",
+    designation: "Senior Director & HOD",
     specialty: "Cardiac Sciences",
     experience: "25+",
     image: "/doctors/akhil.png",
@@ -71,6 +76,7 @@ const DOCTORS: Doctor[] = [
   {
     id: 6,
     name: "Dr. Nishit Palo",
+    designation: "Consultant",
     specialty: "Orthopaedics",
     experience: "12+",
     image: "/doctors/nishit.png",
@@ -79,6 +85,7 @@ const DOCTORS: Doctor[] = [
   {
     id: 7,
     name: "Dr. Atampreet Singh",
+    designation: "Senior Director & Head",
     specialty: "Neurosciences",
     experience: "25+",
     image: "/doctors/atampreet.png",
@@ -87,6 +94,7 @@ const DOCTORS: Doctor[] = [
   {
     id: 8,
     name: "Dr. Ravindra Srivastava",
+    designation: "Senior Consultant",
     specialty: "Neurosciences",
     experience: "23+",
     image: "/doctors/ravindra.png",
@@ -95,9 +103,19 @@ const DOCTORS: Doctor[] = [
   {
     id: 9,
     name: "Dr. Pushkar Chawla",
+    designation: "Director and Unit Head",
     specialty: "Orthopaedics",
     experience: "25+",
     image: "/doctors/pushkar.png",
+    pdf: "/pdfs/pushkar.pdf",
+  },
+  {
+    id: 10,
+    name: "Dr. Anindya Mukherjee",
+    designation: "Senior Consultant",
+    specialty: "Oncology",
+    experience: "12+",
+    image: "/doctors/anindya.png",
     pdf: "/pdfs/pushkar.pdf",
   },
 ];
@@ -167,10 +185,9 @@ const DoctorCard: React.FC<{ doctor: Doctor }> = ({ doctor }) => {
   );
 
   return (
-    // 1. Removed overflow-hidden from here so dropdowns can spill out
     <div className="group relative flex h-full w-full flex-col rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:border-[#EF5375] hover:shadow-lg">
       
-      {/* 2. Kept overflow-hidden here for the image only */}
+      {/* Image Container */}
       <div className="relative aspect-[5/5] w-full overflow-hidden rounded-t-2xl bg-gray-50">
         <div className="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-400">
            <svg className="h-20 w-20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
@@ -197,21 +214,29 @@ const DoctorCard: React.FC<{ doctor: Doctor }> = ({ doctor }) => {
 
       {/* Info Content */}
       <div className="flex flex-grow flex-col p-4">
-        <div className="mb-1 flex items-start justify-between">
-          <h3 className="text-lg font-medium text-gray-900 leading-tight pr-2">
-            {doctor.name}
-          </h3>
+        
+        {/* Header: Name, Designation & Mobile Menu */}
+        <div className="mb-2 flex items-start justify-between">
+          <div className="flex flex-col pr-2">
+            <h3 className="text-lg font-semibold text-gray-900 leading-tight">
+              {doctor.name}
+            </h3>
+            {/* Added Designation */}
+            <p className="mt-[2px] text-[13px] text-gray-700">
+              {doctor.designation}
+            </p>
+          </div>
           
           {/* Mobile Menu Button */}
-          <div className="relative md:hidden" ref={mobileMenuRef}>
+          <div className="relative md:hidden shrink-0" ref={mobileMenuRef}>
             <button 
               onClick={toggleMobileMenu}
               className="p-1 rounded-full"
             >
-              <Share2 className="h-6 w-6 text-gray-600" />
+              <Share2 className="h-5 w-5 text-gray-600" />
             </button>
 
-            {/* Mobile Dropdown - 3. Positioned Upwards (bottom-full) */}
+            {/* Mobile Dropdown */}
             {isMobileMenuOpen && (
               <div className="absolute right-0 bottom-full mb-2 z-50 w-56 rounded-xl border border-gray-100 bg-white p-2 shadow-xl animate-in fade-in zoom-in-95 duration-200">
                 <button 
@@ -229,15 +254,18 @@ const DoctorCard: React.FC<{ doctor: Doctor }> = ({ doctor }) => {
           </div>
         </div>
 
-        <p className="mb-4 text-sm font-medium text-[#34ACE1]">
+        {/* Added Dashed Border */}
+        <div className="mb-3 w-full border-t border-dashed border-gray-300"></div>
+
+        <p className="mb-4 text-[15px] font-medium text-[#34ACE1]">
           {doctor.specialty}
         </p>
         
-        <div className="mt-auto flex items-center rounded-lg bg-[#F5F5F5] px-3 py-2">
+        <div className="mt-auto flex items-center rounded-lg bg-[#F5F5F5] px-3 py-2.5">
           <GraduationCap className="mr-2 h-5 w-5 text-gray-700" />
-          <span className="text-sm flex items-center justify-between w-full font-semibold text-gray-700">
+          <span className="text-[13px] flex items-center justify-between w-full font-semibold text-gray-800">
             {doctor.experience}
-            <span className=" font-normal text-gray-500">Years of Experience</span>
+            <span className="font-normal text-gray-500">Years of Experience</span>
           </span>
         </div>
       </div>
@@ -297,7 +325,7 @@ const MedicalExpertsSection: React.FC = () => {
               1024: { slidesPerView: 4, spaceBetween: 24, centeredSlides: false },
               1280: { slidesPerView: 4, spaceBetween: 24, centeredSlides: false },
             }}
-            className="!pb-12 md:!pb-0 !pt-2 doctor-swiper !overflow-hidden" // Added !overflow-visible here as well just in case
+            className="!pb-12 md:!pb-0 !pt-2 doctor-swiper !overflow-hidden"
           >
             {DOCTORS.map((doctor) => (
               <SwiperSlide key={doctor.id} className="!h-auto !overflow-visible"> 

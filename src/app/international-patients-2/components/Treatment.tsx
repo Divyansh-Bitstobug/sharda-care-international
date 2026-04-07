@@ -77,7 +77,7 @@ const STEPS: Step[] = [
     title: "Return Travel Support after",
     subtitle: "Completion of Treatment",
     description:
-      "CompleteDocumnetation support , Airport drop and assistance until your safe departure.",
+      "Complete documnetation support , Airport drop and assistance until your safe departure.",
     icon: "/home/return.svg",
   },
   {

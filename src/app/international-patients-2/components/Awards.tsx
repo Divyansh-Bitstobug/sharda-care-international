@@ -111,8 +111,6 @@ const AwardsSection: React.FC = () => {
   const mobilePrevRef = useRef<HTMLButtonElement>(null);
   const mobileNextRef = useRef<HTMLButtonElement>(null);
   
-  // (Removed certPrevRef/certNextRef since 2 items fit easily or don't need sliding)
-
   return (
     <section id="awards" className="w-full bg-white py-10 relative overflow-hidden">
       <Image
@@ -177,10 +175,11 @@ const AwardsSection: React.FC = () => {
               }}
               spaceBetween={24}
               slidesPerView={2.2} // 2 Full + Peek
+              loop={true} // <-- Added infinite scroll for desktop
               className="!py-4"
             >
-              {AWARDS.map((award) => (
-                <SwiperSlide key={award.id} className="!h-auto">
+              {AWARDS.map((award, index) => (
+                <SwiperSlide key={`desk-${award.id}-${index}`} className="!h-auto">
                   <AwardCard item={award} />
                 </SwiperSlide>
               ))}
@@ -233,10 +232,11 @@ const AwardsSection: React.FC = () => {
               }}
               slidesPerView={1}
               spaceBetween={16}
+              loop={true} // <-- Added infinite scroll for mobile
               className="!px-2 !py-2"
             >
-              {AWARDS.map((award) => (
-                <SwiperSlide key={`mob-${award.id}`} className="!h-auto">
+              {AWARDS.map((award, index) => (
+                <SwiperSlide key={`mob-${award.id}-${index}`} className="!h-auto">
                    <div className="flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-6 shadow-sm text-center">
                       <div className="relative mb-4 h-32 w-auto flex items-center justify-center">
                          <Image src={award.badgeImage} alt={award.badgeAlt} width={100} height={100} className="object-contain" />

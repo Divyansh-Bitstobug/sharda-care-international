@@ -26,9 +26,9 @@ const FACILITIES: Facility[] = [
   },
   {
     id: 2,
-    category: "Patient Experience",
-    title: "Grand Welcoming Entrance",
-    image: "/infrastructure/grand.png",
+    category: "Access",
+    title: "24/7 Ambulance Access",
+    image: "/infrastructure/24.png",
   },
   {
     id: 3,
@@ -38,9 +38,9 @@ const FACILITIES: Facility[] = [
   },
   {
     id: 4,
-    category: "Amenities",
-    title: "Nutritious Dining Space",
-    image: "/infrastructure/nutritious.png",
+    category: "Critical Care",
+    title: "Rapid Assessment Zone",
+    image: "/infrastructure/rapid.png",
   },
   {
     id: 5,
@@ -50,39 +50,39 @@ const FACILITIES: Facility[] = [
   },
   {
     id: 6,
+    category: "Patient Experience",
+    title: "Grand Welcoming Entrance",
+    image: "/infrastructure/grand.png",
+  },
+  {
+    id: 7,
+    category: "Amenities",
+    title: "Nutritious Dining Space",
+    image: "/infrastructure/nutritious.png",
+  },
+  {
+    id: 8,
     category: "Global Services",
     title: "Premium International Lounge",
     image: "/infrastructure/premium.png",
   },
   {
-    id: 7,
+    id: 9,
     category: "Accommodation",
     title: "Modern Recovery Room",
     image: "/infrastructure/modern.png",
   },
   {
-    id: 8,
+    id: 10,
     category: "Luxury Recovery",
     title: "Elite Private Suite",
     image: "/infrastructure/elite.png",
   },
   {
-    id: 9,
-    category: "Critical Care",
-    title: "Rapid Assessment Zone",
-    image: "/infrastructure/rapid.png",
-  },
-  {
-    id: 10,
+    id: 11,
     category: "Clinical Excellence",
     title: "Precision Surgical Suite",
     image: "/infrastructure/precision.png",
-  },
-  {
-    id: 11,
-    category: "Access",
-    title: "24/7 Ambulance Access",
-    image: "/infrastructure/24.png",
   },
 ];
 
@@ -114,9 +114,9 @@ const FacilityCard = ({ item }: { item: Facility }) => (
 
     {/* Content */}
     <div className="px-1 py-4 text-left">
-      <span className="mb-1 block text-xs font-medium tracking-wide text-[#21A9FF]">
+      {/* <span className="mb-1 block text-xs font-medium tracking-wide text-[#21A9FF]">
         {item.category}
-      </span>
+      </span> */}
       <h3 className="text-xl font-medium text-gray-900 leading-tight">
         {item.title}
       </h3>
