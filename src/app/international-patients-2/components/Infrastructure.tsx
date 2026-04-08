@@ -19,12 +19,6 @@ type Facility = {
 
 const FACILITIES: Facility[] = [
   {
-    id: 1,
-    category: "Exterior",
-    title: "Advanced Healthcity Infrastructure",
-    image: "/infrastructure/advanced.jpg",
-  },
-  {
     id: 2,
     category: "Access",
     title: "24/7 Ambulance Access",
@@ -83,6 +77,12 @@ const FACILITIES: Facility[] = [
     category: "Clinical Excellence",
     title: "Precision Surgical Suite",
     image: "/infrastructure/precision.png",
+  },
+  {
+    id: 1,
+    category: "Exterior",
+    title: "Advanced Healthcity Infrastructure",
+    image: "/infrastructure/advanced.jpg",
   },
 ];
 
