@@ -116,7 +116,7 @@ const DOCTORS: Doctor[] = [
     specialty: "Oncology",
     experience: "12+",
     image: "/doctors/anindya.png",
-    pdf: "/pdfs/pushkar.pdf",
+    pdf: "/pdfs/anindya.pdf",
   },
 ];
 

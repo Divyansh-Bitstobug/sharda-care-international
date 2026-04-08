@@ -19,37 +19,37 @@ const PROGRAMS: Program[] = [
   {
     id: "1",
     title: "Bone Marrow\nTransplantation (BMT)",
-    icon: <Image src={"/svg/bone.svg"} alt="icon" width={38} height={38} />,
+    icon: <Image src={"/svg/bone.svg"} alt="icon" width={43} height={43} />,
   },
   {
     id: "2",
     title: "Kidney\nTransplant",
-    icon: <Image src={"/svg/kidney.svg"} alt="icon" width={38} height={38} />,
+    icon: <Image src={"/svg/kidney.svg"} alt="icon" width={43} height={43} />,
   },
   {
     id: "3",
     title: "Brain Surgery\n(Neurosurgery)",
-    icon: <Image src={"/svg/brain.svg"} alt="icon" width={38} height={38} />,
+    icon: <Image src={"/svg/brain.svg"} alt="icon" width={43} height={43} />,
   },
   {
     id: "4",
     title: "Spine\nSurgery",
-    icon: <Image src={"/svg/spine.svg"} alt="icon" width={38} height={38} />,
+    icon: <Image src={"/svg/spine.svg"} alt="icon" width={43} height={43} />,
   },
   {
     id: "5",
     title: "Heart Valve\nReplacement",
-    icon: <Image src={"/svg/heart.svg"} alt="icon" width={38} height={38} />,
+    icon: <Image src={"/svg/heart.svg"} alt="icon" width={43} height={43} />,
   },
   {
     id: "6",
     title: "In Vitro\nFertilization (IVF)",
-    icon: <Image src={"/svg/in.svg"} alt="icon" width={38} height={38} />,
+    icon: <Image src={"/svg/in.svg"} alt="icon" width={43} height={43} />,
   },
   {
     id: "7",
     title: "Robotic-Assisted\nSurgery",
-    icon: <Image src={"/svg/robotic.svg"} alt="icon" width={38} height={38} />,
+    icon: <Image src={"/svg/robotic.svg"} alt="icon" width={43} height={43} />,
   },
 ];
 
@@ -74,7 +74,7 @@ const ProgramCard = ({ program }: { program: Program }) => (
       </div>
 
       {/* Title */}
-      <h3 className="whitespace-pre-line text-center text-[15px] font-medium text-gray-900 leading-snug">
+      <h3 className="whitespace-pre-line text-center text-xl font-medium text-gray-900 leading-snug">
         {program.title}
       </h3>
     </div>
@@ -107,14 +107,15 @@ const AdvancedSurgicalSpecialties: React.FC = () => {
             navigation={{ prevEl, nextEl }}
             spaceBetween={20}
             slidesPerView={1.2} 
+            loop={true} // <-- Added infinite scroll property
             breakpoints={{
               640: { slidesPerView: 2.2, spaceBetween: 20 },
               1024: { slidesPerView: 4, spaceBetween: 24 }, 
             }}
             className="!py-4 !px-1"
           >
-            {PROGRAMS.map((program) => (
-              <SwiperSlide key={program.id} className="!h-auto">
+            {PROGRAMS.map((program, index) => (
+              <SwiperSlide key={`${program.id}-${index}`} className="!h-auto">
                 <ProgramCard program={program} />
               </SwiperSlide>
             ))}
