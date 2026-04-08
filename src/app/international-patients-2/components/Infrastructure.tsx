@@ -72,16 +72,16 @@ const FACILITIES: Facility[] = [
     title: "Elite Private Suite",
     image: "/infrastructure/elite.png",
   },
-  {
-    id: 11,
-    category: "Clinical Excellence",
-    title: "Precision Surgical Suite",
-    image: "/infrastructure/precision.png",
-  },
+  // {
+  //   id: 11,
+  //   category: "Clinical Excellence",
+  //   title: "Precision Surgical Suite",
+  //   image: "/infrastructure/precision.png",
+  // },
   {
     id: 1,
     category: "Exterior",
-    title: "Advanced Healthcity Infrastructure",
+    title: "Advanced Infrastructure",
     image: "/infrastructure/advanced.jpg",
   },
 ];
