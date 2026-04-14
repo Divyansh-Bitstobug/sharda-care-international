@@ -16,6 +16,8 @@ import HeroSection from "./international-patients-2/components/HeroSection";
 import MedicalSpecialtiesSection from "./international-patients-2/components/Specialities";
 import MedicalExpertsSection from "./international-patients-2/components/Experts";
 import InfrastructureSection from "./international-patients-2/components/Infrastructure";
+import WhyChooseUs from "./international-patients-2/components/TransplantSection";
+
 
 export default function Home() {
   return (
@@ -28,6 +30,7 @@ export default function Home() {
         <MedicalSpecialtiesSection />
         <SpecializedTransplantPrograms />
         <TreatmentJourney />
+        <WhyChooseUs />
         <MedicalExpertsSection />
         <InfrastructureSection />
         <AdvancedMedicalTechnologies />
