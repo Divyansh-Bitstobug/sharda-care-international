@@ -2,14 +2,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
-import {
-  Stethoscope,
-  HeartHandshake,
-  Receipt,
-  MonitorSmartphone,
-  Heart,
-  Globe,
-} from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
@@ -37,7 +29,7 @@ const carouselData = [
     icon: (
       <Image
         src={"/transplant/seamless.svg"}
-        alt="fast icon"
+        alt="seamless icon"
         width={60}
         height={60}
       />
@@ -51,9 +43,9 @@ const carouselData = [
     icon: (
       <Image
         src={"/transplant/transparent.svg"}
-        alt="fast icon"
-        width={60}
-        height={60}
+        alt="transparent pricing icon"
+        width={70}
+        height={70}
       />
     ),
   },
@@ -65,7 +57,7 @@ const carouselData = [
     icon: (
       <Image
         src={"/transplant/smart.svg"}
-        alt="fast icon"
+        alt="smart experience icon"
         width={60}
         height={60}
       />
@@ -79,9 +71,9 @@ const carouselData = [
     icon: (
       <Image
         src={"/transplant/compassionate.svg"}
-        alt="fast icon"
-        width={60}
-        height={60}
+        alt="compassionate support icon"
+        width={50}
+        height={50}
       />
     ),
   },
@@ -93,9 +85,9 @@ const carouselData = [
     icon: (
       <Image
         src={"/transplant/global.svg"}
-        alt="fast icon"
-        width={60}
-        height={60}
+        alt="global trust icon"
+        width={70}
+        height={70}
       />
     ),
   },
@@ -111,8 +103,8 @@ const WhyChooseUs: React.FC = () => {
             Why Choose Us?
           </h2>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-            Our commitment goes beyond treatment—discover what makes ShardaCare
-            exceptional for your international wellness journey.
+            Beyond treatment, discover what makes ShardaCare - Healthcity
+            exceptional for your wellness journey.
           </p>
         </div>
 
@@ -136,24 +128,23 @@ const WhyChooseUs: React.FC = () => {
               1024: { slidesPerView: 3 },
               1280: { slidesPerView: 4 },
             }}
-            className="pb-4"
+            // Added !p-1 and !pb-6 so Swiper's overflow:hidden doesn't cut the borders
+            className="!p-1 !pb-6" 
           >
             {carouselData.map((card) => (
-              // h-auto ensures the slide takes the height of the tallest card in the row
               <SwiperSlide key={card.id} className="!h-auto">
-                {/* h-full and flex-col stretch the card to fill the slide height */}
-                <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 h-full flex flex-col transition-transform hover:-translate-y-1 duration-300">
-                  {/* Icon Circle (Larger, matching the closeup) */}
+                <div className="bg-white rounded-2xl p-5 border-2 border-black/10 h-full flex flex-col transition-transform hover:-translate-y-1 duration-300">
+                  {/* Icon Circle */}
                   <div className="w-20 h-20 rounded-full bg-gradient-to-b from-[#F3FBFF] to-[#FFFFFF] flex items-center justify-center mb-8">
                     {card.icon}
                   </div>
 
-                  {/* Title with bottom border acting as the divider */}
+                  {/* Title */}
                   <h3 className="text-[18px] font-semibold text-black pb-4 border-b border-gray-200 mb-5">
                     {card.title}
                   </h3>
 
-                  {/* Description (flex-grow pushes any extra space to the bottom if text varies in length) */}
+                  {/* Description */}
                   <p className="text-gray-600 text-[13px] leading-[1.8] flex-grow">
                     {card.description}
                   </p>
@@ -163,7 +154,7 @@ const WhyChooseUs: React.FC = () => {
           </Swiper>
 
           {/* Navigation Arrows */}
-          <button className="swiper-button-prev-custom absolute left-[-20px] top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white border border-gray-200 rounded-full items-center justify-center shadow-md text-gray-600 hover:text-blue-500 transition-colors hidden md:flex cursor-pointer">
+          <button className="swiper-button-prev-custom absolute left-[-20px] top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white border border-gray-200 rounded-full items-center justify-center shadow-md text-gray-600 hover:bg-[#38bdf8] hover:text-white hover:border-[#38bdf8] transition-all duration-300 hidden md:flex cursor-pointer">
             <svg
               width="20"
               height="20"
@@ -178,7 +169,7 @@ const WhyChooseUs: React.FC = () => {
             </svg>
           </button>
 
-          <button className="swiper-button-next-custom absolute right-[-20px] top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-[#38bdf8] rounded-full items-center justify-center shadow-md text-white hover:bg-[#0284c7] transition-colors hidden md:flex cursor-pointer">
+          <button className="swiper-button-next-custom absolute right-[-20px] top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white border border-gray-200 rounded-full items-center justify-center shadow-md text-gray-600 hover:bg-[#38bdf8] hover:text-white hover:border-[#38bdf8] transition-all duration-300 hidden md:flex cursor-pointer">
             <svg
               width="20"
               height="20"
