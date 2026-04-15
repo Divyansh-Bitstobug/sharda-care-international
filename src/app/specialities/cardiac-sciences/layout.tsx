@@ -2,7 +2,7 @@ import HomeFooter from "@/components/HomeFooter";
 import HomeHeader from "@/components/HomeHeader";
 import type { ReactNode } from "react";
 
-export default function UnderConstructionPageLayout({
+export default function CardiacPageLayout({
   children,
 }: {
   children: ReactNode;

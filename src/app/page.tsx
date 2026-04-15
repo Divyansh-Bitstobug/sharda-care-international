@@ -16,7 +16,7 @@ import HeroSection from "./international-patients-2/components/HeroSection";
 import MedicalSpecialtiesSection from "./international-patients-2/components/Specialities";
 import MedicalExpertsSection from "./international-patients-2/components/Experts";
 import InfrastructureSection from "./international-patients-2/components/Infrastructure";
-import WhyChooseUs from "./international-patients-2/components/TransplantSection";
+import WhyChooseUs from "./international-patients-2/components/WhyChooseUs";
 
 
 export default function Home() {
