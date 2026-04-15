@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { FaChevronDown } from "react-icons/fa";
 import Link from "next/link";
-import { ClinicalTopStrip } from "@/app/international-patients-2/components/TopStrip";
+import { ClinicalTopStrip } from "@/components/HomeComponents/TopStrip";
 
 const LANGUAGES = [
   { label: "English", value: "en", icon: "/assets/india.png" },
