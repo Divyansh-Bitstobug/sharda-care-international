@@ -40,7 +40,14 @@ const specializationsData = [
   },
   {
     id: 5,
-    title: "Cardiac Rehabilitation",
+    title: "Heart Transplant",
+    icon: (
+      <Image src={"/cardiac-sciences/cardiac.png"} alt="cardiac surgery" width={60} height={60} />
+    ),
+  },
+  {
+    id: 5,
+    title: "Paediatric Cardiology",
     icon: (
       <Image src={"/cardiac-sciences/cardiac.png"} alt="cardiac surgery" width={60} height={60} />
     ),

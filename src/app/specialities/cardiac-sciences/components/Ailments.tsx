@@ -15,28 +15,28 @@ const ailmentsData = [
     id: "heart-attack",
     title: "Heart Attack (Myocardial Infarction)",
     description:
-      "A heart attack occurs when the flow of blood to the heart is severely reduced or blocked. The blockage is usually due to a buildup of fat, cholesterol and other substances in the heart (coronary) arteries. Prompt medical attention is crucial to prevent irreversible heart muscle damage.",
+      "A heart attack occurs when blood supply to your heart is severely blocked, requiring immediate care to prevent irreversible damage. Symptoms include severe chest pain, breathlessness, and sweating. Rapid treatment using clot-busting medications, emergency angioplasty, or stenting restores blood flow and quickly saves lives.",
     imgSrc: "/cardiac-sciences/peripheral.png",
   },
   {
     id: "heart-failure",
     title: "Heart Failure",
     description:
-      "Heart failure occurs when the heart muscle doesn't pump blood as well as it should. Conditions such as narrowed arteries in the heart (coronary artery disease) or high blood pressure gradually leave the heart too weak or stiff to fill and pump efficiently.",
+      "Heart failure is a chronic condition where your heart cannot pump enough blood to meet bodily needs, causing extreme fatigue, breathlessness, and fluid buildup. Our specialists effectively manage this using targeted medications, lifestyle changes, and advanced therapies like pacemakers or mechanical circulatory support devices.",
     imgSrc: "/cardiac-sciences/peripheral.png",
   },
   {
     id: "valvular-heart-diseases",
     title: "Valvular Heart Diseases",
     description:
-      "Valvular heart disease occurs when any of the four valves in the heart has damage or is diseased. Damage can lead to regurgitation (leaking) or stenosis (narrowing), causing the heart to work harder. Treatments range from medication to surgical repair or replacement.",
+      "Valvular heart disease involves damaged heart valves that cannot open or close correctly. This restricts normal blood flow, forcing your heart to overwork, causing extreme fatigue and irregular heartbeats. Treatments range from medical monitoring to advanced minimally invasive repairs or complete surgical valve replacements.",
     imgSrc: "/cardiac-sciences/peripheral.png",
   },
   {
     id: "hypertension",
     title: "Hypertension & Preventive Cardiology",
     description:
-      "Hypertension (high blood pressure) forces the heart to work harder to pump blood, straining the heart muscle and blood vessels over time. Preventive cardiology focuses on early detection, lifestyle modifications, and managing risk factors to prevent serious cardiovascular events.",
+      "Hypertension, or high blood pressure, forces your heart to overwork, significantly increasing risks of heart attacks and strokes. Often presenting without symptoms, it is a silent killer. Our preventive approach uses early detection, personalized lifestyle coaching, and precise medical management to safeguard long-term health.",
     imgSrc: "/cardiac-sciences/peripheral.png",
   },
 ];

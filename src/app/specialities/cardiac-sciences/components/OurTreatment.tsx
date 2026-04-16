@@ -16,21 +16,21 @@ const treatmentsData = [
     id: "cabg",
     title: "Coronary Artery Bypass Graft Surgery (CABG)",
     description:
-      "CABG is a surgical procedure used to treat coronary heart disease. It diverts blood around narrowed or clogged parts of the major arteries to improve blood flow and oxygen supply to the heart.",
+      "CABG surgery treats severe coronary artery disease by using a healthy blood vessel to bypass blocked arteries. This creates a new pathway, restoring optimal blood flow to the heart and significantly lowering the risk of heart attacks.",
     imgSrc: "/cardiac-sciences/peripheral.png",
   },
   {
     id: "coronary-angiography",
     title: "Coronary Angiography",
     description:
-      "Coronary angiography is a procedure that uses a special dye (contrast material) and x-rays to see how blood flows through the arteries in your heart to detect blockages.",
+      "A vital diagnostic procedure using X-ray imaging and contrast dye to clearly visualize the heart’s blood vessels. It allows our experts to pinpoint blockages and abnormalities, forming the critical first step in developing an effective treatment plan.",
     imgSrc: "/cardiac-sciences/peripheral.png",
   },
   {
     id: "angioplasty-stent",
     title: "Angioplasty & Stent Placement",
     description:
-      "Angioplasty with stent placement is a minimally invasive procedure used to open clogged heart arteries. It involves temporarily inserting and inflating a tiny balloon where your artery is clogged to help widen the artery.",
+      "A minimally invasive procedure to open clogged heart arteries. A tiny balloon widens the vessel, and a wire mesh stent is permanently placed to keep it open, quickly restoring blood flow, relieving chest pain, and preventing heart damage.",
     imgSrc:
       "/cardiac-sciences/peripheral.png",
   },
@@ -38,7 +38,7 @@ const treatmentsData = [
     id: "minimally-invasive",
     title: "Minimally Invasive Cardiac Surgery",
     description:
-      "Minimally invasive heart surgery involves making small incisions in the right side of your chest to reach the heart between the ribs, rather than cutting through the breastbone, as is done in open-heart surgery.",
+      "A modern alternative to open-heart surgery. Using specialized instruments through small incisions, our surgeons perform complex treatments like valve repairs. This advanced approach ensures significantly less pain, minimal scarring, reduced infection risks, and a much faster recovery.",
     imgSrc:
       "/cardiac-sciences/peripheral.png",
   },

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 
 const allFeatures = [
@@ -206,16 +206,14 @@ const CardiologyCare = () => {
             advanced diagnostics, high-risk surgery, mechanical circulatory
             support, and long-term rehabilitation under one roof.
             {!isExpanded ? (
-              <span className="text-gray-400">
-                {" "}
-                With evidence-based ...
-              </span>
+              <span className="text-gray-400"> With evidence-based ...</span>
             ) : (
               <span>
                 {" "}
-                With evidence-based practices and comprehensive care, we strive
-                to offer the best outcomes for our patients with over 500
-                vendor-to-based.
+                With evidence-based practices and protocol-driven evaluations,
+                our institute is fully equipped to manage severe heart failure
+                requiring timely transplantation and intensive postoperative
+                care.
               </span>
             )}
           </p>
