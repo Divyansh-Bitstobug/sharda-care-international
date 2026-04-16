@@ -21,7 +21,7 @@ const DoctorProfileSection: React.FC = () => {
           <div className="w-full md:w-1/2 order-2 md:order-1 text-left">
             {/* 1. Doctor Name and Titles */}
             <div className="mb-8 md:block hidden">
-              <h2 className="text-4xl md:text-5xl font-medium text-[#111] leading-tight mb-4 tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-medium text-[#333333] leading-tight mb-4 tracking-tight">
                 {doctorName}
               </h2>
 
