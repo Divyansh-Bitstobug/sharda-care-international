@@ -75,7 +75,7 @@ const Ailments: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section className="py-8 md:py-16 bg-[#FCFDFD]">
+    <section id="ailment" className="py-8 md:py-16 bg-[#FCFDFD]">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Header section */}
         <div className="text-center mb-10 md:mb-16">

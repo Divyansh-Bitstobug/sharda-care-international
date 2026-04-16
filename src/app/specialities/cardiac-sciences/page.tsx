@@ -6,11 +6,13 @@ import OurTreatments from "./components/OurTreatment";
 import SubSpecialization from "./components/SubSpecialization";
 import PatientStoriesSection from "@/components/HomeComponents/Stories";
 import FAQs from "./components/FaqSection";
+import { CardiacTopStrip } from "./components/CardiacTopStrip";
 
 
 export default function CardiacPage() {
   return (
     <div className="min-h-screen w-screen pt-20">
+      <CardiacTopStrip />
       <CardiologyCareSection />
       <DoctorProfileSection />
       <OurTreatments />

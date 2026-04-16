@@ -59,7 +59,7 @@ const SubSpecialization = () => {
   const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
 
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden">
+    <section id="sub" className="py-16 md:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 max-w-7xl">
         
         {/* Header Section */}

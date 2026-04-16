@@ -196,7 +196,6 @@ const HomeHeader: React.FC = () => {
           </div>
         </div>
       </div>
-      <ClinicalTopStrip />
     </header>
   );
 };
