@@ -1,6 +1,5 @@
 // app/page.tsx
 import MobileBottomNav from "@/components/MobileBottomNav";
-import { ClinicalTopStrip } from "../components/HomeComponents/TopStrip";
 import { StatsStrip } from "../components/HomeComponents/StatsStrip";
 import { InternationalPatientServices } from "../components/HomeComponents/Services";
 import SpecializedTransplantPrograms from "../components/HomeComponents/Specialized";
@@ -18,13 +17,21 @@ import MedicalExpertsSection from "../components/HomeComponents/Experts";
 import InfrastructureSection from "../components/HomeComponents/Infrastructure";
 import WhyChooseUs from "../components/HomeComponents/WhyChooseUs";
 
-
 export default function Home() {
+  const HOME_LINKS = [
+    { label: "Statistics", href: "#statistics" },
+    { label: "Our Specialities and Procedures", href: "#specialities" },
+    { label: "Journey", href: "#journey" },
+    { label: "Our Medical Experts", href: "#experts" },
+    { label: "Technologies", href: "#technologies" },
+    { label: "Patient Stories", href: "#patient-stories" },
+    { label: "Awards & Accreditations", href: "#awards" },
+    { label: "Sharda Group", href: "#sharda-group" },
+  ];
   return (
     <div className="min-h-screen w-screen">
-      <HomeHeader />
+      <HomeHeader topStripLinks={HOME_LINKS} />
       <div className="pt-16">
-        <ClinicalTopStrip />
         <HeroSection />
         <StatsStrip />
         {/* <InternationalPatientServices /> */}

@@ -3,7 +3,8 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { FaChevronDown } from "react-icons/fa";
 import Link from "next/link";
-import { ClinicalTopStrip } from "@/components/HomeComponents/TopStrip";
+import { TopStrip, SectionLink } from "../components/HomeComponents/TopStrip";
+
 
 const LANGUAGES = [
   { label: "English", value: "en", icon: "/assets/india.png" },
@@ -11,7 +12,12 @@ const LANGUAGES = [
   { label: "French", value: "fr", icon: "/france.svg" },
 ];
 
-const HomeHeader: React.FC = () => {
+// Define the interface to accept the topStripLinks prop
+interface HomeHeaderProps {
+  topStripLinks?: SectionLink[]; // Make it optional in case some pages don't need it
+}
+
+const HomeHeader: React.FC<HomeHeaderProps> = ({ topStripLinks }) => {
   const [langOpen, setLangOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState(LANGUAGES[0]);
   const langRef = useRef<HTMLDivElement>(null);
@@ -28,7 +34,7 @@ const HomeHeader: React.FC = () => {
   }, [langOpen]);
 
   return (
-    <header className="fixed z-[100] w-full bg-white border-b border-gray-100">
+    <header className="fixed top-0 z-[100] w-full bg-white border-b border-gray-100 shadow-sm transition-all duration-300">
       <div className="max-w-[1300px] mx-auto flex items-center justify-between px-4 py-2 h-16">
         {/* Logo */}
         <Link href={"/"} className="flex items-center">
@@ -196,6 +202,11 @@ const HomeHeader: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      {/* Conditionally render TopStrip if links are provided */}
+      {topStripLinks && topStripLinks.length > 0 && (
+        <TopStrip links={topStripLinks} />
+      )}
     </header>
   );
 };

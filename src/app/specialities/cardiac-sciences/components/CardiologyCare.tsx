@@ -91,7 +91,7 @@ const CardiologyCare = () => {
         </div>
 
         {/* Heart + Circle */}
-        <div
+        <div id="overview"
           className="relative flex justify-center"
           style={{ minHeight: "320px" }}
         >
@@ -139,50 +139,50 @@ const CardiologyCare = () => {
         </div>
 
         {/* Left top */}
-        <div className="absolute left-[3%] top-[2%] w-[300px] text-right">
+        <div className="absolute left-[3%] top-[2%] w-[340px] text-right">
           <h3 className="text-lg font-medium mb-1">Multidisciplinary Team</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-xs text-muted-foreground leading-relaxed text-[#494949]">
             Integrated cardiologists, surgeons, and trained nurses ensuring
             highly coordinated, specialized patient care.
           </p>
         </div>
         {/* Left middle */}
-        <div className="absolute left-[-7%] top-[36%] w-[300px] text-right">
+        <div className="absolute left-[-7%] top-[36%] w-[340px] text-right">
           <h3 className="text-lg font-medium mb-1">Advanced Interventions</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-xs text-muted-foreground leading-relaxed text-[#494949]">
             Managing complex heart conditions utilizing next-generation
             therapies and minimally invasive surgical techniques.
           </p>
         </div>
         {/* Left bottom */}
-        <div className="absolute left-[-3%] top-[68%] w-[300px] text-right">
+        <div className="absolute left-[-5%] top-[65%] w-[340px] text-right">
           <h3 className="text-lg font-medium mb-1">24/7 Emergency Care</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-xs text-muted-foreground leading-relaxed text-[#494949]">
             Round-the-clock rapid response and critical care for heart attacks
             and acute cardiac emergencies.
           </p>
         </div>
 
         {/* Right top */}
-        <div className="absolute right-[3%] top-[2%] w-[300px] text-left">
+        <div className="absolute right-[3%] top-[2%] w-[340px] text-left">
           <h3 className="text-lg font-medium mb-1">Comprehensive Care</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-xs text-muted-foreground leading-relaxed text-[#494949]">
             End-to-end diagnosis, personalized treatment, and holistic
             rehabilitation for a diverse spectrum of heart conditions.
           </p>
         </div>
         {/* Right middle */}
-        <div className="absolute right-[-7%] top-[36%] w-[300px] text-left">
+        <div className="absolute right-[-7%] top-[36%] w-[340px] text-left">
           <h3 className="text-lg font-medium mb-1">Modern Infrastructure</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-xs text-muted-foreground leading-relaxed text-[#494949]">
             State-of-the-art cath labs, modular operating theaters, and
             dedicated ICUs with advanced patient monitoring.
           </p>
         </div>
         {/* Right bottom */}
-        <div className="absolute right-[-3%] top-[68%] w-[300px] text-left">
+        <div className="absolute right-[-5%] top-[65%] w-[340px] text-left">
           <h3 className="text-lg font-medium mb-1">Leading Expertise</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="text-xs text-muted-foreground leading-relaxed text-[#494949]">
             The region's fastest-growing cardiac program, guided by highly
             experienced cardiologists and surgeons.
           </p>
@@ -191,22 +191,22 @@ const CardiologyCare = () => {
 
       {/* Bottom section */}
       <div className="relative z-30 bg-white md:mt-[-60px] pt-24 pb-16 flex flex-col items-center justify-center">
-        <button className="group rounded-full p-[1px] bg-gradient-to-r from-[#E3396C] to-[#EC7E4B] mb-4">
-          <div className="px-6 py-2.5 rounded-full bg-white group-hover:bg-[hsl(0,70%,95%)] transition-colors h-full w-full">
-            <span className="bg-gradient-to-r from-[#E3396C] to-[#EC7E4B] bg-clip-text text-transparent font-medium text-sm">
+        <button className="group rounded-full p-[1px] bg-gradient-to-r from-[#E3396C] to-[#EC7E4B] mb-8">
+          <div className="px-5 py-2 rounded-full bg-white group-hover:bg-[hsl(0,70%,95%)] transition-colors h-full w-full">
+            <span className="bg-gradient-to-r from-[#E3396C] to-[#EC7E4B] bg-clip-text text-transparent font-medium text-xs">
               About Us
             </span>
           </div>
         </button>
-        <div className="max-w-4xl mx-auto text-center px-4 flex flex-col items-center justify-center">
-          <p className="text-muted-foreground leading-relaxed text-base mb-6 transition-all duration-300">
+        <div className="max-w-6xl mx-auto text-left md:text-center px-4 flex flex-col items-center justify-center">
+          <p className="text-muted-foreground  tracking-widest text-xl mb-6 transition-all duration-300">
             ShardaCare - Healthcity brings together a multidisciplinary team of
             top cardiac surgeons and heart failure specialists to give patients
             with end-stage heart disease a second chance at life. We integrate
             advanced diagnostics, high-risk surgery, mechanical circulatory
             support, and long-term rehabilitation under one roof.
             {!isExpanded ? (
-              <span className="text-gray-400"> With evidence-based ...</span>
+              <span className="text-[#333333]/33"> With evidence-based ...</span>
             ) : (
               <span>
                 {" "}
