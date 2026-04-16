@@ -18,3 +18,41 @@ body {
 .font-oswald {
   font-family: var(--font-oswald);
 }
+
+/* ─── Google Translate: Hide all default UI ─────────────────────────────── */
+
+/* Hide the injected top bar / frame */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Prevent body offset shift that GT injects */
+body {
+  top: 0 !important;
+  position: static !important;
+}
+
+/* Hide the floating "Translated by Google" bar */
+.goog-te-gadget,
+.goog-te-gadget-simple,
+.goog-te-menu-value,
+.goog-te-combo,
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip-content {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Hide the top Google bar that appears in some browsers */
+.skiptranslate:not(#google_translate_element) {
+  display: none !important;
+}
+
+/* Suppress font-size changes Google Translate forces on <font> tags */
+font {
+  vertical-align: inherit !important;
+}
