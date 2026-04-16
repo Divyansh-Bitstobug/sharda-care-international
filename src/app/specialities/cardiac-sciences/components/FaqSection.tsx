@@ -75,7 +75,7 @@ const FAQs: React.FC = () => {
         
         {/* Header */}
         <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-3xl md:text-4xl font-medium mb-4 text-[#1c1c28]">
+          <h2 className="text-3xl md:text-4xl font-medium mb-4 text-[#333]">
             FAQ's
           </h2>
           <p className="text-gray-500 text-sm md:text-base max-w-lg mx-auto">

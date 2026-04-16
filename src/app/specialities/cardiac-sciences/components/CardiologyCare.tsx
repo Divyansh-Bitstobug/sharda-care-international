@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const allFeatures = [
@@ -58,9 +59,9 @@ const CardiologyCare = () => {
           Cardiac Sciences
         </h2>
         <div className="flex justify-center gap-4">
-          <button className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#E3396C] to-[#EC7E4B] text-white font-medium text-sm hover:opacity-90 transition-opacity">
+          <Link href={"/"} className="px-6 py-2.5 flex items-center justify-center rounded-lg bg-gradient-to-r from-[#E3396C] to-[#EC7E4B] text-white font-medium text-sm hover:opacity-90 transition-opacity">
             Enquire Now
-          </button>
+          </Link>
           <button className="group rounded-lg p-[1px] bg-gradient-to-r from-[#E3396C] to-[#EC7E4B] shadow-sm">
             <div className="px-6 py-2.5 rounded-lg bg-white group-hover:bg-[hsl(0,70%,95%)] transition-colors h-full w-full">
               <span className="bg-gradient-to-r from-[#E3396C] to-[#EC7E4B] bg-clip-text text-transparent font-medium text-sm">
@@ -140,7 +141,7 @@ const CardiologyCare = () => {
         </div>
 
         {/* Left top */}
-        <div className="absolute left-[3%] top-[2%] w-[340px] text-right">
+        <div className="absolute left-[3%] top-[4%] w-[340px] text-right">
           <h3 className="text-lg font-medium mb-1 text-[#181B31]">
             Multidisciplinary Team
           </h3>
@@ -150,7 +151,7 @@ const CardiologyCare = () => {
           </p>
         </div>
         {/* Left middle */}
-        <div className="absolute left-[-7%] top-[24%] w-[360px] text-right">
+        <div className="absolute left-[-7%] top-[26%] w-[360px] text-right">
           <h3 className="text-lg font-medium mb-1 text-[#181B31]">
             Advanced Interventions
           </h3>
@@ -160,7 +161,7 @@ const CardiologyCare = () => {
           </p>
         </div>
         {/* Left bottom */}
-        <div className="absolute left-[-5%] top-[48%] w-[340px] text-right">
+        <div className="absolute left-[-5%] top-[50%] w-[340px] text-right">
           <h3 className="text-lg font-medium mb-1 text-[#181B31]">
             24/7 Emergency Care
           </h3>
@@ -171,7 +172,7 @@ const CardiologyCare = () => {
         </div>
 
         {/* Right top */}
-        <div className="absolute right-[3%] top-[2%] w-[340px] text-left">
+        <div className="absolute right-[3%] top-[4%] w-[340px] text-left">
           <h3 className="text-lg font-medium mb-1 text-[#181B31]">
             Comprehensive Care
           </h3>
@@ -181,7 +182,7 @@ const CardiologyCare = () => {
           </p>
         </div>
         {/* Right middle */}
-        <div className="absolute right-[-7%] top-[24%] w-[340px] text-left">
+        <div className="absolute right-[-7%] top-[26%] w-[340px] text-left">
           <h3 className="text-lg font-medium mb-1 text-[#181B31]">
             Modern Infrastructure
           </h3>
@@ -191,7 +192,7 @@ const CardiologyCare = () => {
           </p>
         </div>
         {/* Right bottom */}
-        <div className="absolute right-[-5%] top-[48%] w-[340px] text-left">
+        <div className="absolute right-[-5%] top-[50%] w-[340px] text-left">
           <h3 className="text-lg font-medium mb-1 text-[#181B31]">
             Leading Expertise
           </h3>

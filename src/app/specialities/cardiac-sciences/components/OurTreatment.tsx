@@ -82,7 +82,7 @@ const OurTreatments: React.FC = () => {
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Header section */}
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-3 text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-medium mb-3 text-[#333]">
             Our Treatments
           </h2>
           <p className="text-gray-500 text-sm md:text-base">

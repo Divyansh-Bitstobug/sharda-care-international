@@ -10,7 +10,7 @@ const titleDepartment =
 
 // Paragraph content, split logically for readability and structure
 const paragraphs = [
-  "Advanced cardiothoracic and vascular surgery requires seamless precision and unwavering coordination between surgeons, intensivists, and rehabilitation teams. At ShardaCare – Healthcity, our philosophy extends beyond the operating room. We emphasize a comprehensive approach—from precise diagnostics to cutting-edge interventions like minimally invasive valve replacements and advanced ECMO support. Driven by a culture of surgical innovation, our primary goal is delivering exceptional patient outcomes, even in high-risk scenarios. Advances in cardiovascular therapies allow us to help patients reclaim active, healthy lives. Every procedure is a testament to our collective commitment to clinical excellence, patient safety, and lifelong cardiac wellness.",
+  "Advanced cardiothoracic and vascular surgery demands seamless precision and expert coordination. At ShardaCare – Healthcity, our philosophy extends beyond the operating room. We provide a comprehensive approach—from precise diagnostics to cutting-edge interventions like minimally invasive valve replacements and ECMO support. Driven by surgical innovation, our goal is exceptional outcomes, even in high-risk scenarios. Every procedure reflects our commitment to clinical excellence, patient safety, and helping you reclaim an active, healthy life.",
 ];
 
 const DoctorProfileSection: React.FC = () => {
@@ -20,7 +20,7 @@ const DoctorProfileSection: React.FC = () => {
         <div className="flex flex-col-reverse md:flex-row items-center md:items-start gap-12 lg:gap-20">
           <div className="w-full md:w-1/2 order-2 md:order-1 text-left">
             {/* 1. Doctor Name and Titles */}
-            <div className="mb-8 md:block hidden">
+            <div className="mb-16 md:block hidden">
               <h2 className="text-3xl md:text-4xl font-medium text-[#333333] leading-tight mb-4 tracking-tight">
                 {doctorName}
               </h2>
@@ -31,7 +31,7 @@ const DoctorProfileSection: React.FC = () => {
                   {/* Hex color picked to closely match image: a specific peach/red */}
                   <span className="text-[#E33B6B]">{titleHighlight}</span>
                 </p>
-                <p className="text-xl text-[#4B4B4B] leading-relaxed">
+                <p className="text-xl text-[#4B4B4B] mt-2">
                   {titleDepartment}
                 </p>
               </div>
