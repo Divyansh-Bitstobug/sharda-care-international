@@ -190,7 +190,7 @@ const CardiologyCare = () => {
       </div>
 
       {/* Bottom section */}
-      <div className="relative z-30 bg-white md:mt-[-60px] pt-24 pb-16 flex flex-col items-center justify-center">
+      <div className="relative z-30 bg-white md:mt-[-60px] pt-24 pb-16 flex flex-col items-start md:items-center justify-center px-4">
         <button className="group rounded-full p-[1px] bg-gradient-to-r from-[#E3396C] to-[#EC7E4B] mb-8">
           <div className="px-5 py-2 rounded-full bg-white group-hover:bg-[hsl(0,70%,95%)] transition-colors h-full w-full">
             <span className="bg-gradient-to-r from-[#E3396C] to-[#EC7E4B] bg-clip-text text-transparent font-medium text-xs">
@@ -198,8 +198,8 @@ const CardiologyCare = () => {
             </span>
           </div>
         </button>
-        <div className="max-w-6xl mx-auto text-left md:text-center px-4 flex flex-col items-center justify-center">
-          <p className="text-muted-foreground  tracking-widest text-xl mb-6 transition-all duration-300">
+        <div className="max-w-6xl mx-auto text-left md:text-center flex flex-col items-start md:items-center justify-center">
+          <p className="text-muted-foreground  tracking-widest text-sm md:text-xl mb-6 transition-all duration-300">
             ShardaCare - Healthcity brings together a multidisciplinary team of
             top cardiac surgeons and heart failure specialists to give patients
             with end-stage heart disease a second chance at life. We integrate

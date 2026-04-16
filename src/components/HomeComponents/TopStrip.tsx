@@ -19,10 +19,10 @@ export const TopStrip: React.FC<TopStripProps> = ({ links }) => {
   const [activeSection, setActiveSection] = useState<string>("");
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
+  // EFFECT 1: Intersection Observer for normal scrolling
   useEffect(() => {
     const observerOptions = {
       root: null,
-      // Adjust the top margin to account for the height of the sticky header itself
       rootMargin: "-100px 0px -60% 0px",
       threshold: 0,
     };
@@ -46,18 +46,32 @@ export const TopStrip: React.FC<TopStripProps> = ({ links }) => {
     return () => observer.disconnect();
   }, [links]);
 
-  // NEW EFFECT: Scroll the active link into view horizontally
+  // EFFECT 2: Fallback to force the first section active when at the absolute top
+  useEffect(() => {
+    const handleScrollTop = () => {
+      // If window is scrolled to the top (within 50px), force the first link to be active
+      if (window.scrollY <= 50 && links.length > 0) {
+        setActiveSection(links[0].href);
+      }
+    };
+
+    window.addEventListener("scroll", handleScrollTop);
+    // Call immediately on mount to set the correct initial state
+    handleScrollTop();
+
+    return () => window.removeEventListener("scroll", handleScrollTop);
+  }, [links]);
+
+  // EFFECT 3: Scroll the active link into view horizontally (Mobile view fix)
   useEffect(() => {
     if (!activeSection || !scrollContainerRef.current) return;
 
     const container = scrollContainerRef.current;
-    // Find the active link inside our container using a data attribute
     const activeElement = container.querySelector(
       `[data-href="${activeSection}"]`
     ) as HTMLElement | null;
 
     if (activeElement) {
-      // Calculate position to center the active link horizontally
       const scrollLeft =
         activeElement.offsetLeft -
         container.clientWidth / 2 +
@@ -81,7 +95,6 @@ export const TopStrip: React.FC<TopStripProps> = ({ links }) => {
     const el = document.getElementById(id);
 
     if (el) {
-      // Offset calculation for sticky header (64px main header + approx 48px top strip)
       const headerOffset = 112; 
       const elementPosition = el.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
@@ -116,7 +129,7 @@ export const TopStrip: React.FC<TopStripProps> = ({ links }) => {
             <Link
               key={item.href}
               href={item.href}
-              data-href={item.href} // Added data-href so we can target it in the useEffect
+              data-href={item.href}
               scroll={false}
               onClick={(e) => handleClick(e, item.href)}
               className={`flex items-center gap-1.5 transition-all duration-300 ${
