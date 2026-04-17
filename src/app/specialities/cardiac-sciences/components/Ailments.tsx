@@ -23,7 +23,7 @@ const ailmentsData = [
     title: "Heart Failure",
     description:
       "Heart failure is a chronic condition where your heart cannot pump enough blood to meet bodily needs, causing extreme fatigue, breathlessness, and fluid buildup. Our specialists effectively manage this using targeted medications, lifestyle changes, and advanced therapies like pacemakers or mechanical circulatory support devices.",
-    imgSrc: "/cardiac-sciences/heart.jpg",
+    imgSrc: "/cardiac-sciences/heart-failure.jpg",
   },
   {
     id: "valvular-heart-diseases",
