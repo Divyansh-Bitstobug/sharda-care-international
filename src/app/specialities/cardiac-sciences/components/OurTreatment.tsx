@@ -10,21 +10,21 @@ const treatmentsData = [
     description:
       "Peripheral angioplasty is a minimally invasive procedure designed to open narrowed or blocked arteries in the peripheral vascular system. Often involving the placement of a stent to keep the artery open, it helps alleviate symptoms like leg pain and cramping while reducing the risk of severe complications related to peripheral artery disease.",
     imgSrc:
-      "/cardiac-sciences/peripheral.png",
+      "/cardiac-sciences/peripheral.jpg",
   },
   {
     id: "cabg",
     title: "Coronary Artery Bypass Graft Surgery (CABG)",
     description:
       "CABG surgery treats severe coronary artery disease by using a healthy blood vessel to bypass blocked arteries. This creates a new pathway, restoring optimal blood flow to the heart and significantly lowering the risk of heart attacks.",
-    imgSrc: "/cardiac-sciences/peripheral.png",
+    imgSrc: "/cardiac-sciences/cabg.jpg",
   },
   {
     id: "coronary-angiography",
     title: "Coronary Angiography",
     description:
       "A vital diagnostic procedure using X-ray imaging and contrast dye to clearly visualize the heart’s blood vessels. It allows our experts to pinpoint blockages and abnormalities, forming the critical first step in developing an effective treatment plan.",
-    imgSrc: "/cardiac-sciences/peripheral.png",
+    imgSrc: "/cardiac-sciences/coronory.jpg",
   },
   {
     id: "angioplasty-stent",
@@ -32,7 +32,7 @@ const treatmentsData = [
     description:
       "A minimally invasive procedure to open clogged heart arteries. A tiny balloon widens the vessel, and a wire mesh stent is permanently placed to keep it open, quickly restoring blood flow, relieving chest pain, and preventing heart damage.",
     imgSrc:
-      "/cardiac-sciences/peripheral.png",
+      "/cardiac-sciences/heart.jpg",
   },
   {
     id: "minimally-invasive",
@@ -40,7 +40,7 @@ const treatmentsData = [
     description:
       "A modern alternative to open-heart surgery. Using specialized instruments through small incisions, our surgeons perform complex treatments like valve repairs. This advanced approach ensures significantly less pain, minimal scarring, reduced infection risks, and a much faster recovery.",
     imgSrc:
-      "/cardiac-sciences/peripheral.png",
+      "/cardiac-sciences/minimal.jpg",
   },
 ];
 
@@ -154,7 +154,7 @@ const OurTreatments: React.FC = () => {
                     alt={treatmentsData[activeTab].title}
                     width={1000}
                     height={1000}
-                    className="rounded-xl object-cover w-full h-full shadow-sm"
+                    className="rounded-xl object-cover w-full h-[300px] shadow-sm"
                     style={{ minHeight: "260px" }}
                   />
                 </div>

@@ -9,35 +9,35 @@ const ailmentsData = [
     title: "Coronary Artery Disease (CAD)",
     description:
       "Coronary Artery Disease (CAD) occurs when the arteries supplying blood to the heart become narrowed or blocked. This condition can lead to serious complications like angina (chest pain), heart attacks, or heart failure. CAD is effectively managed through lifestyle changes, medications, and procedures like angioplasty or bypass surgery. Consult our specialists for an accurate diagnosis and a personalized treatment plan.",
-    imgSrc: "/cardiac-sciences/peripheral.png",
+    imgSrc: "/cardiac-sciences/cad.jpg",
   },
   {
     id: "heart-attack",
     title: "Heart Attack (Myocardial Infarction)",
     description:
       "A heart attack occurs when blood supply to your heart is severely blocked, requiring immediate care to prevent irreversible damage. Symptoms include severe chest pain, breathlessness, and sweating. Rapid treatment using clot-busting medications, emergency angioplasty, or stenting restores blood flow and quickly saves lives.",
-    imgSrc: "/cardiac-sciences/peripheral.png",
+    imgSrc: "/cardiac-sciences/heart-attack.jpg",
   },
   {
     id: "heart-failure",
     title: "Heart Failure",
     description:
       "Heart failure is a chronic condition where your heart cannot pump enough blood to meet bodily needs, causing extreme fatigue, breathlessness, and fluid buildup. Our specialists effectively manage this using targeted medications, lifestyle changes, and advanced therapies like pacemakers or mechanical circulatory support devices.",
-    imgSrc: "/cardiac-sciences/peripheral.png",
+    imgSrc: "/cardiac-sciences/heart.jpg",
   },
   {
     id: "valvular-heart-diseases",
     title: "Valvular Heart Diseases",
     description:
       "Valvular heart disease involves damaged heart valves that cannot open or close correctly. This restricts normal blood flow, forcing your heart to overwork, causing extreme fatigue and irregular heartbeats. Treatments range from medical monitoring to advanced minimally invasive repairs or complete surgical valve replacements.",
-    imgSrc: "/cardiac-sciences/peripheral.png",
+    imgSrc: "/cardiac-sciences/valvular.jpg",
   },
   {
     id: "hypertension",
     title: "Hypertension & Preventive Cardiology",
     description:
       "Hypertension, or high blood pressure, forces your heart to overwork, significantly increasing risks of heart attacks and strokes. Often presenting without symptoms, it is a silent killer. Our preventive approach uses early detection, personalized lifestyle coaching, and precise medical management to safeguard long-term health.",
-    imgSrc: "/cardiac-sciences/peripheral.png",
+    imgSrc: "/cardiac-sciences/hypertension.jpg",
   },
 ];
 
@@ -150,7 +150,7 @@ const Ailments: React.FC = () => {
                     alt={ailmentsData[activeTab].title}
                     width={1000}
                     height={1000}
-                    className="rounded-xl object-cover w-full h-full shadow-sm"
+                    className="rounded-xl object-cover w-full h-[300px] shadow-sm"
                     style={{ minHeight: "260px" }}
                   />
                 </div>
